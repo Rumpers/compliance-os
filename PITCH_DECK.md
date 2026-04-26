@@ -45,15 +45,15 @@ Two of the largest GRC platforms in the world picking the same battleground on t
 | **Vanta launches Compliance / TPRM / Customer Trust Agents** at "Vanta Delivers" | March 2026 | — | "Agentic trust" — the unanimous category direction |
 | **Drata launches Drata MCP** + agentic platform | Late 2025 / 2026 | — | Both Vanta and Drata pivoted to AI agents in 2025–2026 |
 
-### Crucially — every AI-GRC entrant went broad. We go deep on the wedge none of them pursued.
+### Crucially — every AI-GRC entrant has bridged toward this direction. None has reached the deep-EDR + audit-grade workpaper wedge.
 
 - **Workiva** has 70+ connectors — all financial-system-oriented (Oracle, Salesforce, Workday, BlackLine, Persefoni). No native CrowdStrike or security-telemetry connector.
-- **Optro (AuditBoard)** is a system of record that *waits* for evidence to be uploaded. No native cybersecurity-platform connector.
+- **Optro (formerly AuditBoard)** post-rebrand markets as an "Agentic System of Action" with **200+ integrations** (Okta, Azure AD, Jira, ServiceNow, **Tenable**, Snowflake) and AI-driven evidence collection. They have closed the *general-GRC-automation* gap. **What they still do not have**: deep EDR telemetry (no native CrowdStrike, SentinelOne, or Defender for Endpoint) and PCAOB AS 1215–grade workpaper provenance. Tenable tells them what's *unpatched*. We tell auditors what was *attacked, blocked, contained* — across the endpoint population, mapped to ATT&CK, with re-performance hooks.
 - **Vanta and Drata** have hundreds of integrations but they are *agent-based posture checks* (MFA on? AV installed?), not deep-telemetry workflow.
 
-The deep, audit-grade pipeline from security telemetry to compliance evidence is **unowned by every player in the table above**.
+The deep-EDR-telemetry + audit-grade-workpaper-provenance pipeline is **unowned by every player in the table above**. Optro's Tenable + Okta + cloud connectors prove the architectural pattern works at the GRC layer; they just stopped short of the EDR data plane.
 
-**That is the wedge Compliance OS owns.** Same M&A logic Workiva applied to financial audit (Kansaro), and that Drata applied to trust management (SafeBase $250M), applied to the IT/security audit vertical no one else has built for.
+**That is the wedge Compliance OS owns.** Same M&A logic Workiva applied to financial audit (Kansaro) and that Drata applied to trust management (SafeBase $250M), applied to the IT/security audit vertical no one else has built for.
 
 ---
 
@@ -347,7 +347,7 @@ Each new connector unlocks a new risk domain on the live-register model. The exp
 
 | Company | What They Do | Why It's Different | 2025–2026 Position |
 |---|---|---|---|
-| **Optro (formerly AuditBoard)** | Enterprise GRC platform | No security telemetry integration; manual evidence only | **Rebranded Mar 9, 2026** at IIA Great Audit Minds, emphasizing AI-driven GRC. Hg Capital portfolio (~$3B, May 2024); $300M+ ARR (Oct 2025); CEO Raul Villar Jr. (ex-Paycor, July 2025); growth via PE bolt-ons |
+| **Optro (formerly AuditBoard)** | Enterprise GRC platform; markets as "Agentic System of Action" post-rebrand | **200+ integrations including Tenable (vuln) and Okta (identity)** — security-adjacent, not deep EDR. **No native CrowdStrike, SentinelOne, or Defender for Endpoint connector.** AI evidence collection is for compliance posture, not PCAOB AS 1215 workpaper-grade provenance. | **Rebranded Mar 9, 2026** at IIA Great Audit Minds; AI Accelerate launched pre-rebrand. Hg Capital portfolio (~$3B, May 2024); $300M+ ARR (Oct 2025); CEO Raul Villar Jr. (ex-Paycor, July 2025); 2026 Gartner MQ leader for TPRM; growth via PE bolt-ons |
 | **Workiva** | Connected reporting + AI-Powered GRC platform (launched **Mar 9, 2026** at IIA Great Audit Minds — same day as Optro rebrand) | AI evidence analysis and control-health dashboards — but **70+ connectors are financial-system-oriented** (Oracle, Salesforce, Workday, BlackLine, Persefoni); **no native CrowdStrike or security-telemetry connectors** | Public ($WK); acquired **Kansaro** (AI workpaper automation for auditors, founders Laird/Joubert/Newcomer) and **Sustain.Life** ($100M, Jun 2024). Now the most credible AI-GRC challenger to Optro. |
 | **CrowdStrike Charlotte AI** | AI SOC assistant | Security-only, no compliance output, no GRC layer | GA mid-2024; expanded with agentic capabilities 2025 |
 | **CrowdStrike Falcon Cloud Security (CSPM) + Exposure Management + FileVantage** | Compliance dashboards against NIST / CIS / FedRAMP / PCI-DSS / HIPAA / GDPR; Drata integration maps Falcon vulnerability data to one specific test (DCF-18) | **Vendor-locked and cloud-posture-only.** Reports compliance for *Falcon's view of your environment*. No risk register, no policy management, no PBC workflow, no multi-source orchestration, no Big-4-grade workpaper export. Spring 2026 release flagged "expanded governance" — direction of travel is real but current product is nowhere near full GRC. | Spring 2026 platform release explicitly mentions "expanded governance"; AIDR (GA Dec 2025) extended platform to AI security with governance framing — yellow flag on trajectory |
@@ -362,7 +362,8 @@ Each new connector unlocks a new risk domain on the live-register model. The exp
 
 - **Workiva**: deep on financial reporting and now AI auditor workflow, but went **broad** across reporting + sustainability + GRC. Their connector library is built for the controller's office, not the SOC. They don't speak CrowdStrike.
 - **Vanta / Drata / Secureframe**: agent-based posture checks. They know *if* MFA is on. We know *what threats it blocked, on which population, with what exception rate, mapped to which control under which framework, with audit-grade provenance.*
-- **Optro / ServiceNow IRM / Hyperproof**: GRC platforms that wait for evidence to be uploaded. They are the system of record; we are the system of *intake* that fills them.
+- **Optro**: post-rebrand, has automated evidence collection from 200+ business systems including Tenable (vulnerability) and Okta (identity). What they do not have is the deep EDR data plane (CrowdStrike, SentinelOne, Defender for Endpoint) or PCAOB AS 1215–grade workpaper provenance. Tenable tells them what's *unpatched*; we tell auditors what was *attacked, blocked, and contained* — across the endpoint population, mapped to ATT&CK, with re-performance hooks.
+- **ServiceNow IRM / Hyperproof**: GRC platforms that still wait for evidence to be uploaded — they have not yet bridged to where Optro and Workiva have gone.
 
 **The March 9, 2026 dual announcement — Optro rebrand + Workiva AI-GRC launch at the same conference on the same day — is the most important competitive signal of the year.** Two of the largest enterprise GRC players openly racing on AI-GRC identity validates the category from two independent balance sheets simultaneously, and proves the security-telemetry layer is still unowned by either.
 
@@ -455,7 +456,8 @@ Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI wo
 | Drata + Falcon integration deepens beyond DCF-18 | Threat A | Dozens of mappings, becomes the mid-market default | Cede mid-market posture-checks; differentiate on enterprise depth (AS 1215 retention, population testing, audit-committee features). |
 | Workiva acquires a competing security-telemetry-to-GRC startup before us | Threat B | Workiva announces the cyber-audit equivalent of Kansaro | Be visible — publish technical content on the wedge, attend IIA / ISACA / RSA where Workiva's M&A team scouts targets, get to first paying customers fast. |
 | Workiva builds a thin native CrowdStrike connector | Threat B | One EDR connector ships in a 2026–2027 release | Depth advantage — provenance chain, multi-vendor architecture, Big 4 methodology lock-in are not feature parity items. |
-| Both sides converge on a "good enough" mid-market answer (Drata + Workiva ecosystem) | A + B | Combined effect makes the mid-market crowded | Win at the enterprise tier where Big 4 audit firms drive procurement. The PCAOB-defensible workpaper requirement filters out the mid-market posture players. |
+| **Optro extends its connector library to a deep EDR (CrowdStrike, SentinelOne, or Defender)** — narrowest-distance threat in 2026 | Threat B | Optro already has Tenable + Okta + 200+ integrations and an "Agentic System of Action" platform; adding a CrowdStrike connector is a smaller engineering lift for them than for Workiva | Bridge-mode positioning means we are *already* the integration they would otherwise need to build — easier for Hg to acquire than to ship internally before exit. Maintain depth gap on PCAOB AS 1215 workpaper provenance, multi-vendor (not Optro-locked), and ATT&CK-mapped detection-event evidence (vs Tenable's CVE-only signal). |
+| Both sides converge on a "good enough" mid-market answer (Drata + Workiva + Optro Accelerate) | A + B | Combined effect makes the mid-market crowded | Win at the enterprise tier where Big 4 audit firms drive procurement. The PCAOB-defensible workpaper requirement filters out the mid-market posture players. |
 
 ---
 
