@@ -9,20 +9,21 @@
 ## 1. Product Vision
 
 ### One-line description
-AI-powered GRC platform that turns live CrowdStrike security telemetry into real-time compliance evidence, automated control testing, and threat-informed risk intelligence.
+AI-powered GRC platform that turns live cybersecurity-platform telemetry into real-time compliance evidence, automated control testing, and threat-informed risk intelligence.
 
 ### Vision statement
-Compliance OS eliminates the manual, screenshot-based evidence collection process that consumes thousands of hours per year in enterprises using security tools like CrowdStrike alongside GRC platforms like AuditBoard. Every IT control is tested continuously. Every risk score reflects today's threat landscape. Every audit is ready in real time — not at the end of a painful manual cycle.
+Compliance OS eliminates the manual, screenshot-based evidence collection process that consumes thousands of hours per year in enterprises running a major cybersecurity platform alongside an enterprise GRC platform. Every IT control is tested continuously. Every risk score reflects today's threat landscape. Every audit is ready in real time — not at the end of a painful manual cycle.
 
 ### What we are not building
 - A full enterprise GRC platform (not replacing ServiceNow GRC or Archer)
 - A connected reporting / financial close platform (not competing with Workiva's core; their March 2026 AI-GRC launch validates the category but they went broad — financial + ESG + general GRC — with no native security-telemetry connectors)
-- A security operations tool (not competing with CrowdStrike's core)
-- A generic compliance checklist tool (not Vanta or Drata — agent-based posture checks)
+- A security operations tool (not competing with the major EDR vendors' core SOC products)
+- **A vendor-locked CSPM compliance dashboard** — e.g., CrowdStrike Falcon Cloud Security ships NIST / CIS / FedRAMP / PCI-DSS / HIPAA / GDPR compliance dashboards, but only against *Falcon's own* view of cloud workloads. We orchestrate evidence across any cybersecurity platform, identity provider, ticketing system, and cloud source — and produce audit-grade workpapers that survive PCAOB AS 1105 / 1215 review. Posture-only dashboards do not.
+- A generic compliance checklist tool (not Vanta or Drata — agent-based posture checks; the existing Drata + Falcon Exposure Management integration that maps vulnerability data to one test (DCF-18) is the depth we are several layers deeper than)
 - A detection engineering platform (not CardinalOps)
 - An AI workpaper automation tool for *financial* audit (that is Kansaro, now Workiva)
 
-We are building **the intelligent layer between security telemetry and audit evidence** — starting with the CrowdStrike ↔ AuditBoard gap. Where Workiva went broad across the controller's office, we are going deep on the security/IT-audit wedge that none of the AI-GRC entrants have native connectors for.
+We are building **the intelligent layer between security telemetry and audit evidence** — workflow-grade, multi-source, audit-defensible, cross-framework. Where Workiva went broad across the controller's office and EDR vendors went deep on their own posture data, we are going deep on the IT/security audit wedge no one currently owns end-to-end.
 
 ---
 
@@ -42,14 +43,14 @@ We are building **the intelligent layer between security telemetry and audit evi
 
 ### Secondary User: CISO / Security Manager
 
-**Who they are**: Owns CrowdStrike deployment and security posture. In 2025, also personally accountable to the audit committee and increasingly the SEC. Has watched the SolarWinds CISO charges (Oct 2023, securities fraud claim survived motion to dismiss Jul 2024) and the Uber CISO conviction (May 2023) reshape what the role actually means.
+**Who they are**: Owns the cybersecurity platform deployment (EDR, vulnerability management, detection) and overall security posture. In 2025, also personally accountable to the audit committee and increasingly the SEC. Has watched the SolarWinds CISO charges (Oct 2023, securities fraud claim survived motion to dismiss Jul 2024) and the Uber CISO conviction (May 2023) reshape what the role actually means.
 
 **Current pain (2025–2026 reality)**:
 - **Personal disclosure liability** — under SEC Cybersecurity Disclosure Rule (Item 1.05 8-K, effective Dec 18, 2023), the CISO has 4 business days from materiality determination to support an accurate public filing. Doing that without a single source of truth across security telemetry and control posture is a career-ending exposure.
 - **Audit drag on the security team** — 15–30% of analyst hours go to evidence export, in a market where ISC2 reports ~4.8M unfilled cyber roles globally (2024 study). Every hour reformatting a CSV is an hour not on detection engineering.
-- **Disconnected risk narrative** — when the CFO asks "what is our actual ransomware exposure," the CISO has Falcon data, the CRO has a heatmap, and they don't reconcile.
+- **Disconnected risk narrative** — when the CFO asks "what is our actual ransomware exposure," the CISO has cybersecurity-platform data, the CRO has a heatmap, and they don't reconcile.
 - **Cyber insurance underwriting** — carriers now require evidence of controls operating, not policy attestations. (Premium hardening since 2022; coverage now contingent on demonstrable EDR coverage, MFA, backup hygiene.)
-- **Vendor-dependency scrutiny** — post the July 19, 2024 CrowdStrike Falcon outage, boards and regulators are asking deeper questions about single-vendor security architectures and the controls around them.
+- **Vendor-dependency scrutiny** — post the July 19, 2024 major-EDR-vendor outage (single faulty content update grounded ~8.5M endpoints globally), boards and regulators are asking deeper questions about single-vendor security architectures and the controls around them.
 
 **What they need**: A defensible, real-time view of security control state that doubles as audit evidence and SEC disclosure substrate. Audit cycle workload off the security team. AI assistance for materiality assessments under tight statutory clocks.
 
@@ -141,16 +142,16 @@ We are building **the intelligent layer between security telemetry and audit evi
 
 ### UC-3: Live Risk Register Update
 **Actor**: System (event-driven)
-**Trigger**: Critical CrowdStrike detection or threshold change
+**Trigger**: Critical cybersecurity-platform detection or threshold change
 **Flow**:
-1. CrowdStrike event received (detection, new CVE, coverage drop)
+1. Security-platform event received (detection, new CVE, coverage drop)
 2. AI determines risk register impact
 3. Affected risks updated with new scores and evidence
 4. Risk owners notified with context
 5. Related controls flagged for immediate re-testing
 6. Regulatory notification obligations assessed
 
-**Success criteria**: Risk register reflects live threat environment within 5 minutes of CrowdStrike event
+**Success criteria**: Risk register reflects live threat environment within 5 minutes of security-platform event
 
 ---
 
@@ -162,24 +163,24 @@ We are building **the intelligent layer between security telemetry and audit evi
 2. Finding assigned to security team owner
 3. Ticket created in connected system (Jira / ServiceNow)
 4. Remediation tracked in both systems
-5. When CrowdStrike confirms fix → finding auto-closed
+5. When the cybersecurity platform confirms fix → finding auto-closed
 6. Audit trail preserved
 
 **Success criteria**: Zero manual status updates between creation and closure
 
 ---
 
-### UC-5: AuditBoard Sync (Optional)
+### UC-5: GRC Platform Sync (Optional)
 **Actor**: System (automated)
 **Trigger**: Evidence updated in Compliance OS
 **Flow**:
 1. Evidence collected and interpreted as normal
-2. System checks if AuditBoard integration is enabled
-3. If yes: pushes formatted evidence to matching AuditBoard control test
-4. AuditBoard control test updated without manual action
+2. System checks if GRC-platform integration is enabled
+3. If yes: pushes formatted evidence to matching control test in customer's GRC tenant
+4. GRC-platform control test updated without manual action
 5. Sync logged with status
 
-**Success criteria**: AuditBoard reflects same evidence as Compliance OS within 10 minutes
+**Success criteria**: Customer's GRC platform reflects same evidence as Compliance OS within 10 minutes
 
 ---
 
@@ -219,7 +220,7 @@ We are building **the intelligent layer between security telemetry and audit evi
 **Trigger**: Auditor opens a control test that historically required sampling
 **Flow**:
 1. Auditor selects control (e.g., "All endpoints have approved EDR agent installed")
-2. System queries CrowdStrike for the full population at the test date
+2. System queries the cybersecurity platform for the full population at the test date
 3. AI evaluates every record against the control criterion — no sampling
 4. Output: total population N, exceptions M, exception list with root cause per record
 5. Auditor reviews exceptions only (not the entire population)
@@ -246,7 +247,7 @@ We are building **the intelligent layer between security telemetry and audit evi
 
 ## 3.5 Audit Standards Alignment
 
-Compliance OS is designed so that artifacts produced by the platform meet the evidentiary requirements of the standards external auditors are bound by. This is what allows the AuditBoard-replacement and Big 4 channel motions to be more than marketing.
+Compliance OS is designed so that artifacts produced by the platform meet the evidentiary requirements of the standards external auditors are bound by. This is what allows the GRC-platform-replacement (or bridge) motion and the Big 4 channel motion to be more than marketing.
 
 | Standard | Body | Requirement | How Compliance OS supports |
 |---|---|---|---|
@@ -267,14 +268,15 @@ Compliance OS is designed so that artifacts produced by the platform meet the ev
 
 ### MVP (Version 1.0) — Target: 8 weeks
 
-#### F1: CrowdStrike Integration
+#### F1: Cybersecurity Platform Integration
 - OAuth2 authentication with client ID / secret
 - Agent coverage collection (all devices, status, version, policy)
-- Vulnerability data collection (Falcon Spotlight — CVEs, severity, age)
+- Vulnerability data collection (CVEs, severity, age)
 - Detection data collection (last 24/48/72 hours, configurable)
 - Automatic re-auth on token expiry
 - Error handling and retry logic
 - Sync status and health dashboard
+- MVP supports one major EDR vendor; multi-vendor support roadmap (V2.0)
 
 #### F2: AI Evidence Interpretation
 - Agent coverage → compliance evidence summary
@@ -288,7 +290,7 @@ Compliance OS is designed so that artifacts produced by the platform meet the ev
 
 #### F3: Controls Management
 - Pre-seeded control library for 5 frameworks (SOC2, NIST CSF, PCI-DSS, HIPAA, ISO27001)
-- Control-to-data-source mapping (which CrowdStrike data tests which control)
+- Control-to-data-source mapping (which security-platform data tests which control)
 - Control test history
 - Manual evidence upload (for controls not covered by automation)
 - Control status dashboard
@@ -306,7 +308,7 @@ Compliance OS is designed so that artifacts produced by the platform meet the ev
 - Risk score calculation (likelihood × impact, 1–25 scale)
 - Control mapping (which controls mitigate which risks)
 - Risk status (Open / Mitigated / Accepted / Closed)
-- Auto-update trigger from CrowdStrike critical events
+- Auto-update trigger from critical security-platform events
 
 #### F6: Findings Management
 - Auto-created from failed control tests
@@ -314,11 +316,11 @@ Compliance OS is designed so that artifacts produced by the platform meet the ev
 - Owner assignment
 - Due date tracking
 - Status workflow (Open → In Remediation → Closed)
-- Auto-close when CrowdStrike confirms remediation
+- Auto-close when the cybersecurity platform confirms remediation
 
 #### F7: Integrations Hub
-- CrowdStrike connector setup and testing
-- AuditBoard connector setup and testing (optional)
+- Cybersecurity-platform connector setup and testing
+- GRC-platform connector setup and testing (optional, bridge mode)
 - Connection health indicators
 - Sync history and logs
 - Manual sync trigger
@@ -412,7 +414,7 @@ Compliance OS is designed so that artifacts produced by the platform meet the ev
 ### Data Flow
 
 ```
-CrowdStrike Falcon API
+Cybersecurity Platform API (EDR / VM / detection)
       │
       ▼
 Connector Layer
@@ -436,10 +438,10 @@ Control Mapping Engine
       │
       ├──► Database (evidence, control tests, findings, risks)
       │
-      └──► AuditBoard Connector (if enabled)
+      └──► GRC Platform Connector (if enabled, bridge mode)
                 │
                 ▼
-           AuditBoard API
+           Customer's GRC platform API
 ```
 
 ---
@@ -645,7 +647,7 @@ DELETE /api/integrations/:id
 - Link to source control test and evidence
 
 ### Integrations
-- Card per connector (CrowdStrike, AuditBoard, etc.)
+- Card per connector (cybersecurity platforms, GRC platforms, etc.)
 - Connection status (green connected / red disconnected / grey not configured)
 - Setup flow in modal (credentials → test → save)
 - Sync history table (last 10 syncs, status, duration, summary)
@@ -711,7 +713,7 @@ DELETE /api/integrations/:id
 
 ### Phase 1 — Foundation (Weeks 3–6)
 - Project setup (Next.js, Prisma, Tailwind)
-- CrowdStrike connector + agent coverage collection
+- Cybersecurity-platform connector + agent coverage collection
 - AI interpretation layer (Claude)
 - Basic database schema
 - Control library seeded (SOC2 + NIST)
@@ -724,7 +726,7 @@ DELETE /api/integrations/:id
 - Findings management
 
 ### Phase 3 — Connectors + Polish (Weeks 11–14)
-- AuditBoard connector built (bridge mode is the primary deployment posture, not optional)
+- GRC-platform connector built (bridge mode is the primary deployment posture, not optional)
 - Integration management UI
 - Dashboard with posture score
 - Error handling, logging, reliability
@@ -735,20 +737,20 @@ DELETE /api/integrations/:id
 - Iterate on AI evidence quality
 - Refine UX based on real auditor workflow
 
-### Phase 5 — AuditBoard Partner Engagement (Weeks 16–24)
+### Phase 5 — GRC Platform Partner Engagement (Weeks 16–24)
 **Strategic milestone — separate from product execution.**
 
-The AuditBoard acquisition by Hg Capital (May 2024, ~$3B) puts a clock on the strategic relationship. Hg's typical 5–7 year hold places AuditBoard's exit window at ~2028–2031. To be on the M&A consideration list before that exit, Compliance OS must be a *visible, customer-validated, integrated* presence in the AuditBoard ecosystem by ~2027.
+The category-leading enterprise GRC platform was acquired by a PE firm (May 2024, ~$3B) and PE typical hold of 5–7 years places its exit window at ~2028–2031. To be on the M&A consideration list before that exit, Compliance OS must be a *visible, customer-validated, integrated* presence in that ecosystem by ~2027. (Specific named buyer kept in pitch deck Acquisition Thesis.)
 
 Concrete actions:
-- **Apply to AuditBoard partner program** as soon as we have one paying bridge-mode customer to reference
-- **Pursue AuditBoard marketplace listing** — primary distribution path to ~2,000 enterprise customers
-- **Engage AuditBoard product / BD / corp dev** with a customer success story and the bridge-mode integration as the hook
-- **Brief Big 4 advisory practices** that already implement AuditBoard — they are the influence path into AuditBoard product roadmap conversations
-- **Track Hg portfolio activity** — note any compliance-adjacent acquisitions or partnership announcements that signal direction; respond fast if Hg shows interest in a competing player
-- **Maintain standalone product as defection path** — if AuditBoard raises prices significantly at customer renewals (typical PE pattern), be ready with rip-and-replace migration tooling
+- **Apply to the partner program** as soon as we have one paying bridge-mode customer to reference
+- **Pursue marketplace listing** — primary distribution path to ~2,000+ enterprise customers
+- **Engage product / BD / corp dev** with a customer success story and the bridge-mode integration as the hook
+- **Brief Big 4 advisory practices** that already implement the platform — they are the influence path into product roadmap conversations
+- **Track PE-portfolio activity** — note any compliance-adjacent acquisitions or partnership announcements that signal direction; respond fast if the PE owner shows interest in a competing player
+- **Maintain standalone product as defection path** — if price hikes hit customer renewals (typical PE pattern), be ready with rip-and-replace migration tooling
 
-**Deliverable**: 3+ joint AuditBoard+Compliance OS customers documented as references; partner program tier achieved; named contact at AuditBoard product / corp dev.
+**Deliverable**: 3+ joint customers documented as references; partner program tier achieved; named contact at the GRC platform's product / corp dev team.
 
 ---
 
@@ -756,29 +758,29 @@ Concrete actions:
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
-| AuditBoard API access requires partner agreement (now Hg-owned, gating may tighten) | High | Medium | Build standalone product first; AuditBoard connector is optional enhancement; build to where buyer behavior is going (replacement, not integration) |
-| cybersecurity platform API rate limits at scale | Medium | Medium | Pagination, batching, server-side caching; request enterprise rate limit increase; for very large tenants use Falcon Data Replicator (FDR) S3 stream rather than API polling |
+| Leading GRC-platform API access requires partner agreement (now PE-owned, gating may tighten) | High | Medium | Build standalone product first; bridge connector is enhancement; pursue both bridge and replacement motions in parallel |
+| Cybersecurity-platform API rate limits at scale | Medium | Medium | Pagination, batching, server-side caching; request enterprise rate-limit increase; for very large tenants use the platform's bulk-export / data-replication channel rather than API polling |
 | AI evidence quality not trusted by auditors | Medium | High | Human approval step on all AI output; raw data shown alongside summary; prompt and model versioning recorded with each artifact; feedback loop trains prompt revisions |
-| **Vendor concentration concerns post-Falcon outage (Jul 19, 2024)** | Medium | Medium | Roadmap to multi-EDR support (SentinelOne, MS Defender for Endpoint) by V2.0; position as vendor-agnostic compliance layer not a CrowdStrike skin |
-| CrowdStrike builds this natively (e.g., extending Charlotte AI into GRC) | Medium | High | Move fast to be acquisition-ready; build framework-mapping moat; deepen Big 4 channel relationships that increase strategic value to acquirer |
+| **Vendor concentration concerns post the Jul 19, 2024 major-EDR outage** | Medium | Medium | Roadmap to multi-EDR support (additional major vendors) by V2.0; position as vendor-agnostic compliance layer, not a single-vendor skin |
+| **Major EDR vendor extends natively into full GRC** — yellow-flag evidence: CrowdStrike Spring 2026 platform release explicitly markets "expanded governance"; AIDR (GA Dec 2025) extended Falcon to AI-attack surface with governance framing; Falcon Cloud Security CSPM already ships compliance dashboards (NIST / CIS / PCI / HIPAA / GDPR) for cloud posture; Drata + Falcon Exposure Management integration already maps vulnerability data to one specific compliance test (DCF-18) | Medium → Medium-High | Move fast to be acquisition-ready before this matures; differentiate explicitly on workflow-grade (PBC / walkthroughs / control-test lifecycle), multi-source (not vendor-locked to one EDR), audit-defensible provenance chain (PCAOB AS 1105 / 1215), and cross-framework mapping; build framework-mapping data moat; deepen Big 4 channel relationships that increase strategic value to acquirer |
 | **AI in audit gets restricted by PCAOB / IAASB guidance** | Medium | High | Position AI as decision-support, not decision-maker; auditor reviews and approves every artifact; align with emerging IAASB technology guidance and AICPA SAS 145 risk-assessment standard |
 | Long enterprise sales cycles delay revenue | High | Medium | Target upper mid-market ($500M–$2B revenue) and PE-backed companies first; design partner model bypasses procurement |
 | **EU AI Act classification** (compliance-related AI may be deemed higher-risk) | Low | Medium | Document model lineage, inputs, outputs, and human-in-the-loop controls now; design for Annex III obligations even if classification narrower |
 | Compliance frameworks change | Low | Low | Framework library is data, not code; update controls independently. NIST CSF 2.0 already absorbed; CMMC 2.0 Final Rule (Oct 2024) on roadmap |
 | **Cyber insurance carriers become an alternative buyer of the same data** | Low | Low | Opportunity, not threat — partner with carriers as evidence consumer; potential underwriting-data product |
-| **Hg Capital acquires a competing compliance-automation player first** (Hyperproof, Onspring, lower-tier of Vanta/Drata) and bolts it into AuditBoard | Medium | High | Move quickly to be the visible incumbent integration; engage AuditBoard partner / corp dev teams early in 2026 so Hg knows we exist; build features that would be redundant in any competing acquisition (deep CrowdStrike-specific evidence pipeline) |
-| **AuditBoard ships a native CrowdStrike connector internally before we reach material ARR** | Medium | High | Speed to first 50 customers; depth advantage (full evidence chain, AI-interpreted rationale, audit-grade provenance) over thin posture signals; framework-mapping moat that is hard to replicate quickly; Big 4 channel relationships that increase switching cost |
-| **AuditBoard customer-defection wedge from post-Hg price hikes** is wasted because we are not ready to receive defectors | Medium | Medium | Standalone deployment must be production-grade by month 9, not just a fallback narrative; have a "rip and replace from AuditBoard" migration path with imported control library, evidence history, and risk register |
-| **Workiva announces a CrowdStrike (or generic security-telemetry) connector** — they launched their AI-Powered GRC Platform Mar 9, 2026 and acquired Kansaro for AI auditor workflow; security telemetry is the obvious next gap | Medium | High | Build the deepest CrowdStrike-specific evidence pipeline on the market (full provenance, AI rationale, framework mapping, re-performance hook); make it harder to replicate than to acquire; engage Workiva BD/corp dev as a parallel acquisition path |
-| **Workiva acquires a competing security-telemetry-to-GRC startup before us** (the Kansaro pattern repeated for the IT-audit vertical) | Medium | High | Be visible — get to first paying customers fast, publish technical content on the CrowdStrike + audit-evidence wedge, attend IIA / ISACA / RSA where Workiva product team is recruiting acquisition targets |
-| **Workiva and AuditBoard converge on the same AI-GRC feature set**, commoditizing the AI evidence layer | Low | Medium | Defensibility is the security-telemetry depth and framework-mapping data moat — AI features alone are commoditizing across the category |
+| **PE owner of the leading GRC platform acquires a competing compliance-automation player first** (Hyperproof, Onspring, lower-tier of Vanta/Drata) and bolts it in | Medium | High | Move quickly to be the visible incumbent integration; engage GRC-platform partner / corp dev teams early in 2026 so the PE owner knows we exist; build features that would be redundant in any competing acquisition (deep, multi-source security-telemetry evidence pipeline) |
+| **Leading GRC platform ships a native cybersecurity-platform connector internally before we reach material ARR** | Medium | High | Speed to first 50 customers; depth advantage (full evidence chain, AI-interpreted rationale, audit-grade provenance) over thin posture signals; framework-mapping moat that is hard to replicate quickly; Big 4 channel relationships that increase switching cost |
+| **Customer-defection wedge from post-PE-acquisition price hikes at the leading GRC platform** is wasted because we are not ready to receive defectors | Medium | Medium | Standalone deployment must be production-grade by month 9, not just a fallback narrative; have a rip-and-replace migration path with imported control library, evidence history, and risk register |
+| **Workiva announces a security-telemetry connector** — they launched their AI-Powered GRC Platform Mar 9, 2026 and acquired Kansaro for AI auditor workflow; security telemetry is the obvious next gap | Medium | High | Build the deepest single-platform evidence pipeline on the market (full provenance, AI rationale, framework mapping, re-performance hook), then add multi-vendor; make it harder to replicate than to acquire; engage Workiva BD/corp dev as a parallel acquisition path |
+| **Workiva acquires a competing security-telemetry-to-GRC startup before us** (the Kansaro pattern repeated for the IT-audit vertical) | Medium | High | Be visible — get to first paying customers fast, publish technical content on the security-telemetry-to-audit-evidence wedge, attend IIA / ISACA / RSA where the Workiva product team is recruiting acquisition targets |
+| **Workiva and the leading enterprise GRC platform converge on the same AI-GRC feature set**, commoditizing the AI evidence layer | Low | Medium | Defensibility is the security-telemetry depth and framework-mapping data moat — AI features alone are commoditizing across the category |
 
 ---
 
 ## 12. Open Questions
 
-1. **AuditBoard API access (post-Hg)**: Hg's investment thesis (May 2024) is bolt-on M&A and ARR growth — does that make API gating tighter (protect rev) or looser (drive ecosystem)? Needs partner-team outreach to AuditBoard product / BD.
-2. **CrowdStrike trial scope**: Does the 15-day Falcon trial include Spotlight (vulnerability) and Falcon Data Replicator? Needs testing. Falcon Foundry developer access is a possible alternative path.
+1. **Leading GRC-platform API access (post-PE-acquisition)**: PE thesis (May 2024) is bolt-on M&A and ARR growth — does that make API gating tighter (protect rev) or looser (drive ecosystem)? Needs partner-team outreach to product / BD.
+2. **Cybersecurity-platform trial scope**: Does the major-EDR vendor's free / developer trial include vulnerability-management and bulk-export channels? Needs testing. Vendor developer-program access is a possible alternative path.
 3. **Evidence legal validity & AI disclosure**: Under PCAOB AS 1215 and AICPA AT-C 105/205, must AI-generated summaries be explicitly disclosed in workpapers? IAASB issued exposure draft on technology-assisted audits (2023–2024) — needs alignment with finalized guidance. Validate with Big 4 quality-and-risk-management partner.
 4. **Data residency**: DORA + GDPR + UK GDPR + state-level US (NY DFS, CCPA) all have implications. EU customers will likely require data-in-EU; need multi-region Postgres (Neon supports this) and careful sub-processor mapping.
 5. **Framework licensing**: ISO 27001 control text is copyrighted by ISO/IEC; AICPA TSC text by AICPA. Pre-mapped controls may need to paraphrase or license. Needs legal review before public listing of full control library.

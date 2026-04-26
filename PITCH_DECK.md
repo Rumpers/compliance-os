@@ -8,9 +8,9 @@
 
 **Every large enterprise has two groups who both care about security.**
 
-The **Security Team** lives in their cybersecurity platform — EDR, vulnerability management, detection and response. They see every threat, every vulnerability, every misconfigured endpoint in real time. They have the most accurate picture of the organization's security posture that has ever existed.
+The **Security Team** lives in CrowdStrike. They see every threat, every vulnerability, every misconfigured endpoint in real time. They have the most accurate picture of the organization's security posture that has ever existed.
 
-The **Audit & Compliance Team** lives in their GRC platform. They manage controls, run audits, maintain the risk register, and answer the question every board member asks: *"Are our controls actually working?"*
+The **Audit & Compliance Team** lives in AuditBoard. They manage controls, run audits, maintain the risk register, and answer the question every board member asks: *"Are our controls actually working?"*
 
 **These two teams share the same building. Their systems share nothing.**
 
@@ -39,13 +39,13 @@ Workiva has 70+ connectors. They are all financial-system-oriented: Oracle, Sale
 ### What happens every audit cycle
 
 ```
-Auditor opens GRC platform
+Auditor opens AuditBoard
   → Creates control test: "Verify endpoint protection on all devices"
   → Sends manual request to IT Security team
   → Waits 3-5 days
 
 IT Security analyst
-  → Logs into cybersecurity platform
+  → Logs into CrowdStrike
   → Exports CSV report
   → Formats it manually
   → Emails it back
@@ -61,13 +61,13 @@ This means **thousands of manual evidence requests per year** — each pulling a
 
 ### The deeper problem
 
-The GRC risk register shows risks rated by human opinion: *"Ransomware Risk: High."*
+AuditBoard's risk register shows risks rated by human opinion: *"Ransomware Risk: High."*
 
-Meanwhile the cybersecurity platform knows:
+Meanwhile CrowdStrike knows:
 - 3 peers in your industry were hit by ransomware this month
 - You have 47 unpatched endpoints with the exact CVE being exploited
 - One belongs to your CFO
-- Last week the EDR blocked an intrusion matching the same threat actor
+- Last week CrowdStrike blocked an intrusion matching the same threat actor
 
 **None of that intelligence reaches the risk manager. The board is making decisions based on last year's thinking.**
 
@@ -104,7 +104,7 @@ SEC Cyber Disclosure (live since Dec 2023), DORA (live since Jan 17, 2025), NIS2
 Each event made *evidence of working controls* a board-level demand, not a back-office artifact.
 
 **3. AI makes the translation layer possible — and (per Slide 2) the market just confirmed it.**
-Two years ago, mapping raw cybersecurity-platform telemetry to compliance control language required a massive expert system. Today Claude maps it accurately in seconds. This product could not have been built before 2024. Claude Opus 4.x (2025) materially improved the rationale-and-citation quality required for audit-defensible AI output. Workiva's Kansaro acquisition and the Mar 9, 2026 GRC platform launch are the public-company-balance-sheet validation that AI-for-auditors is now real and ownable.
+Two years ago, mapping raw CrowdStrike telemetry to compliance control language required a massive expert system. Today Claude maps it accurately in seconds. This product could not have been built before 2024. Claude Opus 4.x (2025) materially improved the rationale-and-citation quality required for audit-defensible AI output. Workiva's Kansaro acquisition and the Mar 9, 2026 GRC platform launch are the public-company-balance-sheet validation that AI-for-auditors is now real and ownable.
 
 **4. Security and compliance teams are merging — and the CISO is now a discloseable officer**
 Post-SolarWinds CISO charges (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) and Uber CISO conviction (May 2023), the CISO is personally on the hook for the accuracy of public statements about security controls. The wall between "security tool" and "compliance tool" is collapsing because the people accountable for both are converging — frequently the same person, with the same liability.
@@ -115,10 +115,10 @@ Post-SolarWinds CISO charges (Oct 2023; securities-fraud claim survived motion t
 
 ### Compliance OS
 
-**The security-telemetry intelligence layer that bridges any major cybersecurity platform to any major GRC platform — with a standalone GRC layer underneath for customers without one.**
+**The security-telemetry intelligence layer for AuditBoard — starting with CrowdStrike as the first data source, with a multi-vendor architecture from day one.**
 
 ```
-Cybersecurity platform (EDR / VM / SIEM)
+CrowdStrike Falcon (MVP)  ← multi-vendor expansion: SentinelOne, MS Defender, etc. (V2.0)
   ↓ live telemetry
 AI Interpretation Layer (Claude)
   ↓ compliance-mapped evidence
@@ -127,18 +127,26 @@ Compliance OS
   ├── Risk Register (live)
   ├── Findings & Remediation
   └── Framework Dashboard
-        ↓ primary deployment for GRC-platform customers
-    GRC Connector → enterprise GRC platform
+        ↓ primary deployment for AuditBoard customers
+    AuditBoard Connector → AuditBoard tenant  ← future GRC connectors: ServiceNow IRM, Hyperproof, LogicGate
 ```
 
 **Primary positioning: bridge mode.**
-For enterprises already running an enterprise GRC platform, Compliance OS is the missing automation layer — security evidence flows directly into existing control tests. Customers keep their GRC platform, contracts, training, workpaper conventions. We add the part that hurts.
+For the ~2,000+ enterprises already running AuditBoard, Compliance OS is the missing automation layer — CrowdStrike evidence flows directly into existing AuditBoard control tests. Customers keep AuditBoard, contracts, training, workpaper conventions. We add the part that hurts.
 
 **Fallback positioning: standalone.**
-For enterprises without a GRC platform (or actively evaluating alternatives — increasingly common as PE-driven price hikes hit renewal cycles in the GRC category), Compliance OS is a full GRC platform on its own.
+For enterprises not on AuditBoard (or actively evaluating alternatives — increasingly common as Hg-driven price hikes hit renewal cycles), Compliance OS is a full GRC platform on its own.
 
 **Why bridge-first matters strategically.**
-The category-leading GRC platform is now PE-backed (acquired May 2024 at a reported ~$3B), with a typical 5–7 year exit clock. The PE playbook is bolt-on M&A to expand ARR ahead of an exit. A visible, paying, customer-validated integration on that ecosystem is the fastest path to being a tuck-in candidate — not a competitor to a PE-backed dealmaker. Bridge-mode is product strategy *and* exit strategy. (See Acquisition Thesis for the named buyer set.)
+AuditBoard was acquired by Hg Capital in May 2024 (~$3B reported). Hg's playbook is bolt-on M&A to expand ARR ahead of an exit. A visible, paying, customer-validated integration on the AuditBoard ecosystem is the fastest path to being a tuck-in candidate — not a competitor to a PE-backed dealmaker. Bridge-mode is product strategy *and* exit strategy.
+
+**Why we win on the security side, not just the GRC side.**
+CrowdStrike Falcon Cloud Security ships compliance dashboards (NIST / CIS / FedRAMP / PCI / HIPAA / GDPR), but they are **vendor-locked, posture-only, and read-only** — they report compliance for *Falcon's view of cloud workloads*. Compliance OS is the layer above:
+
+- **Workflow-grade**, not dashboard-grade — control tests, PBC lists, walkthroughs, owner assignment, finding lifecycle
+- **Multi-source**, not single-vendor — orchestrates evidence from CrowdStrike, identity providers, ticketing systems, cloud providers
+- **Audit-defensible**, not compliance-themed — provenance chain, immutable evidence, AI-rationale + raw data, re-performance hook (PCAOB AS 1105 / 1215)
+- **Cross-framework**, not framework-specific — one control test mapped to SOC 2 + NIST + ISO + PCI simultaneously
 
 ---
 
@@ -148,12 +156,12 @@ The category-leading GRC platform is now PE-backed (acquired May 2024 at a repor
 
 The moment an auditor opens a control test, instead of sending a manual request:
 
-1. Compliance OS queries the cybersecurity platform's API in real time
+1. Compliance OS queries the CrowdStrike API in real time
 2. AI interprets the raw data in compliance context
 3. Formatted evidence is attached to the control — in 90 seconds
 
 **Before:**
-> "Hi, can you pull an endpoint coverage report from the security team by Friday?"
+> "Hi, can you pull a CrowdStrike coverage report by Friday?"
 > *(3 days later, 4 hours of security analyst time)*
 
 **After:**
@@ -164,10 +172,10 @@ The moment an auditor opens a control test, instead of sending a manual request:
 
 ### Live Risk Register
 
-Risk scores update automatically when the cybersecurity platform detects significant events:
+Risk scores update automatically when CrowdStrike detects significant events:
 
 ```
-Cybersecurity platform: Critical detection — ransomware behavior on finance server
+CrowdStrike: Critical detection — ransomware behavior on finance server
 
 Compliance OS:
 → Risk "Ransomware / Malware" updated: Likelihood HIGH (was Medium)
@@ -184,7 +192,7 @@ Compliance OS:
 ```
 Audit finding created in Compliance OS
   → Ticket auto-created for security team
-  → Cybersecurity-platform issue tracked
+  → CrowdStrike issue tracked
   → When resolved: finding auto-closed with evidence
   → Full audit trail preserved
 ```
@@ -217,7 +225,7 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 | Step | What They See |
 |---|---|
 | Open control test | Empty — waiting for evidence |
-| Click "Sync from cybersecurity platform" | Progress indicator |
+| Click "Sync from CrowdStrike" | Progress indicator |
 | 90 seconds later | Control test fully populated |
 | Evidence shows | Coverage %, exceptions, AI summary, raw data |
 | Control status | Auto-set PASS or FAIL |
@@ -240,14 +248,14 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 **Risk Register**
 - Live risk scores driven by security telemetry
 - FAIR-based dollar risk quantification
-- Threat intelligence context from connected security platform
+- Threat intelligence context from CrowdStrike
 - Board-ready risk reports generated by AI
 
 **Findings & Remediation**
 - Auto-created from failed control tests
 - Bi-directional sync with security team workflow
 - SLA tracking and escalation
-- Closed automatically when the cybersecurity platform confirms fix
+- Closed automatically when CrowdStrike confirms fix
 
 **Framework Dashboard**
 - MITRE ATT&CK coverage heatmap
@@ -256,9 +264,9 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 - Peer benchmarking
 
 **Integrations**
-- Cybersecurity platforms (EDR / vulnerability management / detection): one major EDR at MVP, multi-vendor support on roadmap
-- Enterprise GRC platforms: optional bridge connector to push evidence into customers' existing GRC tenant
-- Identity, ticketing, ITSM (roadmap)
+- **CrowdStrike Falcon** (required at MVP — primary data source); **SentinelOne, Microsoft Defender for Endpoint** on V2.0 roadmap (multi-EDR is a deliberate design choice, not an aspiration)
+- **AuditBoard** (optional bridge connector — push evidence to existing tenant); **ServiceNow IRM, Hyperproof, LogicGate** on roadmap
+- Okta, Jira, ServiceNow ITSM (roadmap)
 
 ---
 
@@ -271,6 +279,7 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 | **AuditBoard** | Enterprise GRC platform | No security telemetry integration; manual evidence only | Hg Capital portfolio (~$3B, May 2024); growth via PE bolt-ons |
 | **Workiva** | Connected reporting + AI-Powered GRC platform (launched **Mar 9, 2026** at IIA Great Audit Minds) | AI evidence analysis and control-health dashboards — but **70+ connectors are financial-system-oriented** (Oracle, Salesforce, Workday, BlackLine, Persefoni); **no native CrowdStrike or security-telemetry connectors** | Public ($WK), acquired **Kansaro** (AI workpaper automation for auditors, founders Laird/Joubert/Newcomer) and **Sustain.Life** ($100M, Jun 2024). Now the most credible AI-GRC challenger to AuditBoard. |
 | **CrowdStrike Charlotte AI** | AI SOC assistant | Security-only, no compliance output, no GRC layer | GA mid-2024; expanded with agentic capabilities 2025 |
+| **CrowdStrike Falcon Cloud Security (CSPM) + Exposure Management + FileVantage** | Compliance dashboards against NIST / CIS / FedRAMP / PCI-DSS / HIPAA / GDPR; Drata integration maps Falcon vulnerability data to one specific test (DCF-18) | **Vendor-locked and cloud-posture-only.** Reports compliance for *Falcon's view of your environment*. No risk register, no policy management, no PBC workflow, no multi-source orchestration, no Big-4-grade workpaper export. Spring 2026 release flagged "expanded governance" — direction of travel is real but current product is nowhere near full GRC. | Spring 2026 platform release explicitly mentions "expanded governance"; AIDR (GA Dec 2025) extended platform to AI security with governance framing — yellow flag on trajectory |
 | **CardinalOps** | Detection engineering | Focuses on SIEM rule coverage, not GRC | Niche; partner not competitor |
 | **Vanta** | Compliance automation, mid-market origin | Pulls thin signals (MFA on? AV installed?); not deep telemetry; weakest at custom enterprise frameworks | Reported ~$2.45B valuation (2024 raise); pushing upmarket but enterprise IT-audit fit is unproven |
 | **Drata** | Compliance automation, similar to Vanta | Same architectural limit — agent-based posture checks, not platform telemetry | Acquired Stride Security (Sept 2024) for risk management; expanding into TPRM |
@@ -324,7 +333,7 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 | Integrated risk management (IRM) software, narrower | ~$8–12B | Gartner Magic Quadrant for IRM |
 | AI in GRC CAGR (2025–2030) | ~22–25% | MarketsAndMarkets, Mordor Intelligence |
 | Security compliance automation (sub-segment) | ~$5B+ | Vanta, Drata, Secureframe at unicorn valuations validate |
-| Addressable wedge (major-EDR + enterprise-GRC overlap) | ~$800M ARR opportunity at $50K ACV | Bottoms-up: ~16,000 enterprise targets × 10% capture |
+| Addressable wedge (CrowdStrike + AuditBoard overlap) | ~$800M ARR opportunity at $50K ACV | Bottoms-up: ~16,000 enterprise targets × 10% capture |
 
 ---
 
@@ -335,7 +344,7 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 | Tier | Price | Who |
 |---|---|---|
 | Starter | $2,000/month | Up to 500 endpoints, 1 framework |
-| Professional | $5,000/month | Up to 2,500 endpoints, all frameworks, GRC-platform connector |
+| Professional | $5,000/month | Up to 2,500 endpoints, all frameworks, AuditBoard connector |
 | Enterprise | $15,000+/month | Unlimited endpoints, custom frameworks, dedicated support |
 
 ### Unit Economics
@@ -360,27 +369,27 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 
 ### Phase 1 — Design Partners (Months 1–3)
 
-Target: 3 enterprises currently using both a major cybersecurity platform and a major GRC platform.
+Target: 3 enterprises currently using both CrowdStrike and AuditBoard.
 Ask: $5,000–$10,000 to build with us. We shape the product around their audit cycle.
-Find them: LinkedIn search on intersection of major EDR vendor names and major GRC platform names in employee profiles.
+Find them: LinkedIn search "AuditBoard" + "CrowdStrike" in profile.
 
 ### Phase 2 — Channel (Months 4–12)
 
 **Big 4 audit and advisory firms** (Deloitte, PwC, KPMG, EY) are the highest-leverage channel for two distinct reasons:
 
-1. **Advisory side** — they implement enterprise GRC platforms for hundreds of enterprise clients and recommend major EDR vendors alongside them. They feel the integration gap on every engagement.
+1. **Advisory side** — they implement AuditBoard for hundreds of enterprise clients and recommend CrowdStrike alongside it. They feel the integration gap on every engagement.
 2. **Audit side** (the larger prize) — their *own* IT audit teams burn 30–40% of fieldwork hours on PBC chase and manual evidence formatting. A platform that compresses that time directly protects partner margin under fee compression. This is not a "nice to have" for them; it is methodology survival.
 
 Approach:
 - **Channel program** — referral or resell with 20% fee for advisory-side deals
 - **Audit firm site licenses** — direct sale to the Big 4 IT audit practice itself, used across their client base as part of their methodology toolkit (precedent: Caseware, MindBridge, AuditFile)
 
-**MSSPs** managing EDR for multiple clients — Compliance OS gives them a compliance story they can sell to their clients alongside security services.
+**MSSPs** managing CrowdStrike for multiple clients — Compliance OS gives them a compliance story they can sell to their clients alongside security services.
 
 ### Phase 3 — Marketplace (Month 12+)
 
-- Enterprise GRC platform marketplace listing → direct access to ~2,000+ enterprise customers
-- Major EDR marketplace listing → direct access to ~30,000 enterprise customers
+- AuditBoard marketplace listing → direct access to ~2,000+ enterprise customers
+- CrowdStrike marketplace listing → direct access to ~30,000 enterprise customers
 - Both channels validate us as a real integration, not a competitor
 
 ---
@@ -451,7 +460,7 @@ Use of funds:
 
 **Milestones this funding achieves:**
 - MVP live with 3 paying design partners
-- Enterprise GRC and major EDR marketplace listings
+- AuditBoard and CrowdStrike marketplace listings
 - $100K ARR
 - Series A ready with 12-month runway
 
@@ -459,7 +468,7 @@ Use of funds:
 
 *Compliance OS — Turning security telemetry into compliance intelligence.*
 
-> **Naming convention used in this deck:** Product-positioning slides (Setup, Problem, Solution, How It Works, Demo, Product, Go-To-Market) use generic terms — "cybersecurity platform" / "EDR" and "GRC platform" — to keep the wedge vendor-neutral. Specific company names are retained where the argument inherently requires them: Validation Signal (market events), Why Now (specific incidents), Competitive Landscape (named competitors), Market (factual customer counts), and Acquisition Thesis (specific buyers).
+> **Naming convention used in this deck:** Specific vendor names (CrowdStrike, AuditBoard, Workiva, etc.) are used throughout for investor impact — concrete anchors are more persuasive than abstract archetypes in a pitch context. The product itself is multi-vendor by design: CrowdStrike + AuditBoard are the *first* connectors, with SentinelOne, MS Defender, ServiceNow IRM, Hyperproof, and others on the V2.0 roadmap. The README and PRD (public-facing / partner-shareable) use generic terminology where appropriate.
 
 ---
 
