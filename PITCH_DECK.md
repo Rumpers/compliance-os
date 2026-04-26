@@ -350,43 +350,98 @@ Each new connector unlocks a new risk domain on the live-register model. The exp
 
 ---
 
-## Slide 11 — How We Win Against CrowdStrike's Compliance Surface
+## Slide 11 — How We Win Against the Two Most Likely Native-Build Threats
 
-> The most common investor objection in 2026: *"Doesn't CrowdStrike already do compliance?"*
-> Short answer: they ship vendor-locked dashboards. We ship audit infrastructure. Different products, different buyers, different defensibility.
+> Two adjacent platforms could in principle build what we build. Investors will ask about both.
+> **CrowdStrike from below** — security-platform side extending compliance dashboards into full GRC.
+> **Workiva from above** — AI-GRC side extending Kansaro (financial-audit AI) into cyber audit.
+> We hold the wedge between them. Each has structural barriers that take years to overcome, and each has an M&A pattern that says "buy the specialist." We are the specialist.
 
-### The frame
+### The symmetry
 
-CrowdStrike's compliance footprint is real — Falcon Cloud Security CSPM (NIST / CIS / PCI / HIPAA / GDPR posture), Exposure Management compliance dashboards, FileVantage FIM (marketed as "Compliance, Simplified"), and the Drata + Falcon Exposure Management integration that maps vulnerability data to one specific test (DCF-18). Spring 2026's release explicitly markets "expanded governance"; AIDR (GA Dec 2025) extended Falcon to AI security with governance framing. The trajectory is real.
+```
+              CrowdStrike (security depth)
+                       │
+                       │  "I have Falcon data — here are
+                       ▼   compliance dashboards on it."
+            ┌─────────────────────────────┐
+            │       Compliance OS         │
+            │  Workflow + multi-source +  │
+            │  audit-defensible +         │
+            │  cross-framework            │
+            └─────────────────────────────┘
+                       ▲
+                       │  "I have audit workflow + AI —
+                       │   I just need security data."
+                       │
+                  Workiva (GRC + audit-AI breadth)
+```
 
-It is also **categorically different from what we do**. CrowdStrike reports compliance for *Falcon's view of the customer's environment*. They do not run the audit cycle, orchestrate evidence across vendors, or produce artifacts an external auditor can attach to a workpaper.
+CrowdStrike comes from below — owns the security data plane, lacks the audit workflow. Workiva comes from above — owns the audit workflow, lacks the security data plane. We are the only platform built around the wedge that connects them, as the entire product, not as a feature inside someone else's product.
 
-### Seven structural reasons we win
+---
+
+### Threat A — CrowdStrike extends compliance natively
+
+CrowdStrike's compliance footprint is real — Falcon Cloud Security CSPM (NIST / CIS / PCI / HIPAA / GDPR posture), Exposure Management compliance dashboards, FileVantage FIM ("Compliance, Simplified"), and the Drata + Falcon Exposure Management integration that maps vulnerability data to one specific test (DCF-18). Spring 2026's release explicitly markets "expanded governance"; AIDR (GA Dec 2025) extended Falcon to AI security with governance framing.
+
+Categorically different from what we do. They report compliance for *Falcon's view of the customer's environment*. They do not run the audit cycle, orchestrate evidence across vendors, or produce artifacts an external auditor can attach to a workpaper.
+
+**Seven structural reasons CrowdStrike can't easily close this:**
 
 | # | Win condition | Why CrowdStrike can't easily close it |
 |---|---|---|
 | 1 | **Workflow-grade, not dashboard-grade** | We run PBC lists, walkthroughs, control-test lifecycle, finding-to-closure, workpaper export. CrowdStrike's compliance is a view inside a security platform — our product is a different DNA, built for a different user. |
 | 2 | **Multi-source orchestration** | We pull from CrowdStrike + identity (Okta) + ticketing (Jira / ServiceNow) + cloud (CloudTrail) + (V2.0) other EDRs. CrowdStrike compliance can only ever see CrowdStrike data — architecturally. The moment a customer asks about a non-Falcon system, our wedge becomes inevitable. |
-| 3 | **Cross-framework many-to-many mapping** | One control test satisfies SOC 2 + NIST + ISO + PCI + HIPAA + CMMC simultaneously. CrowdStrike's mapping is one-to-one (Falcon → framework). Building many-to-many is a control-mapping data moat that takes years and improves with every customer. |
+| 3 | **Cross-framework many-to-many mapping** | One control test satisfies SOC 2 + NIST + ISO + PCI + HIPAA + CMMC simultaneously. CrowdStrike's mapping is one-to-one (Falcon → framework). Many-to-many is a data moat that takes years and improves with every customer. |
 | 4 | **Audit-defensible provenance chain** | Source + query + timestamp + raw payload (hash-pinned, 7-year retention) + AI prompt + model version + re-performance hook. Defensible under PCAOB AS 1105 / 1215. CrowdStrike dashboards are convenience views — auditors cannot attach them to workpapers. |
 | 5 | **Different buyer, different budget center** | CrowdStrike sells to CISO. We sell to CAE / CCO / IT Audit Manager / external Big 4 auditor. Different procurement motion. CrowdStrike has no sales organization into the audit committee — building one takes years. |
-| 6 | **Big 4 methodology embedment** | Audit firms adopt our workpaper format and methodology toolkit (precedent: Caseware, MindBridge, AuditFile). They cannot adopt the auditee's *security vendor* as audit methodology — the independence rules forbid it. Institutional moat that no security vendor can replicate. |
-| 7 | **Vendor-neutrality is a product claim, not a marketing claim** | Post the Jul 19, 2024 Falcon outage, "single-vendor lock-in" is a board-level conversation. We architecturally cannot be locked to CrowdStrike. CrowdStrike compliance architecturally cannot be anything *but* locked to CrowdStrike. The asymmetry sharpens every quarter. |
+| 6 | **Big 4 methodology embedment** | Audit firms adopt our workpaper format and methodology toolkit (precedent: Caseware, MindBridge, AuditFile). They cannot adopt the *auditee's security vendor* as audit methodology — independence rules forbid it. Institutional moat no security vendor can replicate. |
+| 7 | **Vendor-neutrality is a product claim, not a marketing claim** | Post the Jul 19, 2024 Falcon outage, single-vendor lock-in is a board-level conversation. We architecturally cannot be locked to CrowdStrike. CrowdStrike compliance architecturally cannot be anything *but* locked to CrowdStrike. The asymmetry sharpens every quarter. |
 
-### Where the gap could close — and how we mitigate
+---
 
-| Risk | What it looks like | Mitigation |
+### Threat B — Workiva extends Kansaro into cyber audit
+
+Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI workpaper automation for auditors), launched the **AI-Powered Workiva GRC Platform on Mar 9, 2026**, and have a public-company balance sheet behind both. Natural objection: *why won't Workiva just extend Kansaro into cyber too?*
+
+**Seven structural barriers say they will buy the specialist (us, or someone like us) rather than build:**
+
+| # | Structural barrier | What it means |
 |---|---|---|
-| **CrowdStrike acquires a GRC startup** (Kansaro pattern, applied to IT audit) | Falcon adds a workpaper-grade compliance module via M&A | Be acquired *first*. Our 2027 acquisition-readiness clock (set by AuditBoard/Hg) is also the clock on this. |
-| **Charlotte AI extends into compliance assistant** (Spring 2026 trajectory) | A compliance-skin shipped natively in 2026–2027 | Depth advantage — full provenance chain, cross-framework mapping, and Big 4 customer references take 18+ months to replicate even with a head start. |
-| **Drata + Falcon integration deepens** beyond DCF-18 | Dozens of mappings shipped, becomes the de facto mid-market path | Cede mid-market posture-check segment to Drata/Vanta; differentiate on enterprise depth (population testing, AS 1215 retention, audit-committee features, multi-source). |
+| 1 | **Wrong evidence architecture** | Kansaro is document-centric — PDF splitting, 10-K scanning, GL tick-and-tie. Cyber audit needs streaming live API telemetry, population queries, ATT&CK mapping. Different data plane, different team. |
+| 2 | **Wrong connector ecosystem** | Workiva's 70+ connectors are all financial systems (Oracle, SAP, Workday, BlackLine, Persefoni). Zero security telemetry. One major EDR connector with proper rate-limiting, pagination, retry is 6–9 months of engineering by a team they don't have. |
+| 3 | **Wrong buyer inside the audit firm** | Big 4 separate assurance (CPA-track) from risk / IT audit (CISA-track). Workiva sells to assurance via Kansaro. Cyber audit reports through a different partner, often a different P&L. No relationships. |
+| 4 | **Wrong framework universe** | Financial audit = GAAP / IFRS / SOX 404 ITGCs (narrow, slow-moving). Cyber audit = SOC 2 / NIST / ISO / PCI / HIPAA / CMMC / DORA / NIS2 / FedRAMP (broad, dynamic, requires constant maintenance). No framework-mapping team for this. |
+| 5 | **M&A pattern says buy, don't build** | Kansaro (AI workpapers), Sustain.Life ($100M, ESG), ParsePort + Arelle (XBRL tagging), AuditNet (GRC). Pattern is unambiguous — Workiva enters adjacent verticals via acquisition. **Kansaro literally maps our acquisition path.** Compliance OS is the obvious "Kansaro for IT/security audit." |
+| 6 | **Cyber is roadmap priority 3–4, not 1** | Immediate post-March-2026 focus: integrate Kansaro deeper, expand the GRC platform, deepen Sustain.Life. Cyber audit is a future phase. That gives us a window to be the visible target when their M&A team gets there. |
+| 7 | **Domain credibility gap is years deep** | Cyber auditors speak ATT&CK, CVE, EDR, SOC. Workiva product team has zero domain experience. Big 4 IT audit adoption requires earned trust over years — Workiva would be entering as the financial-reporting vendor pivoting in. Easier to acquire credibility than build it. |
+
+**The acquisition implication is the kicker.** The Kansaro deal *is* the precedent. The next vertical Workiva will want to own — after current acquisitions mature — is AI-for-cyber-auditors. They will not build it; their entire pattern says they buy. **That makes Compliance OS one of perhaps three companies in the world they will want to acquire when they get there.**
+
+---
+
+### Where the gap could close — and how we mitigate (combined)
+
+| Risk | Source | What it looks like | Mitigation |
+|---|---|---|---|
+| CrowdStrike acquires a GRC startup | Threat A | Falcon adds a workpaper-grade compliance module via M&A | Be acquired *first*. Our 2027 acquisition-readiness clock applies here too. |
+| Charlotte AI extends into compliance assistant | Threat A | Compliance-skin shipped natively in 2026–2027 | Depth advantage — provenance chain, cross-framework mapping, Big 4 references take 18+ months to replicate. |
+| Drata + Falcon integration deepens beyond DCF-18 | Threat A | Dozens of mappings, becomes the mid-market default | Cede mid-market posture-checks; differentiate on enterprise depth (AS 1215 retention, population testing, audit-committee features). |
+| Workiva acquires a competing security-telemetry-to-GRC startup before us | Threat B | Workiva announces the cyber-audit equivalent of Kansaro | Be visible — publish technical content on the wedge, attend IIA / ISACA / RSA where Workiva's M&A team scouts targets, get to first paying customers fast. |
+| Workiva builds a thin native CrowdStrike connector | Threat B | One EDR connector ships in a 2026–2027 release | Depth advantage — provenance chain, multi-vendor architecture, Big 4 methodology lock-in are not feature parity items. |
+| Both sides converge on a "good enough" mid-market answer (Drata + Workiva ecosystem) | A + B | Combined effect makes the mid-market crowded | Win at the enterprise tier where Big 4 audit firms drive procurement. The PCAOB-defensible workpaper requirement filters out the mid-market posture players. |
+
+---
 
 ### Concrete moves we are making now
 
-1. **CrowdStrike marketplace listing by Q4 2026.** Positions us as an integration partner, not a competitor. Surfaces us on CrowdStrike's M&A radar at the same time.
-2. **Pitch frames us as "partners with CrowdStrike."** Never "vs CrowdStrike." The frame: *"Falcon dashboards tell you about your cloud posture. We turn Falcon plus everything else into audit evidence your external auditor signs off on."*
-3. **Technical content piece on the depth gap.** "Mapping Falcon Exposure Management vulnerability data to PCAOB AS 1105–defensible audit evidence: what Drata's DCF-18 mapping does and does not cover." Positions us as the deep-end player; surfaces in CrowdStrike + Big 4 + audit-tech search.
-4. **First Big 4 audit-firm reference customer.** A single CrowdStrike-using Big 4 IT audit practice running our workpapers invalidates "CrowdStrike compliance is enough" for every enterprise prospect for the rest of the year.
+1. **AuditBoard partner program engagement** (PRD Phase 5) — primary acquisition path; the Hg-portfolio deal closes the AuditBoard-from-above lane
+2. **CrowdStrike marketplace listing by Q4 2026** — partner positioning; surfaces us on CrowdStrike's M&A radar
+3. **Pitch frames us as "partners with both"** — *"Falcon dashboards tell you about cloud posture; Workiva does financial-audit AI; we are the security-telemetry-to-audit-evidence layer between them."* Never "vs" either.
+4. **Technical content piece on the AS 1105 depth gap** — *"Mapping Falcon Exposure Management vulnerability data to PCAOB AS 1105–defensible audit evidence: what Drata's DCF-18 mapping does and does not cover."* Positions us as the deep-end player.
+5. **First Big 4 audit-firm reference customer** — a single CrowdStrike-using Big 4 IT audit practice running our workpapers invalidates *both* "CrowdStrike compliance is enough" *and* "Workiva will extend Kansaro to cyber" for every enterprise prospect for the rest of the year.
+6. **Visibility at IIA, ISACA, and RSA** — these are the conferences where Workiva's product team and CrowdStrike's corp dev recruit acquisition targets. Be on the floor and on stage.
 
 ---
 
