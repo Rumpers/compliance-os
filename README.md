@@ -82,33 +82,38 @@ CrowdStrike Falcon API
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | Next.js 14 (App Router) + TypeScript |
-| UI | Tailwind CSS + shadcn/ui |
-| Database | PostgreSQL + Prisma ORM |
-| AI | Anthropic Claude API |
-| Auth | NextAuth.js |
-| Jobs | node-cron (scheduled syncs) |
+| Layer | Technology | Version (as of 2026) |
+|---|---|---|
+| Frontend | Next.js (App Router) + React + TypeScript | Next.js 15, React 19 |
+| UI | Tailwind CSS + shadcn/ui | Tailwind v4 |
+| Database | PostgreSQL + Prisma ORM | Postgres 16, Prisma 5.x |
+| AI | Anthropic Claude API | `claude-opus-4-7` (interpretation), `claude-haiku-4-5` (UI summarization), prompt caching enabled |
+| Auth | Auth.js (formerly NextAuth.js) | v5 |
+| Jobs | node-cron → BullMQ (V1.5) | — |
 
 ---
 
 ## Frameworks Supported
 
-SOC 2 · NIST CSF · PCI-DSS v4.0 · HIPAA · ISO 27001 · CMMC *(roadmap)*
+**MVP (V1.0)**: SOC 2 · NIST CSF 2.0 · PCI-DSS v4.0.1 · HIPAA · ISO 27001:2022
+
+**Roadmap**: CMMC 2.0 *(Final Rule published Oct 15, 2024 — phased contract incorporation 2025–2028)* · DORA *(EU, live since Jan 17, 2025)* · NIS2 *(EU)* · NYDFS Part 500 · UK Cyber Essentials Plus
 
 ---
 
 ## Connectors
 
 **Data Sources**
-- CrowdStrike Falcon *(required)*
-- Okta *(roadmap)*
-- AWS CloudTrail *(roadmap)*
+- CrowdStrike Falcon *(required for MVP — agent coverage, Spotlight vulnerabilities, detections)*
+- Microsoft Defender for Endpoint *(V2.0 — multi-EDR support post-Jul 2024 Falcon outage)*
+- SentinelOne Singularity *(V2.0)*
+- Okta *(roadmap — identity & access)*
+- AWS CloudTrail *(roadmap — cloud activity)*
 
 **GRC Destinations**
-- AuditBoard *(optional)*
-- ServiceNow GRC *(roadmap)*
+- AuditBoard *(optional — push evidence into existing tenant)*
+- ServiceNow IRM *(roadmap)*
+- Hyperproof / LogicGate *(roadmap)*
 
 ---
 
@@ -124,6 +129,31 @@ Pre-MVP — architecture, planning, and mockups complete. Build starting.
 
 ---
 
+## Why Now (2025–2026)
+
+The regulatory and incident environment that makes this product necessary did not exist three years ago:
+
+- **SEC Cybersecurity Disclosure Rule** — 4-business-day Item 1.05 8-K (effective Dec 2023)
+- **DORA** — continuous ICT risk controls live for ~22,000 EU financial entities (Jan 17, 2025)
+- **NIS2** — board-level personal liability across EU (Oct 2024 transposition)
+- **CMMC 2.0** — Final Rule published Oct 15, 2024
+- **NIST CSF 2.0** — adds GOVERN function (Feb 2024)
+- **PCI-DSS v4.0.1** — full enforcement Mar 31, 2025
+- **EU AI Act** — phased application through 2026
+- **Change Healthcare ransomware** (Feb 2024) and **Snowflake credential incidents** (May–Jul 2024) — reframed third-party risk for every board
+- **CrowdStrike Falcon outage** (Jul 19, 2024) — created the precedent question: who is liable for security-vendor reliability, and how is it evidenced
+- **SolarWinds CISO action** (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) — CISO is now a discloseable officer with personal exposure
+
+---
+
 ## Acquisition Targets
 
-Built to be acquired by CrowdStrike, AuditBoard, ServiceNow, Palo Alto Networks, or SentinelOne — each has a strategic reason to own the compliance intelligence layer that bridges security telemetry to GRC workflows.
+Built to be acquired. Strategic buyers in adjacent positions, with recent acquisition activity confirming the playbook:
+
+- **CrowdStrike** — extends Falcon into CFO/CAE budget. Pattern: Adaptive Shield (Nov 2024, ~$300M), Flow Security (Mar 2024, ~$200M), Bionic (Oct 2023, ~$350M), Humio (Feb 2021, ~$400M)
+- **AuditBoard (Hg Capital)** — gains real-time security telemetry; Hg's PE thesis is bolt-on M&A (acquired AuditBoard May 2024 at reported ~$3B)
+- **ServiceNow** — accelerates IRM security evidence story without internal build
+- **Palo Alto Networks** — active consolidator: Talon (Nov 2023, $625M), Dig Security (Nov 2023, ~$400M), QRadar SaaS from IBM (May 2024)
+- **SentinelOne** — needs the compliance layer to compete on board-level value; PingSafe (Jan 2024)
+
+Multiple credible buyers in adjacent positions = auction dynamic at exit.

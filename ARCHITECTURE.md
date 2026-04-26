@@ -3,12 +3,16 @@
 ## Stack
 
 ```
-Frontend:    Next.js 14 (App Router) + TypeScript
-UI:          Tailwind CSS + shadcn/ui
-Database:    PostgreSQL + Prisma ORM
-AI:          Anthropic Claude API (claude-opus-4-7)
-Auth:        NextAuth.js
-Jobs:        node-cron
+Frontend:    Next.js 15 (App Router) + React 19 + TypeScript
+UI:          Tailwind CSS v4 + shadcn/ui
+Database:    PostgreSQL 16 + Prisma 5.x
+AI:          Anthropic Claude API
+             - claude-opus-4-7      (evidence interpretation)
+             - claude-haiku-4-5     (low-latency UI summarization)
+             prompt caching enabled to control inference cost
+Auth:        Auth.js v5 (formerly NextAuth.js)
+Jobs:        node-cron (MVP) → BullMQ + Redis (V1.5)
+Hosting:     Vercel (web), Neon or Supabase (Postgres), Upstash (Redis)
 ```
 
 ## Project Structure

@@ -187,29 +187,34 @@ It converts "we trust management" into "we have independently observable evidenc
 
 ### Who has this problem
 
-- **~2,000** enterprises use AuditBoard (50% of Fortune 500)
-- **~29,000** enterprises use CrowdStrike
-- Overlap is concentrated in Fortune 500 and regulated mid-market
+- **~2,000+** enterprises use AuditBoard (~50% of Fortune 500). Acquired by Hg Capital in May 2024 at a reported ~$3B valuation — now in active growth mode under PE ownership.
+- **~30,000** subscription customers on CrowdStrike Falcon (FY26 reporting, fiscal year ending Jan 2026)
+- Overlap concentrated in Fortune 500, regulated mid-market, and US federal contractors
 
 ### Regulatory tailwind accelerating urgency
 
-| Regulation | Requirement | Effective |
+| Regulation | Requirement | Status as of 2026 |
 |---|---|---|
-| SEC Cyber Disclosure | Report material incidents within 4 days | 2024 |
-| DORA (EU) | Continuous ICT risk controls for financial firms | Jan 2025 |
-| CMMC 2.0 | Real-time security posture evidence for defense contractors | 2025 |
-| NIS2 (EU) | Ongoing risk management + board accountability | Oct 2024 |
+| **SEC Cyber Disclosure Rule** (Item 1.05 8-K, Reg S-K Item 106) | Report material cyber incident within 4 business days; describe board oversight in 10-K | Effective Dec 18, 2023 (large filers); June 15, 2024 (smaller reporting cos). Enforcement actions emerging. |
+| **DORA** (EU Reg 2022/2554) | Continuous ICT risk controls for ~22,000 EU financial entities + ICT third parties | **Live since Jan 17, 2025**. First supervisory dialogues underway 2025–2026. |
+| **NIS2 Directive** (EU 2022/2555) | Ongoing risk management, incident reporting, board accountability with personal liability | Transposition deadline **Oct 17, 2024**. Member-state enforcement ramping through 2025–2026. |
+| **CMMC 2.0** (32 CFR Part 170) | Tiered security posture evidence for defense contractors handling FCI/CUI | **Final Rule published Oct 15, 2024**. Phased contract incorporation began 2025; full incorporation by 2028. |
+| **NIST CSF 2.0** | Adds GOVERN function — board oversight is part of the framework, not a wrapper | Released **Feb 26, 2024**. Becoming the de facto baseline cited by regulators and insurers. |
+| **PCI-DSS v4.0.1** | Stronger authentication, continuous controls, customized approach | Mandatory since **Mar 31, 2024**; new "future-dated" requirements enforceable from **Mar 31, 2025**. |
+| **EU AI Act** | Risk-tiered obligations, governance and transparency for AI systems including those used in compliance | Entered force **Aug 1, 2024**; phased application through 2026 (general-purpose AI rules from Aug 2025). |
+| **HIPAA Security Rule update** | NPRM proposes specific technical controls, mandatory MFA, encryption, vulnerability scanning | NPRM published **Dec 2024**; final rule expected 2025–2026. |
 
-**Every new regulation increases the cost of the manual, screenshot-based compliance process that exists today.**
+**Every new regulation increases the cost of the manual, screenshot-based compliance process that exists today.** Six of the eight items above did not exist in their current form three years ago.
 
 ### Market sizing
 
-| Segment | Size |
-|---|---|
-| GRC Software Market (2025) | $15.6B |
-| AI in GRC (2025–2030 CAGR) | 23% |
-| Security compliance automation | $4.1B |
-| Addressable (CrowdStrike + AuditBoard overlap) | ~$800M ARR opportunity at $50K ACV |
+| Segment | Size | Source |
+|---|---|---|
+| Global GRC software market (2025) | ~$60B | Industry analyst consensus (Gartner IRM, Forrester, Mordor) |
+| Integrated risk management (IRM) software, narrower | ~$8–12B | Gartner Magic Quadrant for IRM |
+| AI in GRC CAGR (2025–2030) | ~22–25% | MarketsAndMarkets, Mordor Intelligence |
+| Security compliance automation (sub-segment) | ~$5B+ | Vanta, Drata, Secureframe at unicorn valuations validate |
+| Addressable wedge (CrowdStrike + AuditBoard overlap) | ~$800M ARR opportunity at $50K ACV | Bottoms-up: ~16,000 enterprise targets × 10% capture |
 
 ---
 
@@ -420,15 +425,18 @@ Approach:
 
 ### Why Nothing Else Does This
 
-| Company | What They Do | Why It's Different |
-|---|---|---|
-| AuditBoard | GRC platform | No security telemetry integration, manual evidence only |
-| CrowdStrike Charlotte AI | AI SOC assistant | Security-only, no compliance output, no GRC layer |
-| CardinalOps | Detection engineering | Focuses on SIEM rules, not GRC/compliance |
-| Vanta / Drata | Compliance automation | Pulls basic signals (MFA on? AV installed?), not deep security telemetry |
-| ServiceNow GRC | Enterprise GRC | Massive, expensive, requires 12-month implementation |
+| Company | What They Do | Why It's Different | 2025–2026 Position |
+|---|---|---|---|
+| **AuditBoard** | Enterprise GRC platform | No security telemetry integration; manual evidence only | Hg Capital portfolio (~$3B, May 2024); growth via PE bolt-ons |
+| **CrowdStrike Charlotte AI** | AI SOC assistant | Security-only, no compliance output, no GRC layer | GA mid-2024; expanded with agentic capabilities 2025 |
+| **CardinalOps** | Detection engineering | Focuses on SIEM rule coverage, not GRC | Niche; partner not competitor |
+| **Vanta** | Compliance automation, mid-market origin | Pulls thin signals (MFA on? AV installed?); not deep telemetry; weakest at custom enterprise frameworks | Reported ~$2.45B valuation (2024 raise); pushing upmarket but enterprise IT-audit fit is unproven |
+| **Drata** | Compliance automation, similar to Vanta | Same architectural limit — agent-based posture checks, not platform telemetry | Acquired Stride Security (Sept 2024) for risk management; expanding into TPRM |
+| **Secureframe** | Compliance automation | Same category; weaker enterprise penetration | Mid-market |
+| **ServiceNow IRM** | Enterprise GRC inside ServiceNow | Massive, expensive, 12-month implementation; no native security telemetry | Strong in F500 but slow to evolve |
+| **Hyperproof / LogicGate / Onspring** | Mid-market GRC | No security telemetry layer | Compete with AuditBoard, not us |
 
-**The gap is specific**: nobody translates deep CrowdStrike telemetry into compliance evidence and live risk intelligence. Vanta knows if antivirus is installed. We know if it's actually working, what threats it blocked, and what your audit evidence says about it.
+**The gap is specific**: nobody translates deep CrowdStrike telemetry into compliance evidence and live risk intelligence. Vanta knows if antivirus is installed. We know if it is actually working, what threats it blocked, what the population coverage is, and what an external auditor can rely on as evidence under PCAOB AS 1105.
 
 ### Defensibility
 
@@ -441,43 +449,64 @@ Approach:
 
 ## Slide 11 — Why Now
 
-Three forces converging in 2025:
+Four forces converging in 2025–2026:
 
-**1. Regulatory pressure at an all-time high**
-SEC, DORA, NIS2, CMMC all require continuous demonstrable controls — not annual audits. The manual process can't keep up.
+**1. Regulatory pressure at a structural inflection**
+SEC Cyber Disclosure (live since Dec 2023), DORA (live since Jan 17, 2025), NIS2 (transposition deadline Oct 17, 2024), CMMC 2.0 (Final Rule Oct 15, 2024), NIST CSF 2.0 (Feb 2024), PCI-DSS v4.0.1 (full enforcement Mar 31, 2025), EU AI Act (in force Aug 2024) — all require **continuous demonstrable controls**, not annual audits. The manual screenshot-and-CSV process is mathematically incompatible with the new compliance posture cadence.
 
-**2. AI makes the translation layer possible**
-Two years ago, mapping raw CrowdStrike telemetry to compliance control language required a massive expert system. Today Claude does it accurately in seconds. This product couldn't have been built before 2024.
+**2. The 2024–2025 incident wave permanently raised the bar**
+- **Change Healthcare ransomware (Feb 2024)** — UnitedHealth-owned, BlackCat ransomware, ~$2.9B+ direct cost reported, disrupted ~one-third of US healthcare claims processing. Triggered HHS HIPAA enforcement focus.
+- **Snowflake credential incidents (May–Jul 2024)** — ~165 customer environments compromised via stolen credentials per Mandiant; Ticketmaster, AT&T, Santander, LendingTree among confirmed victims. Reframed third-party risk for every board.
+- **CrowdStrike Falcon outage (Jul 19, 2024)** — single faulty content update grounded ~8.5M Windows endpoints globally. Delta lawsuit and others created the precedent question: who is liable for security-vendor reliability, and how is it evidenced.
+- **MOVEit (CL0P, 2023, still litigating in 2025)** — 2,700+ orgs, 95M+ records — set the template for vulnerability-to-extortion at scale.
 
-**3. Security and compliance teams are merging**
-CISOs are increasingly accountable to audit committees and boards. The wall between "security tool" and "compliance tool" is collapsing. The product that bridges them owns the combined workflow.
+Each event made *evidence of working controls* a board-level demand, not a back-office artifact.
+
+**3. AI makes the translation layer possible**
+Two years ago, mapping raw CrowdStrike telemetry to compliance control language required a massive expert system. Today Claude maps it accurately in seconds. This product could not have been built before 2024. The launch of Claude Opus 4.x (2025) materially improved the rationale-and-citation quality required for audit-defensible AI output.
+
+**4. Security and compliance teams are merging — and the CISO is now a discloseable officer**
+Post-SolarWinds CISO charges (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) and Uber CISO conviction (May 2023), the CISO is personally on the hook for the accuracy of public statements about security controls. The wall between "security tool" and "compliance tool" is collapsing because the people accountable for both are converging — frequently the same person, with the same liability.
 
 ---
 
 ## Slide 12 — Acquisition Thesis
 
-This is built to be acquired. Here's why multiple buyers want it:
+This is built to be acquired. Here's why multiple buyers want it.
 
 ### CrowdStrike
-- Makes Falcon data indispensable to compliance buyers
-- Opens new budget center: CAE/CCO/CFO vs CISO
-- Extends Charlotte AI into GRC use cases
-- Comparable: acquired Bionic ($350M), Humio ($400M) to extend platform reach
+- Makes Falcon data indispensable to compliance buyers — extends the platform from CISO budget into the CFO / CAE / CCO budget
+- Extends Charlotte AI into GRC use cases beyond the SOC
+- Pattern: CrowdStrike has been actively acquiring to extend Falcon's surface area
+  - **Adaptive Shield** (Nov 2024, ~$300M cash + stock) — SaaS security posture management
+  - **Flow Security** (Mar 2024, ~$200M) — data security posture
+  - **Bionic** (Oct 2023, ~$350M) — application security posture
+  - **Humio** (Feb 2021, ~$400M) — log management / Falcon LogScale
+- Compliance OS is the same playbook: tuck-in that extends Falcon into a budget Falcon doesn't currently address
 
-### AuditBoard
-- Adds real-time security telemetry they can't build fast enough
-- Makes their platform stickier for security-heavy enterprises
-- Recently acquired by Hg Capital — in active growth mode
+### AuditBoard (now Hg Capital portfolio)
+- Adds real-time security telemetry they cannot build fast enough internally
+- Makes their platform stickier for security-heavy enterprises and regulated industries
+- Hg acquired AuditBoard in **May 2024 at a reported ~$3B valuation**; PE-backed playbook is bolt-on M&A to expand the ARR base ahead of an IPO or secondary
+- The AuditBoard connector strategy positions Compliance OS as a natural acquisition rather than a competitor
 
 ### ServiceNow
-- Competes with AuditBoard in GRC — this accelerates their security evidence story
-- Acquired Armis ($2.85B) for security telemetry — same thesis, different layer
+- Competes with AuditBoard in GRC/IRM (ServiceNow Integrated Risk Management module)
+- Acquiring Compliance OS accelerates their security evidence story without internal build cycles
+- ServiceNow's recent direction: AI-led acquisitions (Element AI, Moveworks talks) and platform extension — security posture data is the missing layer for their IRM offering
 
-### Palo Alto Networks / SentinelOne
-- Both want the compliance layer CrowdStrike doesn't have
-- Acquisition creates competitive differentiation
+### Palo Alto Networks
+- Active consolidator: **Talon** (Nov 2023, $625M, enterprise browser), **Dig Security** (Nov 2023, ~$400M, DSPM), **QRadar SaaS from IBM** (May 2024 announcement). Has stated platform-consolidation thesis explicitly.
+- Compliance layer is the gap CrowdStrike has not filled — owning it creates competitive differentiation
 
-**Multiple buyers = auction dynamic = better outcome.**
+### SentinelOne
+- Acquired **PingSafe** (Jan 2024, ~$100M cash + stock) for cloud security posture
+- Same thesis as CrowdStrike but earlier in the platform-extension curve — needs the compliance layer to compete on board-level value
+
+### Wiz / Snyk / other DSPM platforms
+- Compliance OS framework-mapping engine is the layer they would need to enter the GRC market
+
+**Multiple credible buyers in adjacent positions = auction dynamic = better outcome at exit.**
 
 ---
 

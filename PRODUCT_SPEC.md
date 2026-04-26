@@ -1,6 +1,6 @@
 # Compliance OS — Product Requirements Document
 
-**Version**: 0.1 (Pre-MVP)
+**Version**: 0.2 (Pre-MVP, refreshed for 2026 regulatory and market state)
 **Status**: Planning
 **Last Updated**: 2026-04-26
 
@@ -392,17 +392,18 @@ Compliance OS is designed so that artifacts produced by the platform meet the ev
 
 ### Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | Next.js 14 (App Router), React, TypeScript |
-| Styling | Tailwind CSS, shadcn/ui |
-| Backend | Next.js API Routes / Node.js |
-| Database | PostgreSQL (production), SQLite (development) |
-| ORM | Prisma |
-| AI | Anthropic Claude API (claude-opus-4-7) |
-| Auth | NextAuth.js |
-| Job Scheduling | node-cron |
-| Hosting | Vercel (frontend), Railway or Render (database) |
+| Layer | Technology | Version notes (as of 2026) |
+|---|---|---|
+| Frontend | Next.js (App Router), React, TypeScript | Next.js 15 (stable since Oct 2024); React 19 (stable since Dec 2024) |
+| Styling | Tailwind CSS, shadcn/ui | Tailwind v4 |
+| Backend | Next.js API Routes / Node.js | Node 20 LTS or 22 LTS |
+| Database | PostgreSQL (production), SQLite (development) | Postgres 16 |
+| ORM | Prisma | Prisma 5.x |
+| AI | Anthropic Claude API | `claude-opus-4-7` for evidence interpretation; `claude-haiku-4-5-20251001` for low-latency UI summarization. Prompt caching enabled to control inference cost. |
+| Auth | Auth.js (formerly NextAuth.js) | v5 |
+| Job Scheduling | node-cron (MVP) → BullMQ + Redis (V1.5) | — |
+| Hosting | Vercel (frontend), Neon or Supabase (Postgres), Upstash (Redis) | — |
+| Observability | OpenTelemetry → Vercel Observability or Datadog | — |
 
 ---
 
@@ -738,23 +739,31 @@ DELETE /api/integrations/:id
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
-| AuditBoard API access requires partner agreement | High | Medium | Build standalone product first; AuditBoard connector is optional enhancement |
-| CrowdStrike API rate limits at scale | Medium | Medium | Implement pagination, batching, caching; request rate limit increase for enterprise |
-| AI evidence quality not trusted by auditors | Medium | High | Human approval step on all AI output; show raw data alongside summary; build feedback loop |
-| CrowdStrike builds this natively | Low | High | Get to market with paying customers before they notice; acquire-ability is the exit, not competition |
-| Long enterprise sales cycles delay revenue | High | Medium | Target mid-market ($500M–$2B revenue) first; design partner model bypasses procurement |
-| Compliance frameworks change | Low | Low | Framework library is data, not code; update controls independently |
+| AuditBoard API access requires partner agreement (now Hg-owned, gating may tighten) | High | Medium | Build standalone product first; AuditBoard connector is optional enhancement; build to where buyer behavior is going (replacement, not integration) |
+| CrowdStrike API rate limits at scale | Medium | Medium | Pagination, batching, server-side caching; request enterprise rate limit increase; for very large tenants use Falcon Data Replicator (FDR) S3 stream rather than API polling |
+| AI evidence quality not trusted by auditors | Medium | High | Human approval step on all AI output; raw data shown alongside summary; prompt and model versioning recorded with each artifact; feedback loop trains prompt revisions |
+| **Vendor concentration concerns post-Falcon outage (Jul 19, 2024)** | Medium | Medium | Roadmap to multi-EDR support (SentinelOne, MS Defender for Endpoint) by V2.0; position as vendor-agnostic compliance layer not a CrowdStrike skin |
+| CrowdStrike builds this natively (e.g., extending Charlotte AI into GRC) | Medium | High | Move fast to be acquisition-ready; build framework-mapping moat; deepen Big 4 channel relationships that increase strategic value to acquirer |
+| **AI in audit gets restricted by PCAOB / IAASB guidance** | Medium | High | Position AI as decision-support, not decision-maker; auditor reviews and approves every artifact; align with emerging IAASB technology guidance and AICPA SAS 145 risk-assessment standard |
+| Long enterprise sales cycles delay revenue | High | Medium | Target upper mid-market ($500M–$2B revenue) and PE-backed companies first; design partner model bypasses procurement |
+| **EU AI Act classification** (compliance-related AI may be deemed higher-risk) | Low | Medium | Document model lineage, inputs, outputs, and human-in-the-loop controls now; design for Annex III obligations even if classification narrower |
+| Compliance frameworks change | Low | Low | Framework library is data, not code; update controls independently. NIST CSF 2.0 already absorbed; CMMC 2.0 Final Rule (Oct 2024) on roadmap |
+| **Cyber insurance carriers become an alternative buyer of the same data** | Low | Low | Opportunity, not threat — partner with carriers as evidence consumer; potential underwriting-data product |
 
 ---
 
 ## 12. Open Questions
 
-1. **AuditBoard API access**: Can we get sandbox/developer access without a full partner agreement? Needs outreach.
-2. **CrowdStrike trial scope**: Does the 15-day trial include Spotlight (vulnerability) API? Needs testing.
-3. **Evidence legal validity**: Do auditors require wet signatures or specific formats for certain frameworks? Needs validation with a Big 4 auditor.
-4. **Data residency**: Do enterprise customers require evidence data to stay in specific regions? May require multi-region database.
-5. **Framework licensing**: Do any compliance frameworks require licensing to distribute their control language? Needs legal review.
+1. **AuditBoard API access (post-Hg)**: Hg's investment thesis (May 2024) is bolt-on M&A and ARR growth — does that make API gating tighter (protect rev) or looser (drive ecosystem)? Needs partner-team outreach to AuditBoard product / BD.
+2. **CrowdStrike trial scope**: Does the 15-day Falcon trial include Spotlight (vulnerability) and Falcon Data Replicator? Needs testing. Falcon Foundry developer access is a possible alternative path.
+3. **Evidence legal validity & AI disclosure**: Under PCAOB AS 1215 and AICPA AT-C 105/205, must AI-generated summaries be explicitly disclosed in workpapers? IAASB issued exposure draft on technology-assisted audits (2023–2024) — needs alignment with finalized guidance. Validate with Big 4 quality-and-risk-management partner.
+4. **Data residency**: DORA + GDPR + UK GDPR + state-level US (NY DFS, CCPA) all have implications. EU customers will likely require data-in-EU; need multi-region Postgres (Neon supports this) and careful sub-processor mapping.
+5. **Framework licensing**: ISO 27001 control text is copyrighted by ISO/IEC; AICPA TSC text by AICPA. Pre-mapped controls may need to paraphrase or license. Needs legal review before public listing of full control library.
+6. **EU AI Act classification of compliance AI**: Risk tier depends on use — likely "limited risk" with transparency obligations rather than "high risk." Document model cards, inputs, outputs, and human-in-the-loop now to be ready for either classification.
+7. **SOC 2 Type II for ourselves**: Realistically need our own SOC 2 to sell to enterprises. Earliest practical: 12 months after first paying customer (need 6 months of operating evidence, then 6 months of audit window).
+8. **Multi-EDR support timeline**: Post-Falcon-outage, will design partners require multi-EDR commitment in the contract? May force MS Defender or SentinelOne support earlier than V2.0.
+9. **Cyber insurance distribution**: Should evidence packages be exportable to underwriter format (Marsh, Aon, WTW questionnaires)? Could become a meaningful ARR uplift channel.
 
 ---
 
-*Compliance OS — Product Requirements Document v0.1*
+*Compliance OS — Product Requirements Document v0.2*
