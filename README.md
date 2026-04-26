@@ -44,7 +44,7 @@ What both modes deliver:
 
 | Document | Description |
 |---|---|
-| [PITCH_DECK.md](./PITCH_DECK.md) | 16-slide investor and partner pitch + appendix — validation signal, problem, three buyer lenses, why now, solution, demo, product, competition, native-build threats (CrowdStrike + Workiva), market, business model, GTM, acquisition thesis, ask |
+| [PITCH_DECK.md](./PITCH_DECK.md) | 16-slide investor and partner pitch + appendix — validation signal, problem, three buyer lenses, why now, solution, demo, product, competition, three native-build threats (CrowdStrike from below, Workiva from above, RegScale from the side), market, business model, GTM, acquisition thesis, ask |
 | [PRODUCT_SPEC.md](./PRODUCT_SPEC.md) | Full PRD — target users, use cases, audit standards alignment (PCAOB / AICPA / IAASB / ISO), feature list (MVP → V2), API spec, UI requirements, success metrics, risks, open questions |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Tech stack, project structure, data flow, setup instructions |
 
@@ -64,6 +64,42 @@ The regulatory and incident environment that makes this product necessary did no
 - **Change Healthcare ransomware** (Feb 2024) and **Snowflake credential incidents** (May–Jul 2024) — reframed third-party risk for every board
 - **Major EDR-vendor outage** (Jul 19, 2024) — single faulty content update from a leading EDR vendor grounded ~8.5M endpoints globally; created the precedent question of who is liable for security-vendor reliability, and how it is evidenced
 - **SolarWinds CISO action** (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) — CISO is now a discloseable officer with personal exposure
+
+### Category consolidation signal
+
+The market is no longer asking *"is AI-for-GRC real?"* — it is asking *"who consolidates fastest?"* Verified activity in the last 18 months:
+
+- **March 9, 2026 dual announcement** — the category-leading enterprise GRC platform rebranded with explicit AI-driven positioning, AND the public-company AI-GRC challenger launched its AI-Powered GRC Platform — both at the same conference on the same day
+- **$3B+ Hg Capital acquisition** of the leading enterprise GRC platform (May 2024); subsequent rebrand explicitly positioned for exit
+- **$250M Drata acquisition of SafeBase** (Feb 2025) for trust management; **oak9 acquisition** (May 2024) for compliance-as-code
+- **$150M Vanta Series D at $4.15B valuation** (Jul 2025, led by Wellington Management); 12,000 → 15,000+ customers in 9 months
+- **$30M+ RegScale Series B** (Sept 2025; Microsoft M12, Hitachi Ventures, SYN Ventures, SineWave) — federal-first continuous controls monitoring with raw-telemetry-ingest claims
+- **Workiva acquired Sustain.Life** ($100M, Jun 2024) for ESG; AI-workpaper-automation acquisition for auditor workflow
+
+Both Vanta and Drata pivoted to "agentic trust" framing through 2025–2026. The category is consolidating. Our wedge sits at the intersection of four specific gaps that remain unowned by every player above (see *What Already Exists* below).
+
+---
+
+## What Already Exists (and What's Still Unowned)
+
+Diligence-honest framing. Several competitors have parts of this solution. None has all of it.
+
+**Players with native CrowdStrike integrations:**
+- **Vanta** — partnered with CrowdStrike since 2022 (Falcon Fund invested); covers Falcon access management, deployment coverage, vulnerability scan evidence, prevention-policy verification. Mid-market positioning.
+- **Drata** — dual integrations: Falcon EDR (anti-malware-installed control evidence) + Falcon Exposure Management (vulnerability scans mapped to one specific test, DCF-18). Agent-based posture-checks.
+- **RegScale** — continuous controls monitoring with raw-telemetry-ingest claim via Synqly's 1,300+ APIs. Federal-first (FedRAMP High, DoD), not Big-4 commercial.
+
+**Players the leading enterprise GRC platform integrates with for security signal:**
+- Tenable (vulnerability scanning), Okta (identity), 200+ business systems. CVE-level signal, not detection events.
+
+**The four specific gaps that remain unowned across all of them:**
+
+1. **Bridge mode for the leading enterprise GRC platform's customers** — Vanta, Drata, RegScale all *replace* the GRC platform. None push evidence INTO an existing customer tenant. We are the only product designed to integrate, not displace.
+2. **PCAOB AS 1215 workpaper-grade provenance for external Big 4 auditors** — every player above is customer-facing compliance posture. None produce artifacts the external auditor can attach to a workpaper with hash-pinned raw payload + AI rationale + 7-year retention + re-performance hook.
+3. **Detection-event-to-risk-register pipeline** — existing CrowdStrike integrations cover deployment, coverage, vulnerability scans, anti-malware-installed evidence. None auto-update risk register likelihood when the EDR *blocks* an active attack with ATT&CK technique mapping.
+4. **Big 4 commercial enterprise channel** — Vanta/Drata = mid-market SaaS; RegScale = federal/DoD; the GRC platforms own enterprise as the system of record. Nobody is positioned as the *enterprise IT-audit methodology tool* (Caseware/MindBridge analog for cyber audit) that Big 4 IT-audit practices adopt as workpaper infrastructure.
+
+That's where Compliance OS lives.
 
 ---
 
@@ -148,13 +184,14 @@ Cybersecurity platform API (EDR / VM / detection)
 
 ## Acquisition Targets
 
-Built to be acquired by buyers in five adjacent positions. Each has independent, current strategic motivation. Multiple credible buyers in adjacent positions = auction dynamic at exit.
+Built to be acquired by buyers in six adjacent positions. Each has independent, current strategic motivation. Multiple credible buyers in adjacent positions = auction dynamic at exit.
 
-- **Category-leading enterprise GRC platform** *(primary target — now PE-backed since May 2024 at reported ~$3B; PE hold of 5–7 years places exit window ~2028–2031; bridge-mode positioning lands us on the M&A consideration list as a bolt-on)*
-- **Public-company AI-GRC challenger** — launched its AI-Powered GRC Platform Mar 9, 2026; acquired an AI-workpaper-automation startup as the precedent that this buyer pays for category-specific AI audit tooling; 70+ connectors but none for security telemetry
+- **Category-leading enterprise GRC platform** *(primary target — PE-backed since May 2024 at reported ~$3B; rebranded March 9, 2026 with explicit AI-driven positioning; $300M+ ARR (Oct 2025); PE hold of 5–7 years places exit window ~2028–2031; bridge-mode positioning lands us on the M&A consideration list as a bolt-on)*
+- **Public-company AI-GRC challenger** — launched its AI-Powered GRC Platform March 9, 2026 (same conference, same day as the GRC-leader rebrand); acquired an AI-workpaper-automation startup as the precedent that this buyer pays for category-specific AI audit tooling; 70+ connectors but none for security telemetry
 - **Major EDR / cybersecurity-platform vendors** — active consolidators extending their platforms into the CFO / CAE / CCO budget through bolt-on acquisitions in adjacent security categories
 - **Enterprise IRM / ITSM platforms** — accelerate their security-evidence story without internal build
 - **CNAPP / DSPM platforms** — need a framework-mapping engine to enter GRC
+- **Federal-first CCM platforms pivoting to commercial** — players who've proved the technical thesis in regulated markets (FedRAMP High, DoD) and need a commercial-Big-4-audit motion they don't have organically
 
 Specific named buyers, recent M&A comparables, and timeline pressure are detailed in the Acquisition Thesis section of the pitch deck.
 
