@@ -4,6 +4,14 @@
 
 ---
 
+## Live Demo
+
+**https://rumpers.github.io/compliance-os/**
+
+Interactive mockups hosted on GitHub Pages — open in any browser, navigation between all screens works. The fastest way to understand what this is.
+
+---
+
 ## The Problem
 
 Enterprises run a major cybersecurity platform on one side and an enterprise GRC platform on the other. Two systems that should be deeply connected, share nothing.
@@ -32,6 +40,23 @@ What both modes deliver:
 
 ---
 
+## Why Now (2025–2026)
+
+The regulatory and incident environment that makes this product necessary did not exist three years ago:
+
+- **SEC Cybersecurity Disclosure Rule** — 4-business-day Item 1.05 8-K (effective Dec 2023)
+- **DORA** — continuous ICT risk controls live for ~22,000 EU financial entities (Jan 17, 2025)
+- **NIS2** — board-level personal liability across EU (Oct 2024 transposition)
+- **CMMC 2.0** — Final Rule published Oct 15, 2024
+- **NIST CSF 2.0** — adds GOVERN function (Feb 2024)
+- **PCI-DSS v4.0.1** — full enforcement Mar 31, 2025
+- **EU AI Act** — phased application through 2026
+- **Change Healthcare ransomware** (Feb 2024) and **Snowflake credential incidents** (May–Jul 2024) — reframed third-party risk for every board
+- **Major EDR-vendor outage** (Jul 19, 2024) — single faulty content update from a leading EDR vendor grounded ~8.5M endpoints globally; created the precedent question of who is liable for security-vendor reliability, and how it is evidenced
+- **SolarWinds CISO action** (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) — CISO is now a discloseable officer with personal exposure
+
+---
+
 ## Screens
 
 | Screen | Description |
@@ -42,16 +67,6 @@ What both modes deliver:
 | [Integrations](./mockups/integrations.html) | Cybersecurity-platform connection, GRC-platform connector, sync logs |
 
 > Open any HTML file directly in a browser — navigation links between all screens work.
-
----
-
-## Documents
-
-| Document | Description |
-|---|---|
-| [PITCH_DECK.md](./PITCH_DECK.md) | 13-slide investor and partner pitch — problem, solution, market, GTM, acquisition thesis |
-| [PRODUCT_SPEC.md](./PRODUCT_SPEC.md) | Full PRD — use cases, feature list (MVP → V2), API spec, UI requirements, success metrics |
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | Tech stack, project structure, data flow, setup instructions |
 
 ---
 
@@ -84,19 +99,6 @@ Cybersecurity platform API (EDR / VM / detection)
 
 ---
 
-## Tech Stack
-
-| Layer | Technology | Version (as of 2026) |
-|---|---|---|
-| Frontend | Next.js (App Router) + React + TypeScript | Next.js 15, React 19 |
-| UI | Tailwind CSS + shadcn/ui | Tailwind v4 |
-| Database | PostgreSQL + Prisma ORM | Postgres 16, Prisma 5.x |
-| AI | Anthropic Claude API | `claude-opus-4-7` (interpretation), `claude-haiku-4-5` (UI summarization), prompt caching enabled |
-| Auth | Auth.js (formerly NextAuth.js) | v5 |
-| Jobs | node-cron → BullMQ (V1.5) | — |
-
----
-
 ## Frameworks Supported
 
 **MVP (V1.0)**: SOC 2 · NIST CSF 2.0 · PCI-DSS v4.0.1 · HIPAA · ISO 27001:2022
@@ -120,32 +122,26 @@ Cybersecurity platform API (EDR / VM / detection)
 
 ---
 
-## Live Demo
+## Tech Stack
 
-**https://rumpers.github.io/compliance-os/**
-
-Interactive mockups hosted on GitHub Pages — open in any browser, navigation between all screens works.
-
-## Status
-
-Pre-MVP — architecture, planning, and mockups complete. Build starting.
+| Layer | Technology | Version (as of 2026) |
+|---|---|---|
+| Frontend | Next.js (App Router) + React + TypeScript | Next.js 15, React 19 |
+| UI | Tailwind CSS + shadcn/ui | Tailwind v4 |
+| Database | PostgreSQL + Prisma ORM | Postgres 16, Prisma 5.x |
+| AI | Anthropic Claude API | `claude-opus-4-7` (interpretation), `claude-haiku-4-5` (UI summarization), prompt caching enabled |
+| Auth | Auth.js (formerly NextAuth.js) | v5 |
+| Jobs | node-cron → BullMQ (V1.5) | — |
 
 ---
 
-## Why Now (2025–2026)
+## Documents
 
-The regulatory and incident environment that makes this product necessary did not exist three years ago:
-
-- **SEC Cybersecurity Disclosure Rule** — 4-business-day Item 1.05 8-K (effective Dec 2023)
-- **DORA** — continuous ICT risk controls live for ~22,000 EU financial entities (Jan 17, 2025)
-- **NIS2** — board-level personal liability across EU (Oct 2024 transposition)
-- **CMMC 2.0** — Final Rule published Oct 15, 2024
-- **NIST CSF 2.0** — adds GOVERN function (Feb 2024)
-- **PCI-DSS v4.0.1** — full enforcement Mar 31, 2025
-- **EU AI Act** — phased application through 2026
-- **Change Healthcare ransomware** (Feb 2024) and **Snowflake credential incidents** (May–Jul 2024) — reframed third-party risk for every board
-- **Major EDR-vendor outage** (Jul 19, 2024) — single faulty content update from a leading EDR vendor grounded ~8.5M endpoints globally; created the precedent question of who is liable for security-vendor reliability, and how it is evidenced
-- **SolarWinds CISO action** (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) — CISO is now a discloseable officer with personal exposure
+| Document | Description |
+|---|---|
+| [PITCH_DECK.md](./PITCH_DECK.md) | 16-slide investor and partner pitch + appendix — validation signal, problem, three buyer lenses, why now, solution, demo, product, competition, native-build threats (CrowdStrike + Workiva), market, business model, GTM, acquisition thesis, ask |
+| [PRODUCT_SPEC.md](./PRODUCT_SPEC.md) | Full PRD — target users, use cases, audit standards alignment (PCAOB / AICPA / IAASB / ISO), feature list (MVP → V2), API spec, UI requirements, success metrics, risks, open questions |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Tech stack, project structure, data flow, setup instructions |
 
 ---
 
@@ -160,3 +156,9 @@ Built to be acquired by buyers in five adjacent positions. Each has independent,
 - **CNAPP / DSPM platforms** — need a framework-mapping engine to enter GRC
 
 Specific named buyers, recent M&A comparables, and timeline pressure are detailed in the Acquisition Thesis section of the pitch deck.
+
+---
+
+## Status
+
+Pre-MVP — architecture, planning, and mockups complete. Build starting.
