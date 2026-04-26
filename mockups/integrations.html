@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compliance OS — Integrations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+<div class="fixed inset-y-0 left-0 w-56 bg-gray-900 flex flex-col">
+  <div class="px-5 py-5 border-b border-gray-700">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-sky-500 rounded-md flex items-center justify-center">
+        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <span class="text-white font-bold text-sm">Compliance OS</span>
+    </div>
+  </div>
+  <nav class="flex-1 px-3 py-4 space-y-1">
+    <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Dashboard</a>
+    <a href="controls.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>Controls</a>
+    <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Evidence</a>
+    <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>Risks</a>
+    <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>Findings</a>
+    <a href="integrations.html" class="flex items-center gap-3 px-3 py-2 rounded-md bg-gray-700 text-white text-sm font-medium">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>Integrations</a>
+  </nav>
+</div>
+
+<div class="ml-56 min-h-screen">
+  <div class="bg-white border-b border-gray-200 px-8 py-4">
+    <h1 class="text-lg font-semibold text-gray-900">Integrations</h1>
+    <p class="text-xs text-gray-500">Connect security data sources and GRC destinations to automate evidence collection.</p>
+  </div>
+
+  <div class="p-8 space-y-8">
+
+    <!-- Security Data Sources -->
+    <div>
+      <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4">Security Data Sources</h2>
+      <div class="grid grid-cols-2 gap-5">
+
+        <!-- CrowdStrike — Connected -->
+        <div class="bg-white rounded-xl border-2 border-green-200 p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">CS</div>
+              <div>
+                <h3 class="text-sm font-semibold text-gray-900">CrowdStrike Falcon</h3>
+                <p class="text-xs text-gray-500">Endpoint, vulnerability & detection data</p>
+              </div>
+            </div>
+            <span class="flex items-center gap-1.5 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full font-medium">
+              <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>Connected
+            </span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 mb-4 text-center">
+            <div class="bg-gray-50 rounded-lg p-2">
+              <p class="text-lg font-bold text-gray-800">1,891</p>
+              <p class="text-xs text-gray-500">Endpoints</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-2">
+              <p class="text-lg font-bold text-gray-800">847</p>
+              <p class="text-xs text-gray-500">Open CVEs</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-2">
+              <p class="text-lg font-bold text-gray-800">24</p>
+              <p class="text-xs text-gray-500">Detections/24h</p>
+            </div>
+          </div>
+
+          <div class="text-xs text-gray-500 mb-4 space-y-1">
+            <div class="flex justify-between"><span>Last sync</span><span class="text-gray-700 font-medium">2 minutes ago</span></div>
+            <div class="flex justify-between"><span>Sync schedule</span><span class="text-gray-700 font-medium">Every 24 hours</span></div>
+            <div class="flex justify-between"><span>Data types</span><span class="text-gray-700 font-medium">Agent, Vulns, Detections</span></div>
+          </div>
+
+          <div class="flex gap-2">
+            <button class="flex-1 text-xs border border-gray-300 rounded-md py-2 text-gray-600 hover:bg-gray-50">Configure</button>
+            <button class="flex-1 text-xs bg-sky-600 text-white rounded-md py-2 font-medium hover:bg-sky-700">Sync Now</button>
+          </div>
+        </div>
+
+        <!-- Okta — Not Connected -->
+        <div class="bg-white rounded-xl border border-gray-200 p-6 opacity-75">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">OK</div>
+              <div>
+                <h3 class="text-sm font-semibold text-gray-900">Okta</h3>
+                <p class="text-xs text-gray-500">Identity, MFA & access data</p>
+              </div>
+            </div>
+            <span class="flex items-center gap-1.5 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
+              <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>Not connected
+            </span>
+          </div>
+          <p class="text-xs text-gray-500 mb-4">Connect Okta to automate MFA compliance, privileged access controls, and user lifecycle evidence.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded">SOC 2 CC6.1</span>
+            <span class="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded">NIST AC-2</span>
+            <span class="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded">PCI 7.1</span>
+          </div>
+          <button class="w-full text-xs border border-sky-400 text-sky-600 rounded-md py-2 font-medium hover:bg-sky-50">Connect Okta →</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GRC Destinations -->
+    <div>
+      <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4">GRC Destinations <span class="text-gray-400 font-normal normal-case">(optional — push evidence to your existing GRC platform)</span></h2>
+      <div class="grid grid-cols-2 gap-5">
+
+        <!-- AuditBoard — Connected -->
+        <div class="bg-white rounded-xl border-2 border-green-200 p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">AB</div>
+              <div>
+                <h3 class="text-sm font-semibold text-gray-900">AuditBoard</h3>
+                <p class="text-xs text-gray-500">Push evidence to existing AuditBoard controls</p>
+              </div>
+            </div>
+            <span class="flex items-center gap-1.5 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full font-medium">
+              <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>Connected
+            </span>
+          </div>
+
+          <div class="bg-indigo-50 rounded-lg p-3 mb-4">
+            <p class="text-xs text-indigo-800 font-medium">Evidence sync active</p>
+            <p class="text-xs text-indigo-600 mt-0.5">All Compliance OS evidence automatically pushed to matching AuditBoard control tests.</p>
+          </div>
+
+          <div class="text-xs text-gray-500 mb-4 space-y-1">
+            <div class="flex justify-between"><span>Last push</span><span class="text-gray-700 font-medium">2 minutes ago</span></div>
+            <div class="flex justify-between"><span>Controls synced</span><span class="text-gray-700 font-medium">47 this cycle</span></div>
+            <div class="flex justify-between"><span>Instance</span><span class="text-gray-700 font-medium">acme.auditboard.com</span></div>
+          </div>
+
+          <div class="flex gap-2">
+            <button class="flex-1 text-xs border border-gray-300 rounded-md py-2 text-gray-600 hover:bg-gray-50">Configure</button>
+            <button class="flex-1 text-xs border border-red-200 text-red-600 rounded-md py-2 hover:bg-red-50">Disconnect</button>
+          </div>
+        </div>
+
+        <!-- ServiceNow — Not connected -->
+        <div class="bg-white rounded-xl border border-gray-200 p-6 opacity-75">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-green-700 rounded-xl flex items-center justify-center text-white font-bold text-sm">SN</div>
+              <div>
+                <h3 class="text-sm font-semibold text-gray-900">ServiceNow GRC</h3>
+                <p class="text-xs text-gray-500">Push evidence to ServiceNow controls & issues</p>
+              </div>
+            </div>
+            <span class="flex items-center gap-1.5 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
+              <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>Not connected
+            </span>
+          </div>
+          <p class="text-xs text-gray-500 mb-4">Connect ServiceNow GRC to push automated evidence and sync findings with your existing workflows.</p>
+          <button class="w-full text-xs border border-sky-400 text-sky-600 rounded-md py-2 font-medium hover:bg-sky-50">Connect ServiceNow →</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sync Log -->
+    <div>
+      <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4">Recent Sync Activity</h2>
+      <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 border-b border-gray-200">
+            <tr>
+              <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500">Source</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500">Status</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500">Summary</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500">Duration</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500">Time</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 text-xs">
+            <tr><td class="px-5 py-3 font-medium text-gray-700">CrowdStrike</td><td class="px-4 py-3"><span class="text-green-700 bg-green-50 px-2 py-0.5 rounded-full font-medium">Success</span></td><td class="px-4 py-3 text-gray-500">163 controls tested · 142 pass · 14 fail · 7 exception</td><td class="px-4 py-3 text-gray-500">47s</td><td class="px-4 py-3 text-gray-500">2 min ago</td></tr>
+            <tr><td class="px-5 py-3 font-medium text-gray-700">AuditBoard Push</td><td class="px-4 py-3"><span class="text-green-700 bg-green-50 px-2 py-0.5 rounded-full font-medium">Success</span></td><td class="px-4 py-3 text-gray-500">47 evidence packages pushed to AuditBoard</td><td class="px-4 py-3 text-gray-500">12s</td><td class="px-4 py-3 text-gray-500">2 min ago</td></tr>
+            <tr><td class="px-5 py-3 font-medium text-gray-700">CrowdStrike</td><td class="px-4 py-3"><span class="text-green-700 bg-green-50 px-2 py-0.5 rounded-full font-medium">Success</span></td><td class="px-4 py-3 text-gray-500">163 controls tested · 141 pass · 15 fail · 7 exception</td><td class="px-4 py-3 text-gray-500">52s</td><td class="px-4 py-3 text-gray-500">Yesterday 14:32</td></tr>
+            <tr><td class="px-5 py-3 font-medium text-gray-700">CrowdStrike</td><td class="px-4 py-3"><span class="text-red-700 bg-red-50 px-2 py-0.5 rounded-full font-medium">Error</span></td><td class="px-4 py-3 text-red-500">Rate limit exceeded — retried successfully at 14:18</td><td class="px-4 py-3 text-gray-500">—</td><td class="px-4 py-3 text-gray-500">Yesterday 14:15</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
