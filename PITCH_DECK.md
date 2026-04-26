@@ -302,7 +302,47 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 
 ---
 
-## Slide 11 — The Market
+## Slide 11 — How We Win Against CrowdStrike's Compliance Surface
+
+> The most common investor objection in 2026: *"Doesn't CrowdStrike already do compliance?"*
+> Short answer: they ship vendor-locked dashboards. We ship audit infrastructure. Different products, different buyers, different defensibility.
+
+### The frame
+
+CrowdStrike's compliance footprint is real — Falcon Cloud Security CSPM (NIST / CIS / PCI / HIPAA / GDPR posture), Exposure Management compliance dashboards, FileVantage FIM (marketed as "Compliance, Simplified"), and the Drata + Falcon Exposure Management integration that maps vulnerability data to one specific test (DCF-18). Spring 2026's release explicitly markets "expanded governance"; AIDR (GA Dec 2025) extended Falcon to AI security with governance framing. The trajectory is real.
+
+It is also **categorically different from what we do**. CrowdStrike reports compliance for *Falcon's view of the customer's environment*. They do not run the audit cycle, orchestrate evidence across vendors, or produce artifacts an external auditor can attach to a workpaper.
+
+### Seven structural reasons we win
+
+| # | Win condition | Why CrowdStrike can't easily close it |
+|---|---|---|
+| 1 | **Workflow-grade, not dashboard-grade** | We run PBC lists, walkthroughs, control-test lifecycle, finding-to-closure, workpaper export. CrowdStrike's compliance is a view inside a security platform — our product is a different DNA, built for a different user. |
+| 2 | **Multi-source orchestration** | We pull from CrowdStrike + identity (Okta) + ticketing (Jira / ServiceNow) + cloud (CloudTrail) + (V2.0) other EDRs. CrowdStrike compliance can only ever see CrowdStrike data — architecturally. The moment a customer asks about a non-Falcon system, our wedge becomes inevitable. |
+| 3 | **Cross-framework many-to-many mapping** | One control test satisfies SOC 2 + NIST + ISO + PCI + HIPAA + CMMC simultaneously. CrowdStrike's mapping is one-to-one (Falcon → framework). Building many-to-many is a control-mapping data moat that takes years and improves with every customer. |
+| 4 | **Audit-defensible provenance chain** | Source + query + timestamp + raw payload (hash-pinned, 7-year retention) + AI prompt + model version + re-performance hook. Defensible under PCAOB AS 1105 / 1215. CrowdStrike dashboards are convenience views — auditors cannot attach them to workpapers. |
+| 5 | **Different buyer, different budget center** | CrowdStrike sells to CISO. We sell to CAE / CCO / IT Audit Manager / external Big 4 auditor. Different procurement motion. CrowdStrike has no sales organization into the audit committee — building one takes years. |
+| 6 | **Big 4 methodology embedment** | Audit firms adopt our workpaper format and methodology toolkit (precedent: Caseware, MindBridge, AuditFile). They cannot adopt the auditee's *security vendor* as audit methodology — the independence rules forbid it. Institutional moat that no security vendor can replicate. |
+| 7 | **Vendor-neutrality is a product claim, not a marketing claim** | Post the Jul 19, 2024 Falcon outage, "single-vendor lock-in" is a board-level conversation. We architecturally cannot be locked to CrowdStrike. CrowdStrike compliance architecturally cannot be anything *but* locked to CrowdStrike. The asymmetry sharpens every quarter. |
+
+### Where the gap could close — and how we mitigate
+
+| Risk | What it looks like | Mitigation |
+|---|---|---|
+| **CrowdStrike acquires a GRC startup** (Kansaro pattern, applied to IT audit) | Falcon adds a workpaper-grade compliance module via M&A | Be acquired *first*. Our 2027 acquisition-readiness clock (set by AuditBoard/Hg) is also the clock on this. |
+| **Charlotte AI extends into compliance assistant** (Spring 2026 trajectory) | A compliance-skin shipped natively in 2026–2027 | Depth advantage — full provenance chain, cross-framework mapping, and Big 4 customer references take 18+ months to replicate even with a head start. |
+| **Drata + Falcon integration deepens** beyond DCF-18 | Dozens of mappings shipped, becomes the de facto mid-market path | Cede mid-market posture-check segment to Drata/Vanta; differentiate on enterprise depth (population testing, AS 1215 retention, audit-committee features, multi-source). |
+
+### Concrete moves we are making now
+
+1. **CrowdStrike marketplace listing by Q4 2026.** Positions us as an integration partner, not a competitor. Surfaces us on CrowdStrike's M&A radar at the same time.
+2. **Pitch frames us as "partners with CrowdStrike."** Never "vs CrowdStrike." The frame: *"Falcon dashboards tell you about your cloud posture. We turn Falcon plus everything else into audit evidence your external auditor signs off on."*
+3. **Technical content piece on the depth gap.** "Mapping Falcon Exposure Management vulnerability data to PCAOB AS 1105–defensible audit evidence: what Drata's DCF-18 mapping does and does not cover." Positions us as the deep-end player; surfaces in CrowdStrike + Big 4 + audit-tech search.
+4. **First Big 4 audit-firm reference customer.** A single CrowdStrike-using Big 4 IT audit practice running our workpapers invalidates "CrowdStrike compliance is enough" for every enterprise prospect for the rest of the year.
+
+---
+
+## Slide 12 — The Market
 
 ### Who has this problem
 
@@ -337,7 +377,7 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 
 ---
 
-## Slide 12 — Business Model
+## Slide 13 — Business Model
 
 ### Pricing
 
@@ -365,7 +405,7 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 
 ---
 
-## Slide 13 — Go-To-Market
+## Slide 14 — Go-To-Market
 
 ### Phase 1 — Design Partners (Months 1–3)
 
@@ -394,7 +434,7 @@ Approach:
 
 ---
 
-## Slide 14 — Acquisition Thesis
+## Slide 15 — Acquisition Thesis
 
 This is built to be acquired. There is a clear primary buyer with timing pressure, and a credible fallback set if that buyer doesn't move.
 
@@ -447,7 +487,7 @@ Each of these has independent, current strategic motivation. Multiple credible b
 
 ---
 
-## Slide 15 — Ask
+## Slide 16 — Ask
 
 ### What we're building toward
 
