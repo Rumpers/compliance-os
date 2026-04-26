@@ -16,11 +16,13 @@ Compliance OS eliminates the manual, screenshot-based evidence collection proces
 
 ### What we are not building
 - A full enterprise GRC platform (not replacing ServiceNow GRC or Archer)
+- A connected reporting / financial close platform (not competing with Workiva's core; their March 2026 AI-GRC launch validates the category but they went broad — financial + ESG + general GRC — with no native security-telemetry connectors)
 - A security operations tool (not competing with CrowdStrike's core)
-- A generic compliance checklist tool (not Vanta or Drata)
+- A generic compliance checklist tool (not Vanta or Drata — agent-based posture checks)
 - A detection engineering platform (not CardinalOps)
+- An AI workpaper automation tool for *financial* audit (that is Kansaro, now Workiva)
 
-We are building the intelligent layer between security telemetry and compliance evidence — starting with the CrowdStrike ↔ AuditBoard gap.
+We are building **the intelligent layer between security telemetry and audit evidence** — starting with the CrowdStrike ↔ AuditBoard gap. Where Workiva went broad across the controller's office, we are going deep on the security/IT-audit wedge that none of the AI-GRC entrants have native connectors for.
 
 ---
 
@@ -767,6 +769,9 @@ Concrete actions:
 | **Hg Capital acquires a competing compliance-automation player first** (Hyperproof, Onspring, lower-tier of Vanta/Drata) and bolts it into AuditBoard | Medium | High | Move quickly to be the visible incumbent integration; engage AuditBoard partner / corp dev teams early in 2026 so Hg knows we exist; build features that would be redundant in any competing acquisition (deep CrowdStrike-specific evidence pipeline) |
 | **AuditBoard ships a native CrowdStrike connector internally before we reach material ARR** | Medium | High | Speed to first 50 customers; depth advantage (full evidence chain, AI-interpreted rationale, audit-grade provenance) over thin posture signals; framework-mapping moat that is hard to replicate quickly; Big 4 channel relationships that increase switching cost |
 | **AuditBoard customer-defection wedge from post-Hg price hikes** is wasted because we are not ready to receive defectors | Medium | Medium | Standalone deployment must be production-grade by month 9, not just a fallback narrative; have a "rip and replace from AuditBoard" migration path with imported control library, evidence history, and risk register |
+| **Workiva announces a CrowdStrike (or generic security-telemetry) connector** — they launched their AI-Powered GRC Platform Mar 9, 2026 and acquired Kansaro for AI auditor workflow; security telemetry is the obvious next gap | Medium | High | Build the deepest CrowdStrike-specific evidence pipeline on the market (full provenance, AI rationale, framework mapping, re-performance hook); make it harder to replicate than to acquire; engage Workiva BD/corp dev as a parallel acquisition path |
+| **Workiva acquires a competing security-telemetry-to-GRC startup before us** (the Kansaro pattern repeated for the IT-audit vertical) | Medium | High | Be visible — get to first paying customers fast, publish technical content on the CrowdStrike + audit-evidence wedge, attend IIA / ISACA / RSA where Workiva product team is recruiting acquisition targets |
+| **Workiva and AuditBoard converge on the same AI-GRC feature set**, commoditizing the AI evidence layer | Low | Medium | Defensibility is the security-telemetry depth and framework-mapping data moat — AI features alone are commoditizing across the category |
 
 ---
 

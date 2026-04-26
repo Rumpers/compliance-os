@@ -152,10 +152,12 @@ The regulatory and incident environment that makes this product necessary did no
 
 ## Acquisition Targets
 
-Built to be acquired. Strategic buyers in adjacent positions, with recent acquisition activity confirming the playbook:
+Built to be acquired. **Primary target: AuditBoard (Hg Capital portfolio).** Hg acquired AuditBoard May 2024 at reported ~$3B; PE hold of 5–7 years places exit window ~2028–2031. Bridge-mode positioning lands us on the M&A consideration list as a bolt-on.
 
+Fallback acquirers — each with independent, current strategic motivation:
+
+- **Workiva ($WK)** — public-company AI-GRC challenger. Launched the **AI-Powered Workiva GRC Platform on Mar 9, 2026** at IIA Great Audit Minds. Acquired **Kansaro** (AI workpaper automation for auditors) and **Sustain.Life** ($100M, Jun 2024). 70+ connectors but **no native security-telemetry connector** — Compliance OS is "Kansaro for IT/security audit," same M&A logic, different vertical.
 - **CrowdStrike** — extends Falcon into CFO/CAE budget. Pattern: Adaptive Shield (Nov 2024, ~$300M), Flow Security (Mar 2024, ~$200M), Bionic (Oct 2023, ~$350M), Humio (Feb 2021, ~$400M)
-- **AuditBoard (Hg Capital)** — gains real-time security telemetry; Hg's PE thesis is bolt-on M&A (acquired AuditBoard May 2024 at reported ~$3B)
 - **ServiceNow** — accelerates IRM security evidence story without internal build
 - **Palo Alto Networks** — active consolidator: Talon (Nov 2023, $625M), Dig Security (Nov 2023, ~$400M), QRadar SaaS from IBM (May 2024)
 - **SentinelOne** — needs the compliance layer to compete on board-level value; PingSafe (Jan 2024)

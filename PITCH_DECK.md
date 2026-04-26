@@ -433,6 +433,7 @@ Approach:
 | Company | What They Do | Why It's Different | 2025–2026 Position |
 |---|---|---|---|
 | **AuditBoard** | Enterprise GRC platform | No security telemetry integration; manual evidence only | Hg Capital portfolio (~$3B, May 2024); growth via PE bolt-ons |
+| **Workiva** | Connected reporting + AI-Powered GRC platform (launched **Mar 9, 2026** at IIA Great Audit Minds) | AI evidence analysis and control-health dashboards — but **70+ connectors are financial-system-oriented** (Oracle, Salesforce, Workday, BlackLine, Persefoni); **no native CrowdStrike or security-telemetry connectors** | Public ($WK), acquired **Kansaro** (AI workpaper automation for auditors, founders Laird/Joubert/Newcomer) and **Sustain.Life** ($100M, Jun 2024). Now the most credible AI-GRC challenger to AuditBoard. |
 | **CrowdStrike Charlotte AI** | AI SOC assistant | Security-only, no compliance output, no GRC layer | GA mid-2024; expanded with agentic capabilities 2025 |
 | **CardinalOps** | Detection engineering | Focuses on SIEM rule coverage, not GRC | Niche; partner not competitor |
 | **Vanta** | Compliance automation, mid-market origin | Pulls thin signals (MFA on? AV installed?); not deep telemetry; weakest at custom enterprise frameworks | Reported ~$2.45B valuation (2024 raise); pushing upmarket but enterprise IT-audit fit is unproven |
@@ -441,7 +442,13 @@ Approach:
 | **ServiceNow IRM** | Enterprise GRC inside ServiceNow | Massive, expensive, 12-month implementation; no native security telemetry | Strong in F500 but slow to evolve |
 | **Hyperproof / LogicGate / Onspring** | Mid-market GRC | No security telemetry layer | Compete with AuditBoard, not us |
 
-**The gap is specific**: nobody translates deep CrowdStrike telemetry into compliance evidence and live risk intelligence. Vanta knows if antivirus is installed. We know if it is actually working, what threats it blocked, what the population coverage is, and what an external auditor can rely on as evidence under PCAOB AS 1105.
+**The wedge is specific and defensible against every name in this table:**
+
+- **Workiva**: deep on financial reporting and now AI auditor workflow, but went **broad** across reporting + sustainability + GRC. Their connector library is built for the controller's office, not the SOC. They don't speak CrowdStrike.
+- **Vanta / Drata / Secureframe**: agent-based posture checks. They know *if* MFA is on. We know *what threats it blocked, on which population, with what exception rate, mapped to which control under which framework, with audit-grade provenance.*
+- **AuditBoard / ServiceNow IRM / Hyperproof**: GRC platforms that wait for evidence to be uploaded. They are the system of record; we are the system of *intake* that fills them.
+
+**Workiva's March 2026 launch is the most important competitive signal of the year — it validates the AI-GRC thesis from a public-company balance sheet, and proves the security-telemetry layer is still unowned.** Workiva went broad; we are going deep on the wedge they did not pursue.
 
 ### Defensibility
 
@@ -467,8 +474,13 @@ SEC Cyber Disclosure (live since Dec 2023), DORA (live since Jan 17, 2025), NIS2
 
 Each event made *evidence of working controls* a board-level demand, not a back-office artifact.
 
-**3. AI makes the translation layer possible**
+**3. AI makes the translation layer possible — and the market just confirmed it.**
 Two years ago, mapping raw CrowdStrike telemetry to compliance control language required a massive expert system. Today Claude maps it accurately in seconds. This product could not have been built before 2024. The launch of Claude Opus 4.x (2025) materially improved the rationale-and-citation quality required for audit-defensible AI output.
+
+The market validated this thesis with hard cash in 2025–2026:
+- **Workiva acquired Kansaro** (AI-powered workpaper automation for auditors) — same thesis applied to financial audit fieldwork. Workiva would not have spent the capital if AI-for-auditors were not now an acquirable category.
+- **Workiva launched its AI-Powered GRC Platform on Mar 9, 2026** at the IIA Great Audit Minds conference — AI evidence analysis, real-time control health, intelligent dashboards. A $WK public-company balance sheet is now publicly committed to the AI-GRC thesis.
+- Crucially, Workiva went **broad** (financial + sustainability + GRC) and **does not have native security-telemetry connectors**. The deep-on-security wedge is still open.
 
 **4. Security and compliance teams are merging — and the CISO is now a discloseable officer**
 Post-SolarWinds CISO charges (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) and Uber CISO conviction (May 2023), the CISO is personally on the hook for the accuracy of public statements about security controls. The wall between "security tool" and "compliance tool" is collapsing because the people accountable for both are converging — frequently the same person, with the same liability.
@@ -516,6 +528,13 @@ Each of these has independent, current strategic motivation. Multiple credible b
 #### SentinelOne
 - Acquired **PingSafe** (Jan 2024, ~$100M, CNAPP)
 - Same thesis as CrowdStrike but earlier in the platform-extension curve; needs the compliance layer to compete on board-level value
+
+#### Workiva ($WK)
+- Public company; just launched the **AI-Powered Workiva GRC Platform on Mar 9, 2026**, declaring AI-driven evidence analysis and intelligent control-health dashboards the new center of GRC
+- Acquired **Kansaro** (AI workpaper automation for auditors) — the explicit precedent that Workiva will pay for category-specific AI audit tooling
+- Acquired **Sustain.Life** ($100M, Jun 2024) for ESG; **OneCloud** for iPaaS; **AuditNet** to extend GRC
+- Structural gap: 70+ connectors are financial-system-oriented (Oracle, Salesforce, Workday, BlackLine, Persefoni). **No native CrowdStrike or security-telemetry connector.** Compliance OS is the closest thing on the market to "Kansaro for IT/security audit" — same acquisition logic, different vertical.
+- Probably the highest-conviction *secondary* buyer after AuditBoard/Hg, given the public commitment to AI-GRC and the explicit M&A pattern.
 
 #### Wiz / Snyk / other CNAPP and DSPM platforms
 - Compliance OS framework-mapping engine is the layer they would need to enter the GRC market
