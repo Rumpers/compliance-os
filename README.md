@@ -112,6 +112,12 @@ SOC 2 · NIST CSF · PCI-DSS v4.0 · HIPAA · ISO 27001 · CMMC *(roadmap)*
 
 ---
 
+## Live Demo
+
+**https://rumpers.github.io/compliance-os/**
+
+Interactive mockups hosted on GitHub Pages — open in any browser, navigation between all screens works.
+
 ## Status
 
 Pre-MVP — architecture, planning, and mockups complete. Build starting.
