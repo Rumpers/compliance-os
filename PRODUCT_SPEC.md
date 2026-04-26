@@ -140,18 +140,40 @@ We are building **the intelligent layer between security telemetry and audit evi
 
 ---
 
-### UC-3: Live Risk Register Update
-**Actor**: System (event-driven)
-**Trigger**: Critical cybersecurity-platform detection or threshold change
-**Flow**:
-1. Security-platform event received (detection, new CVE, coverage drop)
-2. AI determines risk register impact
-3. Affected risks updated with new scores and evidence
-4. Risk owners notified with context
-5. Related controls flagged for immediate re-testing
-6. Regulatory notification obligations assessed
+### UC-3: Live Risk Register Update — Replacing the Quarterly Risk Assessment
 
-**Success criteria**: Risk register reflects live threat environment within 5 minutes of security-platform event
+**Strategic intent.** This use case does not just *augment* the legacy risk assessment process; it *replaces* it. The traditional quarterly facilitator-workshop + sticky-note-voting + static-heatmap workflow is structurally broken under DORA's continuous-ICT-risk requirement (live Jan 17, 2025), NIS2's ongoing risk-management obligation (transposed Oct 2024), the SEC Cyber Disclosure Rule's 4-business-day Item 1.05 8-K clock, and the *Caremark / Marchand / Boeing* duty-of-oversight standard. Quarterly cycles are mathematically incompatible with continuous obligations.
+
+Compliance OS turns risk assessment from a periodic event into an event-driven continuous process driven by live cybersecurity-platform telemetry. Risk owners are no longer reading retrospective heatmaps; they are responding to current state.
+
+**Actor**: System (event-driven)
+**Trigger**: Critical cybersecurity-platform detection, new high-severity CVE on covered assets, coverage drop, or peer-incident threat-intel match
+**Flow**:
+1. Security-platform event received (detection, new CVE, coverage drop, threat-intel signal)
+2. AI determines which risks in the register are affected (using the control-mapping engine and threat-intel cross-walk)
+3. Affected risks updated with new likelihood / impact scores and evidence (raw event data, ATT&CK technique IDs, AI rationale, timestamp)
+4. Risk owners notified with context — what changed, why, what to do
+5. Related controls flagged for immediate re-testing
+6. Regulatory notification obligations assessed (HIPAA 60-day, GDPR 72-hour, SEC 4-business-day, DORA 24-hour-major-incident)
+7. Board portal reflects the change — no waiting for the next quarterly meeting
+
+**Success criteria** (multiple — this is the single most important use case in the product):
+- Risk register reflects live threat environment within **5 minutes** of security-platform event
+- Every score change is **defensible** — carries source event ID, raw payload, AI prompt + model version, timestamp; retained 7 years under PCAOB AS 1215
+- Board portal shows current state on any business day without manual refresh
+- Risk owners receive event-level notifications, not quarter-end summaries
+- Regulatory notification clocks start automatically; no manual trigger required
+- The customer can deprecate their quarterly risk-assessment workshop within 6 months of go-live
+
+**What this use case obsoletes.**
+
+| Legacy artifact | Replaced by |
+|---|---|
+| Quarterly risk-assessment facilitator workshop | Continuous event-driven assessment |
+| Likelihood/impact voting on sticky notes | Telemetry-grounded scoring with documented rationale |
+| Static risk register with 90-day refresh | Live register, sub-5-minute update latency |
+| Retrospective board heatmap | Real-time board portal |
+| "Trust us" defensibility | Provenance chain on every score change |
 
 ---
 

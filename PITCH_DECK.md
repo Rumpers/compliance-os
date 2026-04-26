@@ -170,20 +170,44 @@ The moment an auditor opens a control test, instead of sending a manual request:
 
 ---
 
-### Live Risk Register
+### Live Risk Register — Killing the Quarterly Risk Assessment
 
-Risk scores update automatically when CrowdStrike detects significant events:
+The legacy risk assessment is a 30-year-old artifact. Once a quarter, a facilitator gathers risk owners in a room (or on Zoom), they vote on likelihood and impact with sticky notes, somebody types the result into AuditBoard, and the board sees a heatmap that is **already 6 weeks stale by the time it is presented.**
+
+This entire workflow is now structurally broken:
+
+- **Regulators have outlawed it.** DORA (live Jan 17, 2025) and NIS2 (transposed Oct 2024) require *continuous* ICT risk management. Quarterly assessment cycles are mathematically incompatible with continuous obligations.
+- **The board is personally liable for it.** *Caremark / Marchand / Boeing* duty of oversight requires actively monitored mission-critical risk. Quarterly snapshots are not oversight; they are retrospective reporting.
+- **The signal exists already.** CrowdStrike knows about every relevant threat in real time. That signal never reaches the risk register today.
+- **Opinion-scored risk is not defensible.** When the SEC asks "what is your basis for this rating in the 10-K?", *"we workshopped it in March"* is not an answer.
+
+**Compliance OS replaces this entire workflow.**
+
+| Legacy quarterly process | Compliance OS continuous process |
+|---|---|
+| Facilitator workshop, sticky-note voting | Event-driven, telemetry-grounded |
+| "Ransomware Risk: High" (opinion) | "Ransomware Risk: HIGH — 47 unpatched endpoints with the active CVE, 3 peer breaches this month, CrowdStrike blocked matching intrusion last week" |
+| Static artifact, 90 days stale | Live; updates within 5 minutes of new signal |
+| Risk owner notified at quarter-end | Risk owner notified at moment of change |
+| Board sees retrospective heatmap once per quarter | Board portal shows current state any business day |
+| "Trust us" defensibility | Every score change carries source data, AI rationale, and timestamp — discoverable, auditable, retained 7 years |
+
+**End-to-end example:**
 
 ```
 CrowdStrike: Critical detection — ransomware behavior on finance server
 
-Compliance OS:
+Compliance OS (within 5 minutes):
 → Risk "Ransomware / Malware" updated: Likelihood HIGH (was Medium)
-→ Evidence attached: detection ID, affected asset, timeline
+→ Evidence attached: detection ID, affected asset, timeline, ATT&CK technique IDs
 → Risk owner notified: VP Finance, CISO
-→ Related controls flagged for re-testing
-→ Regulatory obligations assessed: HIPAA breach notification not yet triggered
+→ Related controls flagged for re-testing (CC7.2, NIST DE.CM)
+→ Regulatory obligations assessed: HIPAA breach notification clock not yet triggered
+→ Board portal updated immediately — no waiting for the next quarterly meeting
+→ Audit committee chair sees the change on their next login, with full provenance
 ```
+
+**The quarterly risk assessment is dead. We are the thing that kills it.**
 
 ---
 
