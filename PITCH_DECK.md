@@ -84,7 +84,7 @@ This means **thousands of manual evidence requests per year** — each pulling a
 
 ### The deeper problem
 
-Optro's risk register shows risks rated by human opinion: *"Ransomware Risk: High."*
+Optro has the risk register infrastructure — risk entries, KRIs, AI-assisted workflows, continuous-monitoring positioning. **What it does not have is a feed from the EDR data plane.** When CrowdStrike blocks a real ransomware attempt on the CFO's machine, that signal does not reach the register. Most enterprises still update *"Ransomware Risk: High"* by quarterly opinion because the live signal has nowhere to flow into.
 
 Meanwhile CrowdStrike knows:
 - 3 peers in your industry were hit by ransomware this month
@@ -92,7 +92,7 @@ Meanwhile CrowdStrike knows:
 - One belongs to your CFO
 - Last week CrowdStrike blocked an intrusion matching the same threat actor
 
-**None of that intelligence reaches the risk manager. The board is making decisions based on last year's thinking.**
+**None of that intelligence reaches the risk manager. The board is making decisions based on last quarter's opinion, not this morning's telemetry.**
 
 ---
 
@@ -195,7 +195,9 @@ The moment an auditor opens a control test, instead of sending a manual request:
 
 ### Live Risk Register — Killing the Quarterly Risk Assessment
 
-The legacy risk assessment is a 30-year-old artifact. Once a quarter, a facilitator gathers risk owners in a room (or on Zoom), they vote on likelihood and impact with sticky notes, somebody types the result into Optro (or AuditBoard, as it was called until March 2026), and the board sees a heatmap that is **already 6 weeks stale by the time it is presented.**
+The legacy risk assessment is a 30-year-old artifact. Once a quarter, a facilitator gathers risk owners in a room (or on Zoom), they vote on likelihood and impact with sticky notes, somebody types the result into Optro — and the board sees a heatmap that is **already 6 weeks stale by the time it is presented.**
+
+**This persists even though Optro now markets continuous risk monitoring** (RiskOversight KRIs since 2021, AI Accelerate, March 2026 Vulnerability Risk Monitoring). Customers still operate quarterly because the deep-EDR data plane that would make "continuous" actually continuous is not in the platform. Tenable feeds Optro CVE-level signal; nothing feeds it the detection events.
 
 This entire workflow is now structurally broken:
 
