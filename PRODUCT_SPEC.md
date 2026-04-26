@@ -115,7 +115,7 @@ We are building **the intelligent layer between security telemetry and audit evi
 **Trigger**: Audit cycle begins, control test opened
 **Flow**:
 1. Auditor opens control test in Compliance OS
-2. System queries CrowdStrike API for relevant data
+2. System queries cybersecurity platform API for relevant data
 3. AI interprets raw data in compliance context
 4. Formatted evidence package attached to control test
 5. Control status set automatically (PASS / FAIL / EXCEPTION)
@@ -757,7 +757,7 @@ Concrete actions:
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
 | AuditBoard API access requires partner agreement (now Hg-owned, gating may tighten) | High | Medium | Build standalone product first; AuditBoard connector is optional enhancement; build to where buyer behavior is going (replacement, not integration) |
-| CrowdStrike API rate limits at scale | Medium | Medium | Pagination, batching, server-side caching; request enterprise rate limit increase; for very large tenants use Falcon Data Replicator (FDR) S3 stream rather than API polling |
+| cybersecurity platform API rate limits at scale | Medium | Medium | Pagination, batching, server-side caching; request enterprise rate limit increase; for very large tenants use Falcon Data Replicator (FDR) S3 stream rather than API polling |
 | AI evidence quality not trusted by auditors | Medium | High | Human approval step on all AI output; raw data shown alongside summary; prompt and model versioning recorded with each artifact; feedback loop trains prompt revisions |
 | **Vendor concentration concerns post-Falcon outage (Jul 19, 2024)** | Medium | Medium | Roadmap to multi-EDR support (SentinelOne, MS Defender for Endpoint) by V2.0; position as vendor-agnostic compliance layer not a CrowdStrike skin |
 | CrowdStrike builds this natively (e.g., extending Charlotte AI into GRC) | Medium | High | Move fast to be acquisition-ready; build framework-mapping moat; deepen Big 4 channel relationships that increase strategic value to acquirer |

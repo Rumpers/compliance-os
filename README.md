@@ -1,33 +1,33 @@
 # Compliance OS
 
-> AI-powered GRC platform that turns live CrowdStrike security telemetry into real-time audit evidence, automated control testing, and threat-informed risk intelligence — replacing the manual, screenshot-based compliance workflows that cost enterprises thousands of hours per year.
+> AI-powered GRC platform that turns live cybersecurity telemetry into real-time audit evidence, automated control testing, and threat-informed risk intelligence — replacing the manual, screenshot-based compliance workflows that cost enterprises thousands of hours per year.
 
 ---
 
 ## The Problem
 
-Companies using CrowdStrike and AuditBoard operate two systems that should be deeply connected but share nothing.
+Enterprises run a major cybersecurity platform on one side and an enterprise GRC platform on the other. Two systems that should be deeply connected, share nothing.
 
 The **security team** has real-time visibility into every threat, vulnerability, and endpoint in the organization. The **audit team** needs evidence that controls are working — and gets it by manually requesting CSV exports from the security team, waiting days, uploading stale screenshots, and repeating the cycle for every control, every audit, every quarter.
 
-Meanwhile, the risk register is updated quarterly by human opinion. CrowdStrike knows a ransomware campaign is actively targeting your industry right now — that intelligence never reaches the risk manager.
+Meanwhile, the risk register is updated quarterly by human opinion. The cybersecurity platform knows a ransomware campaign is actively targeting your industry right now — that intelligence never reaches the risk manager.
 
-**There is no integration between CrowdStrike and AuditBoard. None.**
+**There is no live integration between the two systems. None.**
 
 ---
 
 ## The Solution
 
-Compliance OS is the **security-telemetry intelligence layer for AuditBoard**, with a standalone GRC platform underneath for enterprises that don't run AuditBoard.
+Compliance OS is the **security-telemetry intelligence layer that bridges any major cybersecurity platform to any major enterprise GRC platform**, with a standalone GRC layer underneath for enterprises without one.
 
-- **Bridge mode (primary)** — For the ~2,000+ enterprises already on AuditBoard, evidence flows directly into existing AuditBoard control tests. Customers keep their GRC platform, contracts, training, workpaper conventions. We add the part that hurts.
-- **Standalone (fallback)** — For enterprises not yet on AuditBoard, Compliance OS is a full GRC platform on its own — useful both as a greenfield deployment and as a rip-and-replace target for AuditBoard customers facing post-Hg-acquisition price hikes at renewal.
+- **Bridge mode (primary)** — For enterprises already on an enterprise GRC platform, evidence flows directly into their existing control tests. Customers keep their GRC platform, contracts, training, and workpaper conventions. We add the part that hurts.
+- **Standalone (fallback)** — For enterprises without a GRC platform, Compliance OS is a full GRC platform on its own — useful both as a greenfield deployment and as a rip-and-replace target for GRC customers facing PE-driven price hikes at renewal.
 
 What both modes deliver:
-- **Automated evidence collection** — CrowdStrike data flows directly into control tests. What took 3 days takes 90 seconds.
+- **Automated evidence collection** — security-platform data flows directly into control tests. What took 3 days takes 90 seconds.
 - **AI interpretation** — Claude reads raw security telemetry and produces auditor-ready compliance narratives mapped to specific control IDs.
-- **Live risk register** — Risk scores update automatically when CrowdStrike detects significant events. No more quarterly opinion updates.
-- **Closed remediation loop** — Findings auto-created from failed controls, tracked through to CrowdStrike-confirmed resolution.
+- **Live risk register** — Risk scores update automatically when the cybersecurity platform detects significant events. No more quarterly opinion updates.
+- **Closed remediation loop** — Findings auto-created from failed controls, tracked through to security-platform-confirmed resolution.
 - **Audit-grade evidence chain** — every artifact carries source, query, timestamp, AI prompt + model version, and re-performance hook. Defensible under PCAOB AS 1105 / 1215.
 
 ---
@@ -38,8 +38,8 @@ What both modes deliver:
 |---|---|
 | [Dashboard](./mockups/dashboard.html) | Compliance posture score, framework breakdown, live activity feed |
 | [Controls](./mockups/controls.html) | All controls across all frameworks with real-time status |
-| [Evidence Detail](./mockups/evidence.html) | AI-generated evidence with raw data, audit trail, AuditBoard sync status |
-| [Integrations](./mockups/integrations.html) | CrowdStrike connection, AuditBoard connector, sync logs |
+| [Evidence Detail](./mockups/evidence.html) | AI-generated evidence with raw data, audit trail, GRC-platform sync status |
+| [Integrations](./mockups/integrations.html) | Cybersecurity-platform connection, GRC-platform connector, sync logs |
 
 > Open any HTML file directly in a browser — navigation links between all screens work.
 
@@ -58,7 +58,7 @@ What both modes deliver:
 ## How It Works
 
 ```
-CrowdStrike Falcon API
+Cybersecurity platform API (EDR / VM / detection)
         ↓
   Connector Layer (auth, retry, pagination)
         ↓
@@ -78,8 +78,8 @@ CrowdStrike Falcon API
   │  Findings · Frameworks · Reports    │
   └─────────────────────────────────────┘
         ↓ (optional)
-  AuditBoard Connector
-  → pushes formatted evidence to existing AuditBoard control tests
+  GRC-platform Connector
+  → pushes formatted evidence to existing control tests in customer's GRC tenant
 ```
 
 ---
@@ -107,17 +107,16 @@ CrowdStrike Falcon API
 
 ## Connectors
 
-**Data Sources**
-- CrowdStrike Falcon *(required for MVP — agent coverage, Spotlight vulnerabilities, detections)*
-- Microsoft Defender for Endpoint *(V2.0 — multi-EDR support post-Jul 2024 Falcon outage)*
-- SentinelOne Singularity *(V2.0)*
-- Okta *(roadmap — identity & access)*
-- AWS CloudTrail *(roadmap — cloud activity)*
+**Data Sources (cybersecurity platforms)**
+- One major EDR vendor *(required for MVP — agent coverage, vulnerability data, detections; first-vendor-supported announced separately)*
+- Additional EDR vendors *(V2.0 — multi-vendor support, prioritized post-Jul 2024 industry-wide vendor-concentration discussions)*
+- Identity provider *(roadmap)*
+- Cloud activity logs *(roadmap)*
 
 **GRC Destinations**
-- AuditBoard *(optional — push evidence into existing tenant)*
-- ServiceNow IRM *(roadmap)*
-- Hyperproof / LogicGate *(roadmap)*
+- Leading enterprise GRC platform *(optional bridge mode — push evidence into customer's existing tenant)*
+- Additional enterprise GRC platforms *(roadmap)*
+- Mid-market GRC platforms *(roadmap)*
 
 ---
 
@@ -145,21 +144,19 @@ The regulatory and incident environment that makes this product necessary did no
 - **PCI-DSS v4.0.1** — full enforcement Mar 31, 2025
 - **EU AI Act** — phased application through 2026
 - **Change Healthcare ransomware** (Feb 2024) and **Snowflake credential incidents** (May–Jul 2024) — reframed third-party risk for every board
-- **CrowdStrike Falcon outage** (Jul 19, 2024) — created the precedent question: who is liable for security-vendor reliability, and how is it evidenced
+- **Major EDR-vendor outage** (Jul 19, 2024) — single faulty content update from a leading EDR vendor grounded ~8.5M endpoints globally; created the precedent question of who is liable for security-vendor reliability, and how it is evidenced
 - **SolarWinds CISO action** (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) — CISO is now a discloseable officer with personal exposure
 
 ---
 
 ## Acquisition Targets
 
-Built to be acquired. **Primary target: AuditBoard (Hg Capital portfolio).** Hg acquired AuditBoard May 2024 at reported ~$3B; PE hold of 5–7 years places exit window ~2028–2031. Bridge-mode positioning lands us on the M&A consideration list as a bolt-on.
+Built to be acquired by buyers in five adjacent positions. Each has independent, current strategic motivation. Multiple credible buyers in adjacent positions = auction dynamic at exit.
 
-Fallback acquirers — each with independent, current strategic motivation:
+- **Category-leading enterprise GRC platform** *(primary target — now PE-backed since May 2024 at reported ~$3B; PE hold of 5–7 years places exit window ~2028–2031; bridge-mode positioning lands us on the M&A consideration list as a bolt-on)*
+- **Public-company AI-GRC challenger** — launched its AI-Powered GRC Platform Mar 9, 2026; acquired an AI-workpaper-automation startup as the precedent that this buyer pays for category-specific AI audit tooling; 70+ connectors but none for security telemetry
+- **Major EDR / cybersecurity-platform vendors** — active consolidators extending their platforms into the CFO / CAE / CCO budget through bolt-on acquisitions in adjacent security categories
+- **Enterprise IRM / ITSM platforms** — accelerate their security-evidence story without internal build
+- **CNAPP / DSPM platforms** — need a framework-mapping engine to enter GRC
 
-- **Workiva ($WK)** — public-company AI-GRC challenger. Launched the **AI-Powered Workiva GRC Platform on Mar 9, 2026** at IIA Great Audit Minds. Acquired **Kansaro** (AI workpaper automation for auditors) and **Sustain.Life** ($100M, Jun 2024). 70+ connectors but **no native security-telemetry connector** — Compliance OS is "Kansaro for IT/security audit," same M&A logic, different vertical.
-- **CrowdStrike** — extends Falcon into CFO/CAE budget. Pattern: Adaptive Shield (Nov 2024, ~$300M), Flow Security (Mar 2024, ~$200M), Bionic (Oct 2023, ~$350M), Humio (Feb 2021, ~$400M)
-- **ServiceNow** — accelerates IRM security evidence story without internal build
-- **Palo Alto Networks** — active consolidator: Talon (Nov 2023, $625M), Dig Security (Nov 2023, ~$400M), QRadar SaaS from IBM (May 2024)
-- **SentinelOne** — needs the compliance layer to compete on board-level value; PingSafe (Jan 2024)
-
-Multiple credible buyers in adjacent positions = auction dynamic at exit.
+Specific named buyers, recent M&A comparables, and timeline pressure are detailed in the Acquisition Thesis section of the pitch deck.
