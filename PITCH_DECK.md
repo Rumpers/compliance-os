@@ -10,7 +10,7 @@
 
 The **Security Team** lives in CrowdStrike. They see every threat, every vulnerability, every misconfigured endpoint in real time. They have the most accurate picture of the organization's security posture that has ever existed.
 
-The **Audit & Compliance Team** lives in AuditBoard. They manage controls, run audits, maintain the risk register, and answer the question every board member asks: *"Are our controls actually working?"*
+The **Audit & Compliance Team** lives in Optro (the artist formerly known as AuditBoard). They manage controls, run audits, maintain the risk register, and answer the question every board member asks: *"Are our controls actually working?"*
 
 **These two teams share the same building. Their systems share nothing.**
 
@@ -18,19 +18,42 @@ The **Audit & Compliance Team** lives in AuditBoard. They manage controls, run a
 
 ## Slide 2 — The Validation Signal
 
-**The market just paid hard cash for the AI-for-auditors thesis. Twice. From a $WK public-company balance sheet.**
+**The market is no longer asking "is AI-for-GRC real?" It is asking "who consolidates fastest?" The category has consolidated $4B+ in M&A and Series-D funding in the last 18 months — and the two largest enterprise GRC players made simultaneous AI-GRC announcements at the same conference on the same day.**
 
-| Move | When | What it signals |
+### The March 9, 2026 dual announcement
+
+At the **IIA Great Audit Minds conference in Las Vegas**, two of the largest GRC platforms made competing announcements within hours of each other:
+
+| Company | Announcement | What it signals |
 |---|---|---|
-| **Workiva acquired Kansaro** (AI-powered workpaper automation, founders Laird / Joubert / Newcomer) | 2025–2026 | AI-for-auditors is now an acquirable category. Workiva will not have spent the capital otherwise. |
-| **Workiva launched the AI-Powered Workiva GRC Platform** at the IIA Great Audit Minds conference | **March 9, 2026** | A public company is now formally committed to AI-driven evidence analysis, real-time control-health dashboards, and AI-mapped risks/controls as the new center of GRC. |
-| **AuditBoard acquired by Hg Capital** at reported ~$3B valuation | May 2024 | The category leader is now PE-backed with a 5–7 year exit clock. Bolt-on M&A is the playbook. |
+| **AuditBoard → Optro** | Rebranded as "Optro" — explicitly positioning as AI-driven GRC. CEO Raul Villar Jr. (ex-Paycor, July 2025); $300M+ ARR (Oct 2025); Hg Capital portfolio since May 2024 ($3B+) | The category leader (~50% of Fortune 500) is escalating to AI-first identity. PE owner is preparing for exit; rebrand is the modernization step before sale. |
+| **Workiva** | Launched the **AI-Powered Workiva GRC Platform** — AI evidence analysis, real-time control-health dashboards, "anticipate / advise / act" framing | Public-company $WK balance sheet now formally committed to the AI-GRC thesis. Direct competitive shot at Optro. |
 
-**Crucially — Workiva went broad. We go deep on the wedge they did not pursue.**
+Two of the largest GRC platforms in the world picking the same battleground on the same day is not coincidence. **It is an arms race.**
 
-Workiva has 70+ connectors. They are all financial-system-oriented: Oracle, Salesforce, Workday, BlackLine, Persefoni. They have **no native CrowdStrike or security-telemetry connector**. The deep, audit-grade pipeline from security telemetry to compliance evidence is unowned by every AI-GRC entrant in the market.
+### M&A and funding across the category (2024–2025)
 
-**That is the wedge Compliance OS owns.** Same M&A logic Workiva applied to financial audit (Kansaro), applied to the IT/security audit vertical no one else has built for.
+| Move | Date | Amount | Signal |
+|---|---|---|---|
+| **Hg Capital acquires AuditBoard** | May 23, 2024 | $3B+ | PE consolidation; bolt-on playbook ahead of 2028–2031 exit |
+| **Drata acquires oak9** ("compliance as code") | May 2024 | undisclosed | Compliance-automation category extending into IaC security |
+| **Workiva acquires Sustain.Life** | June 2024 | $100M | Workiva extending into ESG via specialist M&A |
+| **Drata acquires SafeBase** (trust management) | Feb 11, 2025 | $250M | Direct M&A in compliance category — trust infrastructure consolidation |
+| **Vanta closes Series D** (led by Wellington Management) | July 2025 | $150M @ $4.15B valuation | Compliance automation now a public-company-track category; 12,000 → 15,000+ customers in 9 months |
+| **Workiva acquires Kansaro** (AI workpaper automation for auditors; founders Laird / Joubert / Newcomer) | 2025–2026 | undisclosed | AI-for-auditors is now an acquirable category. Workiva would not have spent capital otherwise. **The closest-analog precedent for our acquisition path.** |
+| **AuditBoard rebrands to Optro** + Workiva AI-GRC launch (same conference) | March 9, 2026 | — | Category leaders openly racing on AI-GRC identity |
+| **Vanta launches Compliance / TPRM / Customer Trust Agents** at "Vanta Delivers" | March 2026 | — | "Agentic trust" — the unanimous category direction |
+| **Drata launches Drata MCP** + agentic platform | Late 2025 / 2026 | — | Both Vanta and Drata pivoted to AI agents in 2025–2026 |
+
+### Crucially — every AI-GRC entrant went broad. We go deep on the wedge none of them pursued.
+
+- **Workiva** has 70+ connectors — all financial-system-oriented (Oracle, Salesforce, Workday, BlackLine, Persefoni). No native CrowdStrike or security-telemetry connector.
+- **Optro (AuditBoard)** is a system of record that *waits* for evidence to be uploaded. No native cybersecurity-platform connector.
+- **Vanta and Drata** have hundreds of integrations but they are *agent-based posture checks* (MFA on? AV installed?), not deep-telemetry workflow.
+
+The deep, audit-grade pipeline from security telemetry to compliance evidence is **unowned by every player in the table above**.
+
+**That is the wedge Compliance OS owns.** Same M&A logic Workiva applied to financial audit (Kansaro), and that Drata applied to trust management (SafeBase $250M), applied to the IT/security audit vertical no one else has built for.
 
 ---
 
@@ -39,7 +62,7 @@ Workiva has 70+ connectors. They are all financial-system-oriented: Oracle, Sale
 ### What happens every audit cycle
 
 ```
-Auditor opens AuditBoard
+Auditor opens Optro (formerly AuditBoard)
   → Creates control test: "Verify endpoint protection on all devices"
   → Sends manual request to IT Security team
   → Waits 3-5 days
@@ -61,7 +84,7 @@ This means **thousands of manual evidence requests per year** — each pulling a
 
 ### The deeper problem
 
-AuditBoard's risk register shows risks rated by human opinion: *"Ransomware Risk: High."*
+Optro's risk register shows risks rated by human opinion: *"Ransomware Risk: High."*
 
 Meanwhile CrowdStrike knows:
 - 3 peers in your industry were hit by ransomware this month
@@ -115,7 +138,7 @@ Post-SolarWinds CISO charges (Oct 2023; securities-fraud claim survived motion t
 
 ### Compliance OS
 
-**The security-telemetry intelligence layer for AuditBoard — starting with CrowdStrike as the first data source, with a multi-vendor architecture from day one.**
+**The security-telemetry intelligence layer for Optro (formerly AuditBoard) — starting with CrowdStrike as the first data source, with a multi-vendor architecture from day one.**
 
 ```
 CrowdStrike Falcon (MVP)  ← multi-vendor expansion: SentinelOne, MS Defender, etc. (V2.0)
@@ -127,18 +150,18 @@ Compliance OS
   ├── Risk Register (live)
   ├── Findings & Remediation
   └── Framework Dashboard
-        ↓ primary deployment for AuditBoard customers
-    AuditBoard Connector → AuditBoard tenant  ← future GRC connectors: ServiceNow IRM, Hyperproof, LogicGate
+        ↓ primary deployment for Optro customers
+    Optro Connector → Optro tenant  ← future GRC connectors: ServiceNow IRM, Hyperproof, LogicGate
 ```
 
 **Primary positioning: bridge mode.**
-For the ~2,000+ enterprises already running AuditBoard, Compliance OS is the missing automation layer — CrowdStrike evidence flows directly into existing AuditBoard control tests. Customers keep AuditBoard, contracts, training, workpaper conventions. We add the part that hurts.
+For the ~2,000+ enterprises already running Optro (~50% of Fortune 500), Compliance OS is the missing automation layer — CrowdStrike evidence flows directly into existing Optro control tests. Customers keep Optro, contracts, training, workpaper conventions. We add the part that hurts.
 
 **Fallback positioning: standalone.**
-For enterprises not on AuditBoard (or actively evaluating alternatives — increasingly common as Hg-driven price hikes hit renewal cycles), Compliance OS is a full GRC platform on its own.
+For enterprises not on Optro (or actively evaluating alternatives — increasingly common as Hg-driven price hikes hit renewal cycles), Compliance OS is a full GRC platform on its own.
 
 **Why bridge-first matters strategically.**
-AuditBoard was acquired by Hg Capital in May 2024 (~$3B reported). Hg's playbook is bolt-on M&A to expand ARR ahead of an exit. A visible, paying, customer-validated integration on the AuditBoard ecosystem is the fastest path to being a tuck-in candidate — not a competitor to a PE-backed dealmaker. Bridge-mode is product strategy *and* exit strategy.
+AuditBoard was acquired by Hg Capital in May 2024 (~$3B reported) and rebranded to Optro on March 9, 2026. Hg's playbook is bolt-on M&A to expand ARR ahead of an exit; the rebrand is the modernization step before sale. A visible, paying, customer-validated integration on the Optro ecosystem is the fastest path to being a tuck-in candidate — not a competitor to a PE-backed dealmaker. Bridge-mode is product strategy *and* exit strategy.
 
 **Why we win on the security side, not just the GRC side.**
 CrowdStrike Falcon Cloud Security ships compliance dashboards (NIST / CIS / FedRAMP / PCI / HIPAA / GDPR), but they are **vendor-locked, posture-only, and read-only** — they report compliance for *Falcon's view of cloud workloads*. Compliance OS is the layer above:
@@ -172,7 +195,7 @@ The moment an auditor opens a control test, instead of sending a manual request:
 
 ### Live Risk Register — Killing the Quarterly Risk Assessment
 
-The legacy risk assessment is a 30-year-old artifact. Once a quarter, a facilitator gathers risk owners in a room (or on Zoom), they vote on likelihood and impact with sticky notes, somebody types the result into AuditBoard, and the board sees a heatmap that is **already 6 weeks stale by the time it is presented.**
+The legacy risk assessment is a 30-year-old artifact. Once a quarter, a facilitator gathers risk owners in a room (or on Zoom), they vote on likelihood and impact with sticky notes, somebody types the result into Optro (or AuditBoard, as it was called until March 2026), and the board sees a heatmap that is **already 6 weeks stale by the time it is presented.**
 
 This entire workflow is now structurally broken:
 
@@ -295,7 +318,7 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 
 **Integrations**
 - **CrowdStrike Falcon** (required at MVP — primary data source); **SentinelOne, Microsoft Defender for Endpoint** on V2.0 roadmap (multi-EDR is a deliberate design choice, not an aspiration)
-- **AuditBoard** (optional bridge connector — push evidence to existing tenant); **ServiceNow IRM, Hyperproof, LogicGate** on roadmap
+- **Optro** (optional bridge connector — push evidence to existing tenant); **ServiceNow IRM, Hyperproof, LogicGate** on roadmap
 - Okta, Jira, ServiceNow ITSM (roadmap)
 
 ---
@@ -324,27 +347,29 @@ Each new connector unlocks a new risk domain on the live-register model. The exp
 
 | Company | What They Do | Why It's Different | 2025–2026 Position |
 |---|---|---|---|
-| **AuditBoard** | Enterprise GRC platform | No security telemetry integration; manual evidence only | Hg Capital portfolio (~$3B, May 2024); growth via PE bolt-ons |
-| **Workiva** | Connected reporting + AI-Powered GRC platform (launched **Mar 9, 2026** at IIA Great Audit Minds) | AI evidence analysis and control-health dashboards — but **70+ connectors are financial-system-oriented** (Oracle, Salesforce, Workday, BlackLine, Persefoni); **no native CrowdStrike or security-telemetry connectors** | Public ($WK), acquired **Kansaro** (AI workpaper automation for auditors, founders Laird/Joubert/Newcomer) and **Sustain.Life** ($100M, Jun 2024). Now the most credible AI-GRC challenger to AuditBoard. |
+| **Optro (formerly AuditBoard)** | Enterprise GRC platform | No security telemetry integration; manual evidence only | **Rebranded Mar 9, 2026** at IIA Great Audit Minds, emphasizing AI-driven GRC. Hg Capital portfolio (~$3B, May 2024); $300M+ ARR (Oct 2025); CEO Raul Villar Jr. (ex-Paycor, July 2025); growth via PE bolt-ons |
+| **Workiva** | Connected reporting + AI-Powered GRC platform (launched **Mar 9, 2026** at IIA Great Audit Minds — same day as Optro rebrand) | AI evidence analysis and control-health dashboards — but **70+ connectors are financial-system-oriented** (Oracle, Salesforce, Workday, BlackLine, Persefoni); **no native CrowdStrike or security-telemetry connectors** | Public ($WK); acquired **Kansaro** (AI workpaper automation for auditors, founders Laird/Joubert/Newcomer) and **Sustain.Life** ($100M, Jun 2024). Now the most credible AI-GRC challenger to Optro. |
 | **CrowdStrike Charlotte AI** | AI SOC assistant | Security-only, no compliance output, no GRC layer | GA mid-2024; expanded with agentic capabilities 2025 |
 | **CrowdStrike Falcon Cloud Security (CSPM) + Exposure Management + FileVantage** | Compliance dashboards against NIST / CIS / FedRAMP / PCI-DSS / HIPAA / GDPR; Drata integration maps Falcon vulnerability data to one specific test (DCF-18) | **Vendor-locked and cloud-posture-only.** Reports compliance for *Falcon's view of your environment*. No risk register, no policy management, no PBC workflow, no multi-source orchestration, no Big-4-grade workpaper export. Spring 2026 release flagged "expanded governance" — direction of travel is real but current product is nowhere near full GRC. | Spring 2026 platform release explicitly mentions "expanded governance"; AIDR (GA Dec 2025) extended platform to AI security with governance framing — yellow flag on trajectory |
 | **CardinalOps** | Detection engineering | Focuses on SIEM rule coverage, not GRC | Niche; partner not competitor |
-| **Vanta** | Compliance automation, mid-market origin | Pulls thin signals (MFA on? AV installed?); not deep telemetry; weakest at custom enterprise frameworks | Reported ~$2.45B valuation (2024 raise); pushing upmarket but enterprise IT-audit fit is unproven |
-| **Drata** | Compliance automation, similar to Vanta | Same architectural limit — agent-based posture checks, not platform telemetry | Acquired Stride Security (Sept 2024) for risk management; expanding into TPRM |
+| **Vanta** | Compliance automation, mid-market origin → upmarket push; pivoted to "agentic trust" 2025–2026 | Pulls thin signals (MFA on? AV installed?); 400+ integrations but agent-based posture-checks, not deep telemetry; weakest at custom enterprise frameworks | **$4.15B valuation following $150M Series D led by Wellington Management (Jul 2025)**; **15,000+ customers** (up from 12,000 in Jul 2025); launched Compliance / TPRM / Customer Trust Agents at **"Vanta Delivers" Mar 2026** |
+| **Drata** | Compliance automation; pivoted to "agentic trust" 2025–2026 | Same architectural limit — agent-based posture checks, not platform telemetry | **~$2B valuation; $328M raised; ~$98M ARR (Jan 2025)**; **acquired SafeBase ($250M, Feb 11, 2025)** for trust management and **oak9 (May 2024)** for compliance-as-code; **8,000+ customers**; launched Drata MCP late 2025 |
 | **Secureframe** | Compliance automation | Same category; weaker enterprise penetration | Mid-market |
 | **ServiceNow IRM** | Enterprise GRC inside ServiceNow | Massive, expensive, 12-month implementation; no native security telemetry | Strong in F500 but slow to evolve |
-| **Hyperproof / LogicGate / Onspring** | Mid-market GRC | No security telemetry layer | Compete with AuditBoard, not us |
+| **Hyperproof / LogicGate / Onspring** | Mid-market GRC | No security telemetry layer | Compete with Optro, not us |
 
 **The wedge is specific and defensible against every name in this table:**
 
 - **Workiva**: deep on financial reporting and now AI auditor workflow, but went **broad** across reporting + sustainability + GRC. Their connector library is built for the controller's office, not the SOC. They don't speak CrowdStrike.
 - **Vanta / Drata / Secureframe**: agent-based posture checks. They know *if* MFA is on. We know *what threats it blocked, on which population, with what exception rate, mapped to which control under which framework, with audit-grade provenance.*
-- **AuditBoard / ServiceNow IRM / Hyperproof**: GRC platforms that wait for evidence to be uploaded. They are the system of record; we are the system of *intake* that fills them.
+- **Optro / ServiceNow IRM / Hyperproof**: GRC platforms that wait for evidence to be uploaded. They are the system of record; we are the system of *intake* that fills them.
+
+**The March 9, 2026 dual announcement — Optro rebrand + Workiva AI-GRC launch at the same conference on the same day — is the most important competitive signal of the year.** Two of the largest enterprise GRC players openly racing on AI-GRC identity validates the category from two independent balance sheets simultaneously, and proves the security-telemetry layer is still unowned by either.
 
 ### Defensibility
 
 1. **Data moat** — control mapping intelligence improves with every customer
-2. **Workflow lock-in** — auditors run their audit cycles through us, not AuditBoard
+2. **Workflow lock-in** — auditors run their audit cycles through us, not their GRC platform
 3. **Framework depth** — 30+ frameworks pre-mapped takes years to replicate
 4. **AI training** — evidence quality improves as we see more audit feedback
 
@@ -436,7 +461,7 @@ Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI wo
 
 ### Concrete moves we are making now
 
-1. **AuditBoard partner program engagement** (PRD Phase 5) — primary acquisition path; the Hg-portfolio deal closes the AuditBoard-from-above lane
+1. **Optro partner program engagement** (PRD Phase 5) — primary acquisition path; the Hg-portfolio deal closes the Optro-from-above lane
 2. **CrowdStrike marketplace listing by Q4 2026** — partner positioning; surfaces us on CrowdStrike's M&A radar
 3. **Pitch frames us as "partners with both"** — *"Falcon dashboards tell you about cloud posture; Workiva does financial-audit AI; we are the security-telemetry-to-audit-evidence layer between them."* Never "vs" either.
 4. **Technical content piece on the AS 1105 depth gap** — *"Mapping Falcon Exposure Management vulnerability data to PCAOB AS 1105–defensible audit evidence: what Drata's DCF-18 mapping does and does not cover."* Positions us as the deep-end player.
@@ -449,7 +474,7 @@ Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI wo
 
 ### Who has this problem
 
-- **~2,000+** enterprises use AuditBoard (~50% of Fortune 500). Acquired by Hg Capital in May 2024 at a reported ~$3B valuation — now in active growth mode under PE ownership.
+- **~2,000+** enterprises use Optro (formerly AuditBoard, ~50% of Fortune 500). Acquired by Hg Capital in May 2024 at a reported ~$3B valuation; rebranded to Optro on March 9, 2026; surpassed $300M ARR in October 2025; new CEO Raul Villar Jr. (ex-Paycor, July 2025) — now in active growth mode under PE ownership.
 - **~30,000** subscription customers on CrowdStrike Falcon (FY26 reporting, fiscal year ending Jan 2026)
 - Overlap concentrated in Fortune 500, regulated mid-market, and US federal contractors
 
@@ -476,7 +501,7 @@ Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI wo
 | Integrated risk management (IRM) software, narrower | ~$8–12B | Gartner Magic Quadrant for IRM |
 | AI in GRC CAGR (2025–2030) | ~22–25% | MarketsAndMarkets, Mordor Intelligence |
 | Security compliance automation (sub-segment) | ~$5B+ | Vanta, Drata, Secureframe at unicorn valuations validate |
-| Addressable wedge (CrowdStrike + AuditBoard overlap) | ~$800M ARR opportunity at $50K ACV | Bottoms-up: ~16,000 enterprise targets × 10% capture |
+| Addressable wedge (CrowdStrike + Optro overlap) | ~$800M ARR opportunity at $50K ACV | Bottoms-up: ~16,000 enterprise targets × 10% capture |
 
 ---
 
@@ -487,7 +512,7 @@ Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI wo
 | Tier | Price | Who |
 |---|---|---|
 | Starter | $2,000/month | Up to 500 endpoints, 1 framework |
-| Professional | $5,000/month | Up to 2,500 endpoints, all frameworks, AuditBoard connector |
+| Professional | $5,000/month | Up to 2,500 endpoints, all frameworks, Optro connector |
 | Enterprise | $15,000+/month | Unlimited endpoints, custom frameworks, dedicated support |
 
 ### Unit Economics
@@ -512,15 +537,15 @@ Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI wo
 
 ### Phase 1 — Design Partners (Months 1–3)
 
-Target: 3 enterprises currently using both CrowdStrike and AuditBoard.
+Target: 3 enterprises currently using both CrowdStrike and Optro (formerly AuditBoard).
 Ask: $5,000–$10,000 to build with us. We shape the product around their audit cycle.
-Find them: LinkedIn search "AuditBoard" + "CrowdStrike" in profile.
+Find them: LinkedIn search "Optro" OR "AuditBoard" + "CrowdStrike" in profile (employees may not yet have updated post-rebrand).
 
 ### Phase 2 — Channel (Months 4–12)
 
 **Big 4 audit and advisory firms** (Deloitte, PwC, KPMG, EY) are the highest-leverage channel for two distinct reasons:
 
-1. **Advisory side** — they implement AuditBoard for hundreds of enterprise clients and recommend CrowdStrike alongside it. They feel the integration gap on every engagement.
+1. **Advisory side** — they implement Optro (formerly AuditBoard) for hundreds of enterprise clients and recommend CrowdStrike alongside it. They feel the integration gap on every engagement.
 2. **Audit side** (the larger prize) — their *own* IT audit teams burn 30–40% of fieldwork hours on PBC chase and manual evidence formatting. A platform that compresses that time directly protects partner margin under fee compression. This is not a "nice to have" for them; it is methodology survival.
 
 Approach:
@@ -531,7 +556,7 @@ Approach:
 
 ### Phase 3 — Marketplace (Month 12+)
 
-- AuditBoard marketplace listing → direct access to ~2,000+ enterprise customers
+- Optro marketplace listing → direct access to ~2,000+ enterprise customers
 - CrowdStrike marketplace listing → direct access to ~30,000 enterprise customers
 - Both channels validate us as a real integration, not a competitor
 
@@ -541,22 +566,22 @@ Approach:
 
 This is built to be acquired. There is a clear primary buyer with timing pressure, and a credible fallback set if that buyer doesn't move.
 
-### Primary target: AuditBoard (Hg Capital portfolio)
+### Primary target: Optro (formerly AuditBoard, Hg Capital portfolio)
 
 **This is the buyer to design the company around.**
 
-- Hg acquired AuditBoard in **May 2024 at a reported ~$3B valuation**. PE hold periods typically run 5–7 years, putting AuditBoard's exit window at roughly **2028–2031**.
-- Hg's playbook in software is unambiguous: bolt-on M&A to expand the ARR base, modernize the product (especially AI and integrations), and exit at a higher multiple. Compliance OS is precisely the kind of bolt-on this playbook hunts for — adjacent product, paying customers, complementary integration into the core platform.
-- AuditBoard's structural product gap is real-time security telemetry. They cannot build this faster than we can ship it because they don't own the underlying data plane (CrowdStrike does).
+- Hg acquired AuditBoard in **May 2024 at a reported ~$3B valuation**; the company **rebranded to Optro on March 9, 2026**, explicitly emphasizing AI-driven GRC. PE hold periods typically run 5–7 years, putting Optro's exit window at roughly **2028–2031**.
+- The rebrand is the modernization step before sale. Hg's playbook in software is unambiguous: bolt-on M&A to expand the ARR base, modernize the product (especially AI and integrations), and exit at a higher multiple. Optro just hit **$300M+ ARR (Oct 2025)** under new CEO Raul Villar Jr. (ex-Paycor). Compliance OS is precisely the kind of bolt-on this playbook hunts for — adjacent product, paying customers, complementary integration into the core platform.
+- Optro's structural product gap is real-time security telemetry. They cannot build this faster than we can ship it because they don't own the underlying data plane (CrowdStrike does).
 - Bridge-mode positioning means we arrive on Hg's M&A radar already integrated with their portfolio company, with their customers using us, paying for us, and validating the integration. That is the strongest possible setup.
 
-**Implied timeline pressure on us**: to be on the M&A list before AuditBoard's exit, Compliance OS needs material ARR (~$5M+) and visible customer overlap by **~2027**. That sets the clock on Series A and on the first 50 customers.
+**Implied timeline pressure on us**: to be on the M&A list before Optro's exit, Compliance OS needs material ARR (~$5M+) and visible customer overlap by **~2027**. That sets the clock on Series A and on the first 50 customers.
 
-**Risk on this path**: Hg may acquire a competing compliance-automation player first (Hyperproof, Onspring, lower-tier of Vanta/Drata), or AuditBoard may ship a native CrowdStrike connector internally before we hit material ARR. Both reduce — though do not eliminate — our value as a target.
+**Risk on this path**: Hg may acquire a competing compliance-automation player first (Hyperproof, Onspring, lower-tier of Vanta/Drata), or Optro may ship a native CrowdStrike connector internally before we hit material ARR. Both reduce — though do not eliminate — our value as a target.
 
 ---
 
-### Fallback acquirers (if AuditBoard/Hg doesn't move)
+### Fallback acquirers (if Optro/Hg doesn't move)
 
 Each of these has independent, current strategic motivation. Multiple credible buyers in adjacent positions = auction dynamic at exit even if Hg passes.
 
@@ -573,7 +598,7 @@ Each of these has independent, current strategic motivation. Multiple credible b
 - Compliance OS fits the same tuck-in pattern
 
 #### ServiceNow
-- Competes with AuditBoard in GRC/IRM via the IRM module
+- Competes with Optro in GRC/IRM via the IRM module
 - Acquiring Compliance OS accelerates the security-evidence story without internal build cycles
 - Direction: AI-led acquisitions and platform extension; security posture data is the missing layer
 
@@ -603,7 +628,7 @@ Use of funds:
 
 **Milestones this funding achieves:**
 - MVP live with 3 paying design partners
-- AuditBoard and CrowdStrike marketplace listings
+- Optro and CrowdStrike marketplace listings
 - $100K ARR
 - Series A ready with 12-month runway
 
@@ -611,7 +636,7 @@ Use of funds:
 
 *Compliance OS — Turning security telemetry into compliance intelligence.*
 
-> **Naming convention used in this deck:** Specific vendor names (CrowdStrike, AuditBoard, Workiva, etc.) are used throughout for investor impact — concrete anchors are more persuasive than abstract archetypes in a pitch context. The product itself is multi-vendor by design: CrowdStrike + AuditBoard are the *first* connectors, with SentinelOne, MS Defender, ServiceNow IRM, Hyperproof, and others on the V2.0 roadmap. The README and PRD (public-facing / partner-shareable) use generic terminology where appropriate.
+> **Naming convention used in this deck:** Specific vendor names (CrowdStrike, Optro/AuditBoard, Workiva, etc.) are used throughout for investor impact — concrete anchors are more persuasive than abstract archetypes in a pitch context. **Optro is the post-March-9-2026 rebrand of AuditBoard**; both names appear where historical context matters. The product itself is multi-vendor by design: CrowdStrike + Optro are the *first* connectors, with SentinelOne, MS Defender, ServiceNow IRM, Hyperproof, and others on the V2.0 roadmap. The README and PRD (public-facing / partner-shareable) use generic terminology where appropriate.
 
 ---
 
