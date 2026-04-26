@@ -16,7 +16,25 @@ The **Audit & Compliance Team** lives in AuditBoard. They manage controls, run a
 
 ---
 
-## Slide 2 — The Problem
+## Slide 2 — The Validation Signal
+
+**The market just paid hard cash for the AI-for-auditors thesis. Twice. From a $WK public-company balance sheet.**
+
+| Move | When | What it signals |
+|---|---|---|
+| **Workiva acquired Kansaro** (AI-powered workpaper automation, founders Laird / Joubert / Newcomer) | 2025–2026 | AI-for-auditors is now an acquirable category. Workiva will not have spent the capital otherwise. |
+| **Workiva launched the AI-Powered Workiva GRC Platform** at the IIA Great Audit Minds conference | **March 9, 2026** | A public company is now formally committed to AI-driven evidence analysis, real-time control-health dashboards, and AI-mapped risks/controls as the new center of GRC. |
+| **AuditBoard acquired by Hg Capital** at reported ~$3B valuation | May 2024 | The category leader is now PE-backed with a 5–7 year exit clock. Bolt-on M&A is the playbook. |
+
+**Crucially — Workiva went broad. We go deep on the wedge they did not pursue.**
+
+Workiva has 70+ connectors. They are all financial-system-oriented: Oracle, Salesforce, Workday, BlackLine, Persefoni. They have **no native CrowdStrike or security-telemetry connector**. The deep, audit-grade pipeline from security telemetry to compliance evidence is unowned by every AI-GRC entrant in the market.
+
+**That is the wedge Compliance OS owns.** Same M&A logic Workiva applied to financial audit (Kansaro), applied to the IT/security audit vertical no one else has built for.
+
+---
+
+## Slide 3 — The Problem
 
 ### What happens every audit cycle
 
@@ -55,170 +73,45 @@ Meanwhile CrowdStrike knows:
 
 ---
 
-## Slide 2.5 — The Auditor's View
+## Slide 4 — Three Lenses on the Same Pain
 
-> *Written from the desk of a senior IT audit manager at a Big 4 firm.*
+The same gap surfaces across three roles, each with a *current, personal* reason to act in 2026.
 
-### What I actually do for a living
+| | **Senior Big 4 IT Auditor** | **Fortune 500 CISO** | **Independent Board Director** |
+|---|---|---|---|
+| **The 2026 pressure** | PCAOB AS 1105 — sampling 25-of-1,891 endpoints is no longer defensible when the population is queryable. AICPA candidate volume at 20-year low. Annual fee compression of 10–15%. | SEC Item 1.05 8-K (4-business-day materiality clock). Personal exposure post-SolarWinds CISO action (Oct 2023, securities-fraud claim survived Jul 2024 motion to dismiss) and Uber CISO conviction (May 2023). | SEC Reg S-K Item 106 (board oversight disclosure). *Caremark / Marchand / Boeing* duty-of-oversight applies to cyber. D&O exposure from derivative suits is rising. |
+| **The structural problem** | PBC list of 200+ items per engagement. 30–40% of fieldwork hours on evidence chase. Workpaper retention 7 years under PCAOB AS 1215. | 15–30% of analyst time on audit support — in a market with ~4.8M unfilled cyber roles (ISC2, 2024). Four parallel narratives (audit, board, insurance, regulator) that don't reconcile. | Quarterly 30-slide deck is 4–6 weeks stale by the time the board sees it. No view between meetings. NACD Director's Handbook 5th ed (2023): oversight must be continuous. |
+| **What they need** | Population testing with provenance chain. Re-performance on demand. Workpaper-ready exports. Independence preserved (consume evidence, never operate client systems). | Single substrate that serves audit + board + insurance + regulator. Materiality assessment support. Audit drag off the security team. | Read-only board portal. Documented oversight trail (discoverable on *their* side). Materiality narrative on demand. Peer benchmarking. |
+| **What sells them** | "40% of IT-audit fieldwork hours back, defensible under AS 1105 and AS 1215, with the methodology embedded." | "The same data that proves controls work for the audit committee proves them for the SEC, the cyber insurance carrier, and the regulator — and frees my team to do security work." | "Convert *we trust management* into *we have independently observable evidence*. That is the difference between a Caremark defense that holds and one that does not." |
 
-For every SOX, SOC 2, or ISO engagement, my team executes the same loop on roughly **40–60 IT General Controls** per client: logical access, change management, computer operations, and — increasingly — endpoint security and vulnerability management.
-
-For each control we are required by professional standards to:
-
-1. **Understand the control** — walkthrough with the control owner
-2. **Test design effectiveness** — does the control, as described, address the risk
-3. **Test operating effectiveness** — sample populations and re-perform
-4. **Document evidence** — sufficient, appropriate, retained for **7 years** (SOX) under **PCAOB AS 1215**
-
-Today, step 3 is where the engagement bleeds. We send the client a **PBC list** ("Provided By Client") with 200+ requests. The client's security team responds when they can. Half the artifacts come back in the wrong format. Some are screenshots with no timestamp — which under **PCAOB AS 1105** is borderline insufficient evidence. We sample, because testing the full population is impossible at human speed.
-
-### Three structural problems the profession is hitting
-
-**1. Sampling is no longer defensible when the population is queryable.**
-Auditing standards (AS 1105, ISA 500) require *sufficient appropriate evidence*. When the underlying system can return the entire population in seconds, sampling 25 endpoints out of 1,891 starts to look like an audit shortcut, not a methodology choice. PCAOB inspections increasingly flag this.
-
-**2. The talent pipeline has collapsed.**
-AICPA candidate volume is at a 20-year low. Big 4 IT audit practices cannot hire fast enough to absorb new regulation (SEC Cyber, DORA, NIS2). Every hour spent reformatting CSVs is an hour not spent on judgment work — the only work that justifies our hourly rate.
-
-**3. Audit fee compression is structural.**
-Clients renegotiate every cycle. Partners are asked to deliver the same opinion with 10–15% fewer hours year over year. The only way that math works is automation of evidence collection — the most labor-intensive, least judgment-intensive part of the engagement.
-
-### Why this product hits the auditor where it counts
-
-| What a senior auditor needs | What Compliance OS delivers |
-|---|---|
-| Sufficient appropriate evidence (AS 1105) | System-of-record telemetry with provenance chain |
-| Population testing, not sampling | Every endpoint queried, every exception listed |
-| Re-performance capability | Re-run any control test on demand against live data |
-| Audit trail retained 7 years (AS 1215) | Immutable evidence store with timestamp, source, and AI rationale |
-| Independence preserved | Auditor consumes evidence; never operates client systems |
-| Cross-framework efficiency | One control test mapped to SOC 2 + NIST + ISO simultaneously |
-
-**The professional skepticism standard does not go away.** The auditor still reviews the evidence, evaluates the AI summary against the raw data, and signs the workpaper. What changes is that the 80% of the engagement that was clerical becomes the 20% — and judgment work expands to fill the time we just bought back.
-
-### The honest reason Big 4 will adopt this
-
-It is not idealism. It is margin. A platform that cuts 40% of fieldwork hours on the IT side of the engagement preserves partner economics through the next three rounds of fee compression. Whoever owns the bridge between security telemetry and audit evidence becomes embedded in the methodology — and methodology, in this profession, is the moat.
+> Detailed first-person memos from each persona — including the full set of regulatory references and the structural arguments — are in the **Appendix** at the end of this deck.
 
 ---
 
-## Slide 2.6 — The CISO's View
+## Slide 5 — Why Now
 
-> *Written from the desk of a Fortune 500 CISO in 2026.*
+Four forces converging in 2025–2026:
 
-### The job changed in the last 24 months
+**1. Regulatory pressure at a structural inflection**
+SEC Cyber Disclosure (live since Dec 2023), DORA (live since Jan 17, 2025), NIS2 (transposition deadline Oct 17, 2024), CMMC 2.0 (Final Rule Oct 15, 2024), NIST CSF 2.0 (Feb 2024), PCI-DSS v4.0.1 (full enforcement Mar 31, 2025), EU AI Act (in force Aug 2024) — all require **continuous demonstrable controls**, not annual audits. The manual screenshot-and-CSV process is mathematically incompatible with the new compliance posture cadence.
 
-Three events reshaped the role:
+**2. The 2024–2025 incident wave permanently raised the bar**
+- **Change Healthcare ransomware (Feb 2024)** — UnitedHealth-owned, BlackCat ransomware, ~$2.9B+ direct cost reported, disrupted ~one-third of US healthcare claims processing. Triggered HHS HIPAA enforcement focus.
+- **Snowflake credential incidents (May–Jul 2024)** — ~165 customer environments compromised via stolen credentials per Mandiant; Ticketmaster, AT&T, Santander, LendingTree among confirmed victims. Reframed third-party risk for every board.
+- **CrowdStrike Falcon outage (Jul 19, 2024)** — single faulty content update grounded ~8.5M Windows endpoints globally. Delta lawsuit and others created the precedent question: who is liable for security-vendor reliability, and how is it evidenced.
+- **MOVEit (CL0P, 2023, still litigating in 2025)** — 2,700+ orgs, 95M+ records — set the template for vulnerability-to-extortion at scale.
 
-1. **SEC vs. SolarWinds CISO (Oct 2023)** — first time the SEC named a CISO personally in a securities-fraud action. Securities-fraud claim survived motion to dismiss in July 2024. Every public-company CISO read those filings.
-2. **Uber CISO conviction (May 2023)** — Joe Sullivan convicted of federal charges for breach concealment. The legal precedent is now established.
-3. **SEC Cybersecurity Disclosure Rule (effective Dec 18, 2023)** — Form 8-K Item 1.05 requires disclosure of a *material* cybersecurity incident within **4 business days** of materiality determination. The CISO is the principal advisor on whether something is material.
+Each event made *evidence of working controls* a board-level demand, not a back-office artifact.
 
-### What this means for the daily job
+**3. AI makes the translation layer possible — and (per Slide 2) the market just confirmed it.**
+Two years ago, mapping raw CrowdStrike telemetry to compliance control language required a massive expert system. Today Claude maps it accurately in seconds. This product could not have been built before 2024. Claude Opus 4.x (2025) materially improved the rationale-and-citation quality required for audit-defensible AI output. Workiva's Kansaro acquisition and the Mar 9, 2026 GRC platform launch are the public-company-balance-sheet validation that AI-for-auditors is now real and ownable.
 
-I am no longer just the head of security operations. I am a **discloseable officer of a public company**, with personal exposure on the accuracy of Item 106 disclosures (governance), Item 1.05 8-Ks (incidents), and increasingly D&O-adjacent litigation. My team's CSV exports for the auditor are not just an annoyance — they are part of an evidence chain I may have to defend under oath.
-
-### The structural pressures stacking on top
-
-| Pressure | What it does to me |
-|---|---|
-| **DORA enforcement (live Jan 17, 2025, EU)** | Continuous ICT risk controls — quarterly artifacts no longer satisfy. Evidence must be ongoing. |
-| **NIS2 transposition (deadline Oct 17, 2024)** | EU member states now empowered to fine and disqualify management for inadequate controls. |
-| **NIST CSF 2.0 (Feb 2024)** | New GOVERN function — board oversight is now part of the framework itself, not a wrapper around it. |
-| **ISC2 workforce study 2024** | 4.8M unfilled cyber roles globally. I cannot solve this with hiring. |
-| **Cyber insurance underwriting** | Carriers now require evidence of controls operating, not policy attestations. Renewal questionnaires ask for EDR coverage rates, MFA coverage, backup test cadence — by population, not sample. |
-| **CrowdStrike Falcon outage (Jul 19, 2024)** | Boards now ask about vendor concentration risk and the controls around it. I have to answer with data. |
-| **Supply-chain incidents** (MOVEit 2023, Snowflake credential incidents 2024 affecting Ticketmaster, Santander, and 160+ others) | Third-party risk is now a board-level conversation, not a procurement checkbox. |
-
-### What I need from a platform
-
-- A **single substrate** that serves audit evidence, board reporting, insurance underwriting, and regulator disclosure — because today I maintain four parallel narratives and they don't reconcile.
-- **Materiality assessment support** with a documented methodology — so when I tell my CFO "this is not material," that judgment is defensible.
-- **Audit drag eliminated** — every analyst hour I get back from PBC chase is an hour on detection engineering, the only thing that actually reduces incident likelihood.
-- **Live posture data my CFO and General Counsel can read directly** — so I am not the bottleneck on every cross-functional risk question.
-
-### What sells me
-
-Not "compliance automation." That language belongs to 2018. What sells me is: *"the same data that proves controls work for the audit committee proves them for the SEC, the cyber insurance carrier, and the regulator — and frees my team to do security work."*
+**4. Security and compliance teams are merging — and the CISO is now a discloseable officer**
+Post-SolarWinds CISO charges (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) and Uber CISO conviction (May 2023), the CISO is personally on the hook for the accuracy of public statements about security controls. The wall between "security tool" and "compliance tool" is collapsing because the people accountable for both are converging — frequently the same person, with the same liability.
 
 ---
 
-## Slide 2.7 — The Board Member's View
-
-> *Written from the desk of an independent director on a Fortune 1000 audit committee.*
-
-### Why I personally pay attention
-
-The duty-of-oversight bar moved. *In re Caremark* (Delaware, 1996) was reinforced by **Marchand v. Barnhill (2019)** and **In re Boeing (2021)**: directors have an affirmative duty to actively oversee mission-critical risks. Cyber, in 2026, is unambiguously mission-critical at every public company.
-
-If a derivative suit follows a material incident, my emails, board materials, and meeting minutes will be discoverable. "Management briefed us quarterly" is not a defense. The plaintiff's bar will ask: *what oversight infrastructure existed, what data did the board look at, and how often.*
-
-### What current regulation forces onto our agenda
-
-**SEC Reg S-K Item 106** (effective with 10-K filings for fiscal years ending on or after Dec 15, 2023) requires our 10-K to describe:
-
-- Our **processes** for assessing, identifying, and managing material cyber risks
-- The **board's oversight** of cyber risk
-- **Management's role** and expertise in assessing and managing cyber risk
-
-This language is now reviewed by SEC staff. Boilerplate gets a comment letter.
-
-### The cadence problem
-
-Today, our audit committee sees cyber once a quarter as a 30-slide deck. By the time it is presented, it is 4–6 weeks stale. Between meetings, I have no view at all. If a material incident occurs in week 7 of the quarter, the institutional knowledge I bring to the disclosure conversation is from the *prior* quarter's snapshot.
-
-This is the structural problem the **NACD Director's Handbook on Cyber-Risk Oversight (5th edition, 2023)** flags directly: oversight is continuous, but the data we receive is periodic.
-
-### What I need
-
-- A **read-only board portal** — I can log in any day of the quarter and see current control posture, top risks, and trend
-- A **documented oversight trail** — proof I exercised duty-of-care, time-stamped, retained, discoverable on my side rather than only on management's
-- **Materiality narrative on demand** — if an Item 1.05 trigger occurs, the board needs a defensible position within hours
-- **Peer benchmarking** — am I better, worse, or normal vs. comparable companies, on the controls that matter
-- **One platform that also covers AI governance** — because that is the next item being added to my committee's charter
-
-### What this product does for me
-
-It converts "we trust management" into "we have independently observable evidence." That is the difference between a Caremark defense that holds and one that does not.
-
----
-
-## Slide 3 — The Market
-
-### Who has this problem
-
-- **~2,000+** enterprises use AuditBoard (~50% of Fortune 500). Acquired by Hg Capital in May 2024 at a reported ~$3B valuation — now in active growth mode under PE ownership.
-- **~30,000** subscription customers on CrowdStrike Falcon (FY26 reporting, fiscal year ending Jan 2026)
-- Overlap concentrated in Fortune 500, regulated mid-market, and US federal contractors
-
-### Regulatory tailwind accelerating urgency
-
-| Regulation | Requirement | Status as of 2026 |
-|---|---|---|
-| **SEC Cyber Disclosure Rule** (Item 1.05 8-K, Reg S-K Item 106) | Report material cyber incident within 4 business days; describe board oversight in 10-K | Effective Dec 18, 2023 (large filers); June 15, 2024 (smaller reporting cos). Enforcement actions emerging. |
-| **DORA** (EU Reg 2022/2554) | Continuous ICT risk controls for ~22,000 EU financial entities + ICT third parties | **Live since Jan 17, 2025**. First supervisory dialogues underway 2025–2026. |
-| **NIS2 Directive** (EU 2022/2555) | Ongoing risk management, incident reporting, board accountability with personal liability | Transposition deadline **Oct 17, 2024**. Member-state enforcement ramping through 2025–2026. |
-| **CMMC 2.0** (32 CFR Part 170) | Tiered security posture evidence for defense contractors handling FCI/CUI | **Final Rule published Oct 15, 2024**. Phased contract incorporation began 2025; full incorporation by 2028. |
-| **NIST CSF 2.0** | Adds GOVERN function — board oversight is part of the framework, not a wrapper | Released **Feb 26, 2024**. Becoming the de facto baseline cited by regulators and insurers. |
-| **PCI-DSS v4.0.1** | Stronger authentication, continuous controls, customized approach | Mandatory since **Mar 31, 2024**; new "future-dated" requirements enforceable from **Mar 31, 2025**. |
-| **EU AI Act** | Risk-tiered obligations, governance and transparency for AI systems including those used in compliance | Entered force **Aug 1, 2024**; phased application through 2026 (general-purpose AI rules from Aug 2025). |
-| **HIPAA Security Rule update** | NPRM proposes specific technical controls, mandatory MFA, encryption, vulnerability scanning | NPRM published **Dec 2024**; final rule expected 2025–2026. |
-
-**Every new regulation increases the cost of the manual, screenshot-based compliance process that exists today.** Six of the eight items above did not exist in their current form three years ago.
-
-### Market sizing
-
-| Segment | Size | Source |
-|---|---|---|
-| Global GRC software market (2025) | ~$60B | Industry analyst consensus (Gartner IRM, Forrester, Mordor) |
-| Integrated risk management (IRM) software, narrower | ~$8–12B | Gartner Magic Quadrant for IRM |
-| AI in GRC CAGR (2025–2030) | ~22–25% | MarketsAndMarkets, Mordor Intelligence |
-| Security compliance automation (sub-segment) | ~$5B+ | Vanta, Drata, Secureframe at unicorn valuations validate |
-| Addressable wedge (CrowdStrike + AuditBoard overlap) | ~$800M ARR opportunity at $50K ACV | Bottoms-up: ~16,000 enterprise targets × 10% capture |
-
----
-
-## Slide 4 — The Solution
+## Slide 6 — The Solution
 
 ### Compliance OS
 
@@ -249,7 +142,7 @@ AuditBoard was acquired by Hg Capital in May 2024 (~$3B reported). Hg's playbook
 
 ---
 
-## Slide 5 — How It Works
+## Slide 7 — How It Works
 
 ### Automated Evidence Collection
 
@@ -317,7 +210,24 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 
 ---
 
-## Slide 6 — Product
+## Slide 8 — Demo
+
+### The 90-Second Demo
+
+| Step | What They See |
+|---|---|
+| Open control test | Empty — waiting for evidence |
+| Click "Sync from CrowdStrike" | Progress indicator |
+| 90 seconds later | Control test fully populated |
+| Evidence shows | Coverage %, exceptions, AI summary, raw data |
+| Control status | Auto-set PASS or FAIL |
+| If FAIL | Finding auto-created, assigned, deadline set |
+
+**The contrast sells itself.** The auditor knows this used to take 3 days and a senior analyst. Now it takes 90 seconds.
+
+---
+
+## Slide 9 — Product
 
 ### Core Modules
 
@@ -352,24 +262,73 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 
 ---
 
-## Slide 7 — Demo
+## Slide 10 — Competitive Landscape
 
-### The 90-Second Demo
+### Why Nothing Else Does This
 
-| Step | What They See |
-|---|---|
-| Open control test | Empty — waiting for evidence |
-| Click "Sync from CrowdStrike" | Progress indicator |
-| 90 seconds later | Control test fully populated |
-| Evidence shows | Coverage %, exceptions, AI summary, raw data |
-| Control status | Auto-set PASS or FAIL |
-| If FAIL | Finding auto-created, assigned, deadline set |
+| Company | What They Do | Why It's Different | 2025–2026 Position |
+|---|---|---|---|
+| **AuditBoard** | Enterprise GRC platform | No security telemetry integration; manual evidence only | Hg Capital portfolio (~$3B, May 2024); growth via PE bolt-ons |
+| **Workiva** | Connected reporting + AI-Powered GRC platform (launched **Mar 9, 2026** at IIA Great Audit Minds) | AI evidence analysis and control-health dashboards — but **70+ connectors are financial-system-oriented** (Oracle, Salesforce, Workday, BlackLine, Persefoni); **no native CrowdStrike or security-telemetry connectors** | Public ($WK), acquired **Kansaro** (AI workpaper automation for auditors, founders Laird/Joubert/Newcomer) and **Sustain.Life** ($100M, Jun 2024). Now the most credible AI-GRC challenger to AuditBoard. |
+| **CrowdStrike Charlotte AI** | AI SOC assistant | Security-only, no compliance output, no GRC layer | GA mid-2024; expanded with agentic capabilities 2025 |
+| **CardinalOps** | Detection engineering | Focuses on SIEM rule coverage, not GRC | Niche; partner not competitor |
+| **Vanta** | Compliance automation, mid-market origin | Pulls thin signals (MFA on? AV installed?); not deep telemetry; weakest at custom enterprise frameworks | Reported ~$2.45B valuation (2024 raise); pushing upmarket but enterprise IT-audit fit is unproven |
+| **Drata** | Compliance automation, similar to Vanta | Same architectural limit — agent-based posture checks, not platform telemetry | Acquired Stride Security (Sept 2024) for risk management; expanding into TPRM |
+| **Secureframe** | Compliance automation | Same category; weaker enterprise penetration | Mid-market |
+| **ServiceNow IRM** | Enterprise GRC inside ServiceNow | Massive, expensive, 12-month implementation; no native security telemetry | Strong in F500 but slow to evolve |
+| **Hyperproof / LogicGate / Onspring** | Mid-market GRC | No security telemetry layer | Compete with AuditBoard, not us |
 
-**The contrast sells itself.** The auditor knows this used to take 3 days and a senior analyst. Now it takes 90 seconds.
+**The wedge is specific and defensible against every name in this table:**
+
+- **Workiva**: deep on financial reporting and now AI auditor workflow, but went **broad** across reporting + sustainability + GRC. Their connector library is built for the controller's office, not the SOC. They don't speak CrowdStrike.
+- **Vanta / Drata / Secureframe**: agent-based posture checks. They know *if* MFA is on. We know *what threats it blocked, on which population, with what exception rate, mapped to which control under which framework, with audit-grade provenance.*
+- **AuditBoard / ServiceNow IRM / Hyperproof**: GRC platforms that wait for evidence to be uploaded. They are the system of record; we are the system of *intake* that fills them.
+
+### Defensibility
+
+1. **Data moat** — control mapping intelligence improves with every customer
+2. **Workflow lock-in** — auditors run their audit cycles through us, not AuditBoard
+3. **Framework depth** — 30+ frameworks pre-mapped takes years to replicate
+4. **AI training** — evidence quality improves as we see more audit feedback
 
 ---
 
-## Slide 8 — Business Model
+## Slide 11 — The Market
+
+### Who has this problem
+
+- **~2,000+** enterprises use AuditBoard (~50% of Fortune 500). Acquired by Hg Capital in May 2024 at a reported ~$3B valuation — now in active growth mode under PE ownership.
+- **~30,000** subscription customers on CrowdStrike Falcon (FY26 reporting, fiscal year ending Jan 2026)
+- Overlap concentrated in Fortune 500, regulated mid-market, and US federal contractors
+
+### Regulatory tailwind accelerating urgency
+
+| Regulation | Requirement | Status as of 2026 |
+|---|---|---|
+| **SEC Cyber Disclosure Rule** (Item 1.05 8-K, Reg S-K Item 106) | Report material cyber incident within 4 business days; describe board oversight in 10-K | Effective Dec 18, 2023 (large filers); June 15, 2024 (smaller reporting cos). Enforcement actions emerging. |
+| **DORA** (EU Reg 2022/2554) | Continuous ICT risk controls for ~22,000 EU financial entities + ICT third parties | **Live since Jan 17, 2025**. First supervisory dialogues underway 2025–2026. |
+| **NIS2 Directive** (EU 2022/2555) | Ongoing risk management, incident reporting, board accountability with personal liability | Transposition deadline **Oct 17, 2024**. Member-state enforcement ramping through 2025–2026. |
+| **CMMC 2.0** (32 CFR Part 170) | Tiered security posture evidence for defense contractors handling FCI/CUI | **Final Rule published Oct 15, 2024**. Phased contract incorporation began 2025; full incorporation by 2028. |
+| **NIST CSF 2.0** | Adds GOVERN function — board oversight is part of the framework, not a wrapper | Released **Feb 26, 2024**. Becoming the de facto baseline cited by regulators and insurers. |
+| **PCI-DSS v4.0.1** | Stronger authentication, continuous controls, customized approach | Mandatory since **Mar 31, 2024**; new "future-dated" requirements enforceable from **Mar 31, 2025**. |
+| **EU AI Act** | Risk-tiered obligations, governance and transparency for AI systems including those used in compliance | Entered force **Aug 1, 2024**; phased application through 2026 (general-purpose AI rules from Aug 2025). |
+| **HIPAA Security Rule update** | NPRM proposes specific technical controls, mandatory MFA, encryption, vulnerability scanning | NPRM published **Dec 2024**; final rule expected 2025–2026. |
+
+**Every new regulation increases the cost of the manual, screenshot-based compliance process that exists today.** Six of the eight items above did not exist in their current form three years ago.
+
+### Market sizing
+
+| Segment | Size | Source |
+|---|---|---|
+| Global GRC software market (2025) | ~$60B | Industry analyst consensus (Gartner IRM, Forrester, Mordor) |
+| Integrated risk management (IRM) software, narrower | ~$8–12B | Gartner Magic Quadrant for IRM |
+| AI in GRC CAGR (2025–2030) | ~22–25% | MarketsAndMarkets, Mordor Intelligence |
+| Security compliance automation (sub-segment) | ~$5B+ | Vanta, Drata, Secureframe at unicorn valuations validate |
+| Addressable wedge (CrowdStrike + AuditBoard overlap) | ~$800M ARR opportunity at $50K ACV | Bottoms-up: ~16,000 enterprise targets × 10% capture |
+
+---
+
+## Slide 12 — Business Model
 
 ### Pricing
 
@@ -397,7 +356,7 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 
 ---
 
-## Slide 9 — Go-To-Market
+## Slide 13 — Go-To-Market
 
 ### Phase 1 — Design Partners (Months 1–3)
 
@@ -426,68 +385,7 @@ Approach:
 
 ---
 
-## Slide 10 — Competitive Landscape
-
-### Why Nothing Else Does This
-
-| Company | What They Do | Why It's Different | 2025–2026 Position |
-|---|---|---|---|
-| **AuditBoard** | Enterprise GRC platform | No security telemetry integration; manual evidence only | Hg Capital portfolio (~$3B, May 2024); growth via PE bolt-ons |
-| **Workiva** | Connected reporting + AI-Powered GRC platform (launched **Mar 9, 2026** at IIA Great Audit Minds) | AI evidence analysis and control-health dashboards — but **70+ connectors are financial-system-oriented** (Oracle, Salesforce, Workday, BlackLine, Persefoni); **no native CrowdStrike or security-telemetry connectors** | Public ($WK), acquired **Kansaro** (AI workpaper automation for auditors, founders Laird/Joubert/Newcomer) and **Sustain.Life** ($100M, Jun 2024). Now the most credible AI-GRC challenger to AuditBoard. |
-| **CrowdStrike Charlotte AI** | AI SOC assistant | Security-only, no compliance output, no GRC layer | GA mid-2024; expanded with agentic capabilities 2025 |
-| **CardinalOps** | Detection engineering | Focuses on SIEM rule coverage, not GRC | Niche; partner not competitor |
-| **Vanta** | Compliance automation, mid-market origin | Pulls thin signals (MFA on? AV installed?); not deep telemetry; weakest at custom enterprise frameworks | Reported ~$2.45B valuation (2024 raise); pushing upmarket but enterprise IT-audit fit is unproven |
-| **Drata** | Compliance automation, similar to Vanta | Same architectural limit — agent-based posture checks, not platform telemetry | Acquired Stride Security (Sept 2024) for risk management; expanding into TPRM |
-| **Secureframe** | Compliance automation | Same category; weaker enterprise penetration | Mid-market |
-| **ServiceNow IRM** | Enterprise GRC inside ServiceNow | Massive, expensive, 12-month implementation; no native security telemetry | Strong in F500 but slow to evolve |
-| **Hyperproof / LogicGate / Onspring** | Mid-market GRC | No security telemetry layer | Compete with AuditBoard, not us |
-
-**The wedge is specific and defensible against every name in this table:**
-
-- **Workiva**: deep on financial reporting and now AI auditor workflow, but went **broad** across reporting + sustainability + GRC. Their connector library is built for the controller's office, not the SOC. They don't speak CrowdStrike.
-- **Vanta / Drata / Secureframe**: agent-based posture checks. They know *if* MFA is on. We know *what threats it blocked, on which population, with what exception rate, mapped to which control under which framework, with audit-grade provenance.*
-- **AuditBoard / ServiceNow IRM / Hyperproof**: GRC platforms that wait for evidence to be uploaded. They are the system of record; we are the system of *intake* that fills them.
-
-**Workiva's March 2026 launch is the most important competitive signal of the year — it validates the AI-GRC thesis from a public-company balance sheet, and proves the security-telemetry layer is still unowned.** Workiva went broad; we are going deep on the wedge they did not pursue.
-
-### Defensibility
-
-1. **Data moat** — control mapping intelligence improves with every customer
-2. **Workflow lock-in** — auditors run their audit cycles through us, not AuditBoard
-3. **Framework depth** — 30+ frameworks pre-mapped takes years to replicate
-4. **AI training** — evidence quality improves as we see more audit feedback
-
----
-
-## Slide 11 — Why Now
-
-Four forces converging in 2025–2026:
-
-**1. Regulatory pressure at a structural inflection**
-SEC Cyber Disclosure (live since Dec 2023), DORA (live since Jan 17, 2025), NIS2 (transposition deadline Oct 17, 2024), CMMC 2.0 (Final Rule Oct 15, 2024), NIST CSF 2.0 (Feb 2024), PCI-DSS v4.0.1 (full enforcement Mar 31, 2025), EU AI Act (in force Aug 2024) — all require **continuous demonstrable controls**, not annual audits. The manual screenshot-and-CSV process is mathematically incompatible with the new compliance posture cadence.
-
-**2. The 2024–2025 incident wave permanently raised the bar**
-- **Change Healthcare ransomware (Feb 2024)** — UnitedHealth-owned, BlackCat ransomware, ~$2.9B+ direct cost reported, disrupted ~one-third of US healthcare claims processing. Triggered HHS HIPAA enforcement focus.
-- **Snowflake credential incidents (May–Jul 2024)** — ~165 customer environments compromised via stolen credentials per Mandiant; Ticketmaster, AT&T, Santander, LendingTree among confirmed victims. Reframed third-party risk for every board.
-- **CrowdStrike Falcon outage (Jul 19, 2024)** — single faulty content update grounded ~8.5M Windows endpoints globally. Delta lawsuit and others created the precedent question: who is liable for security-vendor reliability, and how is it evidenced.
-- **MOVEit (CL0P, 2023, still litigating in 2025)** — 2,700+ orgs, 95M+ records — set the template for vulnerability-to-extortion at scale.
-
-Each event made *evidence of working controls* a board-level demand, not a back-office artifact.
-
-**3. AI makes the translation layer possible — and the market just confirmed it.**
-Two years ago, mapping raw CrowdStrike telemetry to compliance control language required a massive expert system. Today Claude maps it accurately in seconds. This product could not have been built before 2024. The launch of Claude Opus 4.x (2025) materially improved the rationale-and-citation quality required for audit-defensible AI output.
-
-The market validated this thesis with hard cash in 2025–2026:
-- **Workiva acquired Kansaro** (AI-powered workpaper automation for auditors) — same thesis applied to financial audit fieldwork. Workiva would not have spent the capital if AI-for-auditors were not now an acquirable category.
-- **Workiva launched its AI-Powered GRC Platform on Mar 9, 2026** at the IIA Great Audit Minds conference — AI evidence analysis, real-time control health, intelligent dashboards. A $WK public-company balance sheet is now publicly committed to the AI-GRC thesis.
-- Crucially, Workiva went **broad** (financial + sustainability + GRC) and **does not have native security-telemetry connectors**. The deep-on-security wedge is still open.
-
-**4. Security and compliance teams are merging — and the CISO is now a discloseable officer**
-Post-SolarWinds CISO charges (Oct 2023; securities-fraud claim survived motion to dismiss Jul 2024) and Uber CISO conviction (May 2023), the CISO is personally on the hook for the accuracy of public statements about security controls. The wall between "security tool" and "compliance tool" is collapsing because the people accountable for both are converging — frequently the same person, with the same liability.
-
----
-
-## Slide 12 — Acquisition Thesis
+## Slide 14 — Acquisition Thesis
 
 This is built to be acquired. There is a clear primary buyer with timing pressure, and a credible fallback set if that buyer doesn't move.
 
@@ -510,6 +408,12 @@ This is built to be acquired. There is a clear primary buyer with timing pressur
 
 Each of these has independent, current strategic motivation. Multiple credible buyers in adjacent positions = auction dynamic at exit even if Hg passes.
 
+#### Workiva ($WK) — highest-conviction secondary
+- Public company; just launched the **AI-Powered Workiva GRC Platform on Mar 9, 2026**, declaring AI-driven evidence analysis and intelligent control-health dashboards the new center of GRC
+- Acquired **Kansaro** (AI workpaper automation for auditors) — the explicit precedent that Workiva will pay for category-specific AI audit tooling
+- Acquired **Sustain.Life** ($100M, Jun 2024) for ESG; **OneCloud** for iPaaS; **AuditNet** to extend GRC
+- Structural gap: 70+ connectors are financial-system-oriented (Oracle, Salesforce, Workday, BlackLine, Persefoni). **No native CrowdStrike or security-telemetry connector.** Compliance OS is the closest thing on the market to "Kansaro for IT/security audit" — same acquisition logic, different vertical.
+
 #### CrowdStrike
 - Extends Falcon from CISO budget into CFO / CAE / CCO budget — a budget Falcon does not currently address
 - Extends Charlotte AI into GRC use cases beyond the SOC
@@ -529,19 +433,12 @@ Each of these has independent, current strategic motivation. Multiple credible b
 - Acquired **PingSafe** (Jan 2024, ~$100M, CNAPP)
 - Same thesis as CrowdStrike but earlier in the platform-extension curve; needs the compliance layer to compete on board-level value
 
-#### Workiva ($WK)
-- Public company; just launched the **AI-Powered Workiva GRC Platform on Mar 9, 2026**, declaring AI-driven evidence analysis and intelligent control-health dashboards the new center of GRC
-- Acquired **Kansaro** (AI workpaper automation for auditors) — the explicit precedent that Workiva will pay for category-specific AI audit tooling
-- Acquired **Sustain.Life** ($100M, Jun 2024) for ESG; **OneCloud** for iPaaS; **AuditNet** to extend GRC
-- Structural gap: 70+ connectors are financial-system-oriented (Oracle, Salesforce, Workday, BlackLine, Persefoni). **No native CrowdStrike or security-telemetry connector.** Compliance OS is the closest thing on the market to "Kansaro for IT/security audit" — same acquisition logic, different vertical.
-- Probably the highest-conviction *secondary* buyer after AuditBoard/Hg, given the public commitment to AI-GRC and the explicit M&A pattern.
-
 #### Wiz / Snyk / other CNAPP and DSPM platforms
 - Compliance OS framework-mapping engine is the layer they would need to enter the GRC market
 
 ---
 
-## Slide 13 — Ask
+## Slide 15 — Ask
 
 ### What we're building toward
 
@@ -561,3 +458,137 @@ Use of funds:
 ---
 
 *Compliance OS — Turning security telemetry into compliance intelligence.*
+
+---
+
+# Appendix — Buyer Personas in Depth
+
+> The summary table on Slide 4 condenses three personas. The full first-person memos below are the source material — useful for sales conversations, customer-development interviews, and diligence packets where the investor or partner wants to see the underlying argument and regulatory references in full.
+
+---
+
+## Appendix A — The Auditor's View
+
+> *Written from the desk of a senior IT audit manager at a Big 4 firm.*
+
+### What I actually do for a living
+
+For every SOX, SOC 2, or ISO engagement, my team executes the same loop on roughly **40–60 IT General Controls** per client: logical access, change management, computer operations, and — increasingly — endpoint security and vulnerability management.
+
+For each control we are required by professional standards to:
+
+1. **Understand the control** — walkthrough with the control owner
+2. **Test design effectiveness** — does the control, as described, address the risk
+3. **Test operating effectiveness** — sample populations and re-perform
+4. **Document evidence** — sufficient, appropriate, retained for **7 years** (SOX) under **PCAOB AS 1215**
+
+Today, step 3 is where the engagement bleeds. We send the client a **PBC list** ("Provided By Client") with 200+ requests. The client's security team responds when they can. Half the artifacts come back in the wrong format. Some are screenshots with no timestamp — which under **PCAOB AS 1105** is borderline insufficient evidence. We sample, because testing the full population is impossible at human speed.
+
+### Three structural problems the profession is hitting
+
+**1. Sampling is no longer defensible when the population is queryable.**
+Auditing standards (AS 1105, ISA 500) require *sufficient appropriate evidence*. When the underlying system can return the entire population in seconds, sampling 25 endpoints out of 1,891 starts to look like an audit shortcut, not a methodology choice. PCAOB inspections increasingly flag this.
+
+**2. The talent pipeline has collapsed.**
+AICPA candidate volume is at a 20-year low. Big 4 IT audit practices cannot hire fast enough to absorb new regulation (SEC Cyber, DORA, NIS2). Every hour spent reformatting CSVs is an hour not spent on judgment work — the only work that justifies our hourly rate.
+
+**3. Audit fee compression is structural.**
+Clients renegotiate every cycle. Partners are asked to deliver the same opinion with 10–15% fewer hours year over year. The only way that math works is automation of evidence collection — the most labor-intensive, least judgment-intensive part of the engagement.
+
+### Why this product hits the auditor where it counts
+
+| What a senior auditor needs | What Compliance OS delivers |
+|---|---|
+| Sufficient appropriate evidence (AS 1105) | System-of-record telemetry with provenance chain |
+| Population testing, not sampling | Every endpoint queried, every exception listed |
+| Re-performance capability | Re-run any control test on demand against live data |
+| Audit trail retained 7 years (AS 1215) | Immutable evidence store with timestamp, source, and AI rationale |
+| Independence preserved | Auditor consumes evidence; never operates client systems |
+| Cross-framework efficiency | One control test mapped to SOC 2 + NIST + ISO simultaneously |
+
+**The professional skepticism standard does not go away.** The auditor still reviews the evidence, evaluates the AI summary against the raw data, and signs the workpaper. What changes is that the 80% of the engagement that was clerical becomes the 20% — and judgment work expands to fill the time we just bought back.
+
+### The honest reason Big 4 will adopt this
+
+It is not idealism. It is margin. A platform that cuts 40% of fieldwork hours on the IT side of the engagement preserves partner economics through the next three rounds of fee compression. Whoever owns the bridge between security telemetry and audit evidence becomes embedded in the methodology — and methodology, in this profession, is the moat.
+
+---
+
+## Appendix B — The CISO's View
+
+> *Written from the desk of a Fortune 500 CISO in 2026.*
+
+### The job changed in the last 24 months
+
+Three events reshaped the role:
+
+1. **SEC vs. SolarWinds CISO (Oct 2023)** — first time the SEC named a CISO personally in a securities-fraud action. Securities-fraud claim survived motion to dismiss in July 2024. Every public-company CISO read those filings.
+2. **Uber CISO conviction (May 2023)** — Joe Sullivan convicted of federal charges for breach concealment. The legal precedent is now established.
+3. **SEC Cybersecurity Disclosure Rule (effective Dec 18, 2023)** — Form 8-K Item 1.05 requires disclosure of a *material* cybersecurity incident within **4 business days** of materiality determination. The CISO is the principal advisor on whether something is material.
+
+### What this means for the daily job
+
+I am no longer just the head of security operations. I am a **discloseable officer of a public company**, with personal exposure on the accuracy of Item 106 disclosures (governance), Item 1.05 8-Ks (incidents), and increasingly D&O-adjacent litigation. My team's CSV exports for the auditor are not just an annoyance — they are part of an evidence chain I may have to defend under oath.
+
+### The structural pressures stacking on top
+
+| Pressure | What it does to me |
+|---|---|
+| **DORA enforcement (live Jan 17, 2025, EU)** | Continuous ICT risk controls — quarterly artifacts no longer satisfy. Evidence must be ongoing. |
+| **NIS2 transposition (deadline Oct 17, 2024)** | EU member states now empowered to fine and disqualify management for inadequate controls. |
+| **NIST CSF 2.0 (Feb 2024)** | New GOVERN function — board oversight is now part of the framework itself, not a wrapper around it. |
+| **ISC2 workforce study 2024** | 4.8M unfilled cyber roles globally. I cannot solve this with hiring. |
+| **Cyber insurance underwriting** | Carriers now require evidence of controls operating, not policy attestations. Renewal questionnaires ask for EDR coverage rates, MFA coverage, backup test cadence — by population, not sample. |
+| **CrowdStrike Falcon outage (Jul 19, 2024)** | Boards now ask about vendor concentration risk and the controls around it. I have to answer with data. |
+| **Supply-chain incidents** (MOVEit 2023, Snowflake credential incidents 2024 affecting Ticketmaster, Santander, and 160+ others) | Third-party risk is now a board-level conversation, not a procurement checkbox. |
+
+### What I need from a platform
+
+- A **single substrate** that serves audit evidence, board reporting, insurance underwriting, and regulator disclosure — because today I maintain four parallel narratives and they don't reconcile.
+- **Materiality assessment support** with a documented methodology — so when I tell my CFO "this is not material," that judgment is defensible.
+- **Audit drag eliminated** — every analyst hour I get back from PBC chase is an hour on detection engineering, the only thing that actually reduces incident likelihood.
+- **Live posture data my CFO and General Counsel can read directly** — so I am not the bottleneck on every cross-functional risk question.
+
+### What sells me
+
+Not "compliance automation." That language belongs to 2018. What sells me is: *"the same data that proves controls work for the audit committee proves them for the SEC, the cyber insurance carrier, and the regulator — and frees my team to do security work."*
+
+---
+
+## Appendix C — The Board Member's View
+
+> *Written from the desk of an independent director on a Fortune 1000 audit committee.*
+
+### Why I personally pay attention
+
+The duty-of-oversight bar moved. *In re Caremark* (Delaware, 1996) was reinforced by **Marchand v. Barnhill (2019)** and **In re Boeing (2021)**: directors have an affirmative duty to actively oversee mission-critical risks. Cyber, in 2026, is unambiguously mission-critical at every public company.
+
+If a derivative suit follows a material incident, my emails, board materials, and meeting minutes will be discoverable. "Management briefed us quarterly" is not a defense. The plaintiff's bar will ask: *what oversight infrastructure existed, what data did the board look at, and how often.*
+
+### What current regulation forces onto our agenda
+
+**SEC Reg S-K Item 106** (effective with 10-K filings for fiscal years ending on or after Dec 15, 2023) requires our 10-K to describe:
+
+- Our **processes** for assessing, identifying, and managing material cyber risks
+- The **board's oversight** of cyber risk
+- **Management's role** and expertise in assessing and managing cyber risk
+
+This language is now reviewed by SEC staff. Boilerplate gets a comment letter.
+
+### The cadence problem
+
+Today, our audit committee sees cyber once a quarter as a 30-slide deck. By the time it is presented, it is 4–6 weeks stale. Between meetings, I have no view at all. If a material incident occurs in week 7 of the quarter, the institutional knowledge I bring to the disclosure conversation is from the *prior* quarter's snapshot.
+
+This is the structural problem the **NACD Director's Handbook on Cyber-Risk Oversight (5th edition, 2023)** flags directly: oversight is continuous, but the data we receive is periodic.
+
+### What I need
+
+- A **read-only board portal** — I can log in any day of the quarter and see current control posture, top risks, and trend
+- A **documented oversight trail** — proof I exercised duty-of-care, time-stamped, retained, discoverable on my side rather than only on management's
+- **Materiality narrative on demand** — if an Item 1.05 trigger occurs, the board needs a defensible position within hours
+- **Peer benchmarking** — am I better, worse, or normal vs. comparable companies, on the controls that matter
+- **One platform that also covers AI governance** — because that is the next item being added to my committee's charter
+
+### What this product does for me
+
+It converts "we trust management" into "we have independently observable evidence." That is the difference between a Caremark defense that holds and one that does not.
