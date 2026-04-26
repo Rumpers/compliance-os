@@ -40,6 +40,7 @@ Two of the largest GRC platforms in the world picking the same battleground on t
 | **Workiva acquires Sustain.Life** | June 2024 | $100M | Workiva extending into ESG via specialist M&A |
 | **Drata acquires SafeBase** (trust management) | Feb 11, 2025 | $250M | Direct M&A in compliance category — trust infrastructure consolidation |
 | **Vanta closes Series D** (led by Wellington Management) | July 2025 | $150M @ $4.15B valuation | Compliance automation now a public-company-track category; 12,000 → 15,000+ customers in 9 months |
+| **RegScale closes Series B** (led by Washington Harbour Partners; **Microsoft M12, Hitachi Ventures, SYN Ventures, SineWave** participate) | September 2025 | $30M+ | Continuous Controls Monitoring (CCM) with raw-telemetry ingestion is now an investable category; ARR tripled YoY; founders ex-NNSA / Oak Ridge — federal pedigree validates the technical thesis |
 | **Workiva acquires Kansaro** (AI workpaper automation for auditors; founders Laird / Joubert / Newcomer) | 2025–2026 | undisclosed | AI-for-auditors is now an acquirable category. Workiva would not have spent capital otherwise. **The closest-analog precedent for our acquisition path.** |
 | **AuditBoard rebrands to Optro** + Workiva AI-GRC launch (same conference) | March 9, 2026 | — | Category leaders openly racing on AI-GRC identity |
 | **Vanta launches Compliance / TPRM / Customer Trust Agents** at "Vanta Delivers" | March 2026 | — | "Agentic trust" — the unanimous category direction |
@@ -354,20 +355,30 @@ Each new connector unlocks a new risk domain on the live-register model. The exp
 | **CrowdStrike Charlotte AI** | AI SOC assistant | Security-only, no compliance output, no GRC layer | GA mid-2024; expanded with agentic capabilities 2025 |
 | **CrowdStrike Falcon Cloud Security (CSPM) + Exposure Management + FileVantage** | Compliance dashboards against NIST / CIS / FedRAMP / PCI-DSS / HIPAA / GDPR; Drata integration maps Falcon vulnerability data to one specific test (DCF-18) | **Vendor-locked and cloud-posture-only.** Reports compliance for *Falcon's view of your environment*. No risk register, no policy management, no PBC workflow, no multi-source orchestration, no Big-4-grade workpaper export. Spring 2026 release flagged "expanded governance" — direction of travel is real but current product is nowhere near full GRC. | Spring 2026 platform release explicitly mentions "expanded governance"; AIDR (GA Dec 2025) extended platform to AI security with governance framing — yellow flag on trajectory |
 | **CardinalOps** | Detection engineering | Focuses on SIEM rule coverage, not GRC | Niche; partner not competitor |
-| **Vanta** | Compliance automation, mid-market origin → upmarket push; pivoted to "agentic trust" 2025–2026 | Pulls thin signals (MFA on? AV installed?); 400+ integrations but agent-based posture-checks, not deep telemetry; weakest at custom enterprise frameworks | **$4.15B valuation following $150M Series D led by Wellington Management (Jul 2025)**; **15,000+ customers** (up from 12,000 in Jul 2025); launched Compliance / TPRM / Customer Trust Agents at **"Vanta Delivers" Mar 2026** |
-| **Drata** | Compliance automation; pivoted to "agentic trust" 2025–2026 | Same architectural limit — agent-based posture checks, not platform telemetry | **~$2B valuation; $328M raised; ~$98M ARR (Jan 2025)**; **acquired SafeBase ($250M, Feb 11, 2025)** for trust management and **oak9 (May 2024)** for compliance-as-code; **8,000+ customers**; launched Drata MCP late 2025 |
+| **Vanta** | Compliance automation, mid-market origin → upmarket push; pivoted to "agentic trust" 2025–2026 | **Has a native CrowdStrike Falcon integration** (CrowdStrike's own Falcon Fund invested in Vanta, Sept 2022) — but covers Falcon access management, deployment coverage, vulnerability scan evidence, and prevention-policy verification only. **Coverage and posture, not detection events.** No PCAOB AS 1215 workpaper provenance; mid-market positioning, not Big-4 audit-grade. | **$4.15B valuation following $150M Series D led by Wellington Management (Jul 2025)**; **15,000+ customers** (up from 12,000 in Jul 2025); launched Compliance / TPRM / Customer Trust Agents at **"Vanta Delivers" Mar 2026** |
+| **Drata** | Compliance automation; pivoted to "agentic trust" 2025–2026 | **Has TWO native CrowdStrike integrations** — Falcon EDR (anti-malware-installed evidence) and Falcon Exposure Management (Spotlight vulnerability scan evidence mapped to **DCF-18**). Both are control-mapping integrations, not detection-event-driven risk register updates. Agent-based posture checks; mid-market positioning. | **~$2B valuation; $328M raised; ~$98M ARR (Jan 2025)**; **acquired SafeBase ($250M, Feb 11, 2025)** for trust management and **oak9 (May 2024)** for compliance-as-code; **8,000+ customers**; launched Drata MCP late 2025 |
+| **RegScale** | Continuous Controls Monitoring (CCM); "Compliance as Code"; OSCAL + OCSF native; explicit claim to "ingest raw security telemetry in real time" via **1,300+ APIs through Synqly partnership** | Federal-first positioning (FedRAMP High in 6 months, DoD customers); **replaces the GRC platform rather than bridging into Optro/AuditBoard**; not auditor-facing for Big 4 commercial engagements; framework-mapping-heavy, OSCAL-formatted, not PCAOB AS 1215 workpaper-grade | **Founded 2021**; **$30M+ Series B Sept 2025** (Washington Harbour, Microsoft M12, Hitachi Ventures, SYN Ventures, SineWave); founders Anil Karmel + Travis Howerton (ex-NNSA / Oak Ridge); **ARR tripled YoY**; 60+ frameworks pre-mapped — **closest direct competitor we have found in this sweep** |
 | **Secureframe** | Compliance automation | Same category; weaker enterprise penetration | Mid-market |
 | **ServiceNow IRM** | Enterprise GRC inside ServiceNow | Massive, expensive, 12-month implementation; no native security telemetry | Strong in F500 but slow to evolve |
 | **Hyperproof / LogicGate / Onspring** | Mid-market GRC | No security telemetry layer | Compete with Optro, not us |
 
-**The wedge is specific and defensible against every name in this table:**
+**The wedge isn't empty — it's narrower and more specific than "no one does this."** Several players have parts of it. Honest synthesis:
 
-- **Workiva**: deep on financial reporting and now AI auditor workflow, but went **broad** across reporting + sustainability + GRC. Their connector library is built for the controller's office, not the SOC. They don't speak CrowdStrike.
-- **Vanta / Drata / Secureframe**: agent-based posture checks. They know *if* MFA is on. We know *what threats it blocked, on which population, with what exception rate, mapped to which control under which framework, with audit-grade provenance.*
-- **Optro**: post-rebrand, has automated evidence collection from 200+ business systems including Tenable (vulnerability) and Okta (identity). What they do not have is the deep EDR data plane (CrowdStrike, SentinelOne, Defender for Endpoint) or PCAOB AS 1215–grade workpaper provenance. Tenable tells them what's *unpatched*; we tell auditors what was *attacked, blocked, and contained* — across the endpoint population, mapped to ATT&CK, with re-performance hooks.
-- **ServiceNow IRM / Hyperproof**: GRC platforms that still wait for evidence to be uploaded — they have not yet bridged to where Optro and Workiva have gone.
+- **Workiva**: 70+ connectors, all financial-system-oriented. No native CrowdStrike or security-telemetry connector.
+- **Vanta**: native CrowdStrike Falcon integration since 2022 (Falcon Fund invested) — but covers *coverage* and *posture* (deployment, access, vuln scans), not detection events. Mid-market.
+- **Drata**: dual CrowdStrike integrations (Falcon EDR + Exposure Management mapped to DCF-18) — agent-based posture-checks, not detection-event-driven risk register updates.
+- **Optro**: 200+ integrations including Tenable (CVE) and Okta (identity). Tenable tells them what's *unpatched*; nothing tells them what was *attacked, blocked, contained*. No PCAOB AS 1215 provenance.
+- **RegScale**: continuous controls monitoring with raw-telemetry-ingest claim (via Synqly's 1,300+ APIs). Federal-first; replaces the GRC platform; not Big-4 commercial workpaper-grade.
+- **ServiceNow IRM / Hyperproof**: still wait for evidence to be uploaded — haven't bridged where Optro / Workiva / RegScale have gone.
 
-**The March 9, 2026 dual announcement — Optro rebrand + Workiva AI-GRC launch at the same conference on the same day — is the most important competitive signal of the year.** Two of the largest enterprise GRC players openly racing on AI-GRC identity validates the category from two independent balance sheets simultaneously, and proves the security-telemetry layer is still unowned by either.
+**Four specific gaps remain unowned by every player above:**
+
+1. **Bridge mode for Optro/AuditBoard customers** — Vanta, Drata, RegScale all *replace* the GRC platform. None push evidence INTO an existing Optro tenant. We are the only product designed to integrate, not displace.
+2. **PCAOB AS 1215 workpaper-grade provenance for external Big 4 auditors** — every player above is customer-facing compliance posture; none produce artifacts the external auditor can attach to a workpaper with hash-pinned raw payload + AI rationale + 7-year retention + re-performance hook.
+3. **Detection-event-to-risk-register pipeline** — existing CrowdStrike integrations cover deployment, coverage, vulnerability scans, anti-malware-installed evidence. None auto-update risk register likelihood when CrowdStrike *blocks* an active attack with ATT&CK technique mapping.
+4. **Big 4 commercial enterprise channel** — Vanta/Drata = mid-market SaaS; RegScale = federal/DoD; Optro/Workiva = enterprise GRC owners. Nobody is positioned as the *enterprise IT-audit methodology tool* (Caseware / MindBridge analog for cyber audit) that Big 4 practices adopt as workpaper infrastructure.
+
+**The March 9, 2026 dual announcement** — Optro rebrand + Workiva AI-GRC launch at the same conference on the same day — combined with **Drata's $250M SafeBase acquisition**, **Vanta's $4.15B Series D**, and **RegScale's $30M Series B** — proves the category is consolidating fast. Our defensibility lives at the intersection of the four gaps above, not in claiming the wedge is empty.
 
 ### Defensibility
 
@@ -378,12 +389,13 @@ Each new connector unlocks a new risk domain on the live-register model. The exp
 
 ---
 
-## Slide 11 — How We Win Against the Two Most Likely Native-Build Threats
+## Slide 11 — How We Win Against the Three Most Likely Native-Build Threats
 
-> Two adjacent platforms could in principle build what we build. Investors will ask about both.
+> Three adjacent platforms could in principle build what we build. Investors will ask about all three.
 > **CrowdStrike from below** — security-platform side extending compliance dashboards into full GRC.
 > **Workiva from above** — AI-GRC side extending Kansaro (financial-audit AI) into cyber audit.
-> We hold the wedge between them. Each has structural barriers that take years to overcome, and each has an M&A pattern that says "buy the specialist." We are the specialist.
+> **RegScale from the side** — continuous-controls-monitoring side extending federal-first CCM into commercial Big-4 audit territory.
+> We hold the wedge between all three. Each has structural barriers that take years to overcome, and each has an M&A pattern that says "buy the specialist." We are the specialist.
 
 ### The symmetry
 
@@ -392,20 +404,20 @@ Each new connector unlocks a new risk domain on the live-register model. The exp
                        │
                        │  "I have Falcon data — here are
                        ▼   compliance dashboards on it."
-            ┌─────────────────────────────┐
-            │       Compliance OS         │
-            │  Workflow + multi-source +  │
-            │  audit-defensible +         │
-            │  cross-framework            │
-            └─────────────────────────────┘
-                       ▲
-                       │  "I have audit workflow + AI —
-                       │   I just need security data."
-                       │
-                  Workiva (GRC + audit-AI breadth)
+                  ┌─────────────────────────────┐
+RegScale ────────►│       Compliance OS         │◄──── Workiva (GRC + audit-AI breadth)
+(federal CCM,     │  Bridge mode + AS 1215       │      "I have audit workflow + AI —
+raw-telemetry     │  provenance + detection-     │       I just need security data."
+ingest, replaces  │  event pipeline + Big 4      │
+the GRC platform) │  commercial channel          │
+                  └─────────────────────────────┘
 ```
 
-CrowdStrike comes from below — owns the security data plane, lacks the audit workflow. Workiva comes from above — owns the audit workflow, lacks the security data plane. We are the only platform built around the wedge that connects them, as the entire product, not as a feature inside someone else's product.
+- **CrowdStrike from below** — owns the security data plane; lacks audit workflow + AS 1215 workpaper provenance.
+- **Workiva from above** — owns the audit workflow + AI; lacks the security data plane (no native EDR).
+- **RegScale from the side** — has the CCM + raw-telemetry-ingest thesis; federal-first, replaces the GRC platform, not Big-4 commercial workpaper-grade.
+
+We are the only platform built around the wedge at the intersection of these three: the security-telemetry → audit-evidence → Optro/AuditBoard bridge with PCAOB AS 1215 provenance, positioned for the Big 4 commercial channel.
 
 ---
 
@@ -449,6 +461,25 @@ Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI wo
 
 ---
 
+### Threat C — RegScale extends federal-CCM into commercial Big 4 audit
+
+RegScale (founded 2021, $30M+ Series B Sept 2025 with **Microsoft M12, Hitachi Ventures, SYN Ventures, SineWave**) is the closest direct competitor we found in this competitive sweep. They explicitly market continuous controls monitoring (CCM) with raw-telemetry ingestion via **1,300+ APIs through Synqly**, support **OSCAL + OCSF natively**, and pre-map **60+ frameworks**. Their founders (Anil Karmel, Travis Howerton) come from National Nuclear Security Administration / Oak Ridge National Lab — strong federal credibility.
+
+**Six structural reasons RegScale will not own our wedge:**
+
+| # | Structural barrier | What it means |
+|---|---|---|
+| 1 | **Federal-first DNA** | FedRAMP High in 6 months, DoD customers, ATO-velocity claims. Their methodology, language, and customer base is built around 800-53 / FedRAMP / OSCAL — not SOX ITGCs / SOC 2 / Big 4 IT-audit fieldwork. Pivoting to commercial Big 4 = different go-to-market motion they don't have. |
+| 2 | **Replaces the GRC platform, doesn't bridge** | RegScale is positioned as *the* GRC system of record. They will not push evidence into an existing Optro/AuditBoard tenant. The ~2,000 Optro enterprise customers can adopt us without ripping out Optro; they cannot adopt RegScale without ripping out Optro. |
+| 3 | **OSCAL output ≠ PCAOB AS 1215 workpaper** | Compliance-as-code OSCAL artifacts are designed for FedRAMP submissions, not external Big 4 financial audit workpapers. The two formats and audiences are different; RegScale optimized for one of them. |
+| 4 | **Connector strategy via Synqly is a moat-renter, not moat-builder** | RegScale does not build their own deep CrowdStrike connector — they use Synqly's normalized OCSF API. Anyone (us, Workiva, Optro) can use Synqly. Depth on detection-event semantics, ATT&CK mapping, and provenance hash-chaining is engineering RegScale would have to retrofit on top of someone else's pipe. |
+| 5 | **No Big 4 audit-firm channel** | RegScale's customer pipeline is ATO-driven (federal agency procurement). They have no equivalent of Caseware/MindBridge embedment in audit-firm methodology. Our Big 4 site-license thesis (Phase 5 in PRD) is unreplicated. |
+| 6 | **Series B cap table competes with our acquirers, not complements them** | Microsoft M12, Hitachi, SYN — these are LP-friendly capital, but RegScale's logical exit is a *different* set of buyers (Palantir, defense primes, federal SI shops) than Compliance OS (Hg/Optro, Workiva, CrowdStrike, Palo Alto). Different exit ponds = limited overlap as competitive threat in the M&A endgame we are running. |
+
+**The honest read on RegScale:** they have proved the *technical* thesis (CCM with raw-telemetry ingest is real, fundable, and works in the most regulated market on earth). They have not proved the *commercial Big 4 audit* thesis. Compliance OS is positioned in a market they cannot easily enter without rebuilding the company.
+
+---
+
 ### Where the gap could close — and how we mitigate (combined)
 
 | Risk | Source | What it looks like | Mitigation |
@@ -459,6 +490,9 @@ Workiva is the most credible AI-GRC challenger. They acquired **Kansaro** (AI wo
 | Workiva acquires a competing security-telemetry-to-GRC startup before us | Threat B | Workiva announces the cyber-audit equivalent of Kansaro | Be visible — publish technical content on the wedge, attend IIA / ISACA / RSA where Workiva's M&A team scouts targets, get to first paying customers fast. |
 | Workiva builds a thin native CrowdStrike connector | Threat B | One EDR connector ships in a 2026–2027 release | Depth advantage — provenance chain, multi-vendor architecture, Big 4 methodology lock-in are not feature parity items. |
 | **Optro extends its connector library to a deep EDR (CrowdStrike, SentinelOne, or Defender)** — narrowest-distance threat in 2026 | Threat B | Optro already has Tenable + Okta + 200+ integrations and an "Agentic System of Action" platform; adding a CrowdStrike connector is a smaller engineering lift for them than for Workiva | Bridge-mode positioning means we are *already* the integration they would otherwise need to build — easier for Hg to acquire than to ship internally before exit. Maintain depth gap on PCAOB AS 1215 workpaper provenance, multi-vendor (not Optro-locked), and ATT&CK-mapped detection-event evidence (vs Tenable's CVE-only signal). |
+| **RegScale pivots from federal to commercial Big 4** | Threat C | They retool messaging, hire commercial sales, pursue SOC 2 / SOX-side enterprises | They would have to rebuild GTM, methodology, and channel — 2–3 year transformation. We get to ~$5M ARR + Big 4 references first. |
+| **RegScale acquires a Big 4 audit-firm methodology partner** | Threat C | Series B capital deployed on a Caseware-class acquisition | Be the better acquisition target — bridge mode + Optro integration is a smaller, faster-integrating tuck-in than a methodology firm. |
+| **Optro acquires RegScale** (least likely but most concerning) | A + C | Hg writes a check; RegScale's CCM + Synqly stack bolts into Optro post-rebrand | This is the worst-case scenario for our acquisition path. Mitigation is being on Hg's M&A list before they look elsewhere — i.e., the AuditBoard partner-program timeline in PRD Phase 5 is even more urgent. |
 | Both sides converge on a "good enough" mid-market answer (Drata + Workiva + Optro Accelerate) | A + B | Combined effect makes the mid-market crowded | Win at the enterprise tier where Big 4 audit firms drive procurement. The PCAOB-defensible workpaper requirement filters out the mid-market posture players. |
 
 ---
