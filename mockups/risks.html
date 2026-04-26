@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compliance OS — Live Risk Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { brand: { 50:'#f0f9ff',500:'#0ea5e9',600:'#0284c7',700:'#0369a1' } }, animation: { 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' } } } }</script>
+  <style>
+    @keyframes ping-slow { 0% { transform: scale(1); opacity: 1 } 75%, 100% { transform: scale(2); opacity: 0 } }
+    .ping-slow::before { content:''; position:absolute; inset:0; border-radius:9999px; background:currentColor; opacity:.5; animation: ping-slow 2s cubic-bezier(0,0,.2,1) infinite }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+<!-- Sidebar -->
+<div class="fixed inset-y-0 left-0 w-56 bg-gray-900 flex flex-col">
+  <div class="px-5 py-5 border-b border-gray-700">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-brand-500 rounded-md flex items-center justify-center">
+        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <span class="text-white font-bold text-sm">Compliance OS</span>
+    </div>
+  </div>
+  <nav class="flex-1 px-3 py-4 space-y-1">
+    <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      Dashboard
+    </a>
+    <a href="controls.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+      Controls
+    </a>
+    <a href="evidence.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+      Evidence
+    </a>
+    <a href="risks.html" class="flex items-center gap-3 px-3 py-2 rounded-md bg-gray-700 text-white text-sm font-medium">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      Risks
+      <span class="ml-auto inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-semibold bg-red-500 text-white rounded-full">LIVE</span>
+    </a>
+    <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+      Findings
+    </a>
+    <a href="integrations.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+      Integrations
+    </a>
+  </nav>
+  <div class="px-3 py-4 border-t border-gray-700">
+    <div class="flex items-center gap-2 px-3 py-2">
+      <div class="w-7 h-7 rounded-full bg-brand-500 flex items-center justify-center text-white text-xs font-bold">JD</div>
+      <div>
+        <p class="text-white text-xs font-medium">Jane Doe</p>
+        <p class="text-gray-400 text-xs">IT Auditor</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="ml-56 min-h-screen">
+  <!-- Top bar -->
+  <div class="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+    <div>
+      <div class="flex items-center gap-3">
+        <h1 class="text-lg font-semibold text-gray-900">Live Risk Register</h1>
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-semibold bg-red-50 text-red-700 rounded-full border border-red-200">
+          <span class="relative inline-flex w-2 h-2">
+            <span class="absolute inline-flex w-full h-full rounded-full bg-red-400 opacity-75 animate-ping"></span>
+            <span class="relative inline-flex rounded-full w-2 h-2 bg-red-500"></span>
+          </span>
+          LIVE — telemetry-driven
+        </span>
+      </div>
+      <p class="text-xs text-gray-500 mt-0.5">Last auto-update from CrowdStrike: <span class="text-green-600 font-medium">47 seconds ago</span> · Last quarterly workshop: <span class="text-gray-400 line-through">Mar 15, 2026</span> <span class="text-gray-400 italic">— deprecated</span></p>
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="text-xs text-gray-700 border border-gray-300 bg-white px-3 py-2 rounded-md hover:bg-gray-50 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+        Filters
+      </button>
+      <button class="text-xs text-gray-700 border border-gray-300 bg-white px-3 py-2 rounded-md hover:bg-gray-50 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Board export
+      </button>
+      <button class="flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+        Add Risk
+      </button>
+    </div>
+  </div>
+
+  <div class="p-8 space-y-6">
+
+    <!-- Just-updated alert (the kill-shot moment) -->
+    <div class="bg-gradient-to-r from-red-50 via-orange-50 to-yellow-50 border border-red-200 rounded-xl p-5">
+      <div class="flex items-start gap-4">
+        <div class="relative w-10 h-10 flex-shrink-0">
+          <span class="absolute inset-0 rounded-full bg-red-400 opacity-30 animate-ping"></span>
+          <div class="relative w-10 h-10 rounded-full bg-red-500 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <p class="text-sm font-bold text-red-900">Risk auto-updated 47 seconds ago</p>
+            <span class="text-[10px] font-semibold bg-red-100 text-red-700 px-1.5 py-0.5 rounded">EVENT-DRIVEN</span>
+            <span class="text-[10px] font-medium bg-white text-gray-600 px-1.5 py-0.5 rounded border border-gray-200">CrowdStrike → Compliance OS</span>
+          </div>
+          <p class="text-sm text-gray-800"><span class="font-semibold">Ransomware / Malware</span> · Likelihood <span class="line-through text-gray-400">Medium</span> → <span class="font-semibold text-red-700">HIGH</span></p>
+          <p class="text-xs text-gray-600 mt-2">Trigger: Critical detection on <span class="font-mono bg-white px-1 py-0.5 rounded border border-gray-200">finance-srv-04.corp</span> · ATT&CK <span class="font-mono">T1486</span> (Data Encrypted for Impact) · Detection ID <span class="font-mono">cs-det-7af31b</span></p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-[11px] bg-white border border-gray-200 text-gray-700 px-2 py-0.5 rounded">VP Finance notified</span>
+            <span class="text-[11px] bg-white border border-gray-200 text-gray-700 px-2 py-0.5 rounded">CISO notified</span>
+            <span class="text-[11px] bg-white border border-gray-200 text-gray-700 px-2 py-0.5 rounded">3 controls flagged for re-test</span>
+            <span class="text-[11px] bg-white border border-gray-200 text-gray-700 px-2 py-0.5 rounded">HIPAA breach clock: not yet triggered</span>
+            <span class="text-[11px] bg-white border border-gray-200 text-gray-700 px-2 py-0.5 rounded">Board portal updated</span>
+          </div>
+        </div>
+        <button class="text-xs text-red-700 font-medium border border-red-300 bg-white px-3 py-1.5 rounded-md hover:bg-red-50 flex-shrink-0">View provenance →</button>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="grid grid-cols-4 gap-5">
+      <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-xs text-gray-500 uppercase tracking-wide font-medium">Total Risks</p>
+        <p class="text-3xl font-bold text-gray-900 mt-2">47</p>
+        <p class="text-xs text-gray-500 mt-1">Across 9 categories</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-xs text-gray-500 uppercase tracking-wide font-medium">Auto-updated today</p>
+        <p class="text-3xl font-bold text-gray-900 mt-2">8</p>
+        <div class="flex items-center gap-1 mt-1">
+          <span class="relative inline-flex w-1.5 h-1.5"><span class="absolute inline-flex w-full h-full rounded-full bg-green-400 opacity-75 animate-ping"></span><span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-green-500"></span></span>
+          <p class="text-xs text-green-600 font-medium">1 in last 5 min</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-xs text-gray-500 uppercase tracking-wide font-medium">Critical risks</p>
+        <p class="text-3xl font-bold text-red-600 mt-2">3</p>
+        <p class="text-xs text-orange-600 font-medium mt-1">↑ 1 since last hour</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-xs text-gray-500 uppercase tracking-wide font-medium">$ Exposure (FAIR)</p>
+        <p class="text-3xl font-bold text-gray-900 mt-2">$8.4M</p>
+        <p class="text-xs text-gray-500 mt-1">Range $2.1M – $14.7M</p>
+      </div>
+    </div>
+
+    <!-- Heatmap + Top Risks -->
+    <div class="grid grid-cols-5 gap-5">
+
+      <!-- Heatmap -->
+      <div class="col-span-2 bg-white rounded-xl border border-gray-200 p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-semibold text-gray-900">Risk Heatmap</h2>
+          <span class="text-[11px] text-gray-500">Likelihood × Impact</span>
+        </div>
+        <div class="relative">
+          <!-- Y axis label -->
+          <div class="absolute -left-2 top-1/2 -translate-y-1/2 -rotate-90 text-[10px] uppercase tracking-wider text-gray-400 font-semibold">Impact →</div>
+          <!-- Grid -->
+          <div class="ml-6">
+            <div class="grid grid-cols-5 gap-1 mb-1">
+              <!-- Row 5 (Catastrophic) -->
+              <div class="aspect-square bg-yellow-100 rounded relative"></div>
+              <div class="aspect-square bg-orange-200 rounded relative"></div>
+              <div class="aspect-square bg-red-200 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center"><div class="w-4 h-4 rounded-full bg-red-600 ring-2 ring-white" title="Ransomware"></div></div>
+              </div>
+              <div class="aspect-square bg-red-300 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center"><div class="relative w-4 h-4 rounded-full bg-red-700 ring-2 ring-white"><span class="absolute inset-0 rounded-full bg-red-500 opacity-50 animate-ping"></span></div></div>
+              </div>
+              <div class="aspect-square bg-red-400 rounded relative"></div>
+            </div>
+            <div class="grid grid-cols-5 gap-1 mb-1">
+              <!-- Row 4 -->
+              <div class="aspect-square bg-green-100 rounded"></div>
+              <div class="aspect-square bg-yellow-100 rounded"></div>
+              <div class="aspect-square bg-orange-200 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center"><div class="w-3.5 h-3.5 rounded-full bg-orange-600 ring-2 ring-white"></div></div>
+              </div>
+              <div class="aspect-square bg-red-200 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center"><div class="w-3.5 h-3.5 rounded-full bg-red-600 ring-2 ring-white"></div></div>
+              </div>
+              <div class="aspect-square bg-red-300 rounded"></div>
+            </div>
+            <div class="grid grid-cols-5 gap-1 mb-1">
+              <!-- Row 3 -->
+              <div class="aspect-square bg-green-100 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center"><div class="w-3 h-3 rounded-full bg-green-600 ring-2 ring-white"></div></div>
+              </div>
+              <div class="aspect-square bg-green-100 rounded"></div>
+              <div class="aspect-square bg-yellow-100 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center gap-0.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-600 ring-2 ring-white"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-600 ring-2 ring-white"></div>
+                </div>
+              </div>
+              <div class="aspect-square bg-orange-200 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center"><div class="w-3 h-3 rounded-full bg-orange-600 ring-2 ring-white"></div></div>
+              </div>
+              <div class="aspect-square bg-red-200 rounded"></div>
+            </div>
+            <div class="grid grid-cols-5 gap-1 mb-1">
+              <!-- Row 2 -->
+              <div class="aspect-square bg-green-100 rounded"></div>
+              <div class="aspect-square bg-green-100 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center gap-0.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-green-700 ring-2 ring-white"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-green-700 ring-2 ring-white"></div>
+                </div>
+              </div>
+              <div class="aspect-square bg-green-100 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center"><div class="w-2.5 h-2.5 rounded-full bg-green-700 ring-2 ring-white"></div></div>
+              </div>
+              <div class="aspect-square bg-yellow-100 rounded"></div>
+              <div class="aspect-square bg-orange-200 rounded"></div>
+            </div>
+            <div class="grid grid-cols-5 gap-1">
+              <!-- Row 1 (Negligible) -->
+              <div class="aspect-square bg-green-100 rounded relative">
+                <div class="absolute inset-0 flex items-center justify-center gap-0.5">
+                  <div class="w-2 h-2 rounded-full bg-green-700 ring-2 ring-white"></div>
+                  <div class="w-2 h-2 rounded-full bg-green-700 ring-2 ring-white"></div>
+                  <div class="w-2 h-2 rounded-full bg-green-700 ring-2 ring-white"></div>
+                </div>
+              </div>
+              <div class="aspect-square bg-green-100 rounded"></div>
+              <div class="aspect-square bg-green-100 rounded"></div>
+              <div class="aspect-square bg-yellow-100 rounded"></div>
+              <div class="aspect-square bg-yellow-100 rounded"></div>
+            </div>
+            <!-- X axis labels -->
+            <div class="grid grid-cols-5 gap-1 mt-2 text-[9px] text-gray-400 text-center font-medium">
+              <span>Rare</span>
+              <span>Unlikely</span>
+              <span>Possible</span>
+              <span>Likely</span>
+              <span>Almost Certain</span>
+            </div>
+            <p class="text-[10px] uppercase tracking-wider text-gray-400 font-semibold text-center mt-1">Likelihood →</p>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center gap-4 text-[11px] text-gray-500">
+          <div class="flex items-center gap-1.5"><span class="relative inline-flex w-2 h-2"><span class="absolute inset-0 rounded-full bg-red-500 opacity-50 animate-ping"></span><span class="relative inline-flex w-2 h-2 rounded-full bg-red-700"></span></span> Auto-updated &lt; 5 min</div>
+          <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-red-600"></span> Critical</div>
+          <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-orange-600"></span> High</div>
+          <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-yellow-600"></span> Medium</div>
+          <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-green-700"></span> Low</div>
+        </div>
+      </div>
+
+      <!-- Top Risks -->
+      <div class="col-span-3 bg-white rounded-xl border border-gray-200 p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-semibold text-gray-900">Top Risks by Score</h2>
+          <a href="#" class="text-xs text-brand-600 font-medium hover:underline">View all 47 →</a>
+        </div>
+        <div class="overflow-hidden">
+          <table class="min-w-full text-xs">
+            <thead>
+              <tr class="border-b border-gray-200 text-gray-500 uppercase tracking-wider text-[10px] font-medium">
+                <th class="text-left py-2 pr-3">Risk</th>
+                <th class="text-left py-2 px-2">Score</th>
+                <th class="text-left py-2 px-2">Owner</th>
+                <th class="text-left py-2 px-2">Last update</th>
+                <th class="text-left py-2 px-2">Source</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr class="bg-red-50/40">
+                <td class="py-3 pr-3">
+                  <div class="flex items-center gap-2">
+                    <span class="relative inline-flex w-2 h-2"><span class="absolute inset-0 rounded-full bg-red-500 opacity-75 animate-ping"></span><span class="relative inline-flex w-2 h-2 rounded-full bg-red-700"></span></span>
+                    <div>
+                      <p class="font-medium text-gray-900">Ransomware / Malware</p>
+                      <p class="text-[11px] text-gray-500">Cyber · ATT&CK T1486</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-3 px-2"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-red-600 text-white">20</span><span class="ml-1.5 text-[10px] text-red-700 font-medium">↑ from 12</span></td>
+                <td class="py-3 px-2 text-gray-700">VP Finance · CISO</td>
+                <td class="py-3 px-2 text-gray-700">47s ago</td>
+                <td class="py-3 px-2"><span class="text-[10px] bg-white border border-gray-200 text-gray-600 px-1.5 py-0.5 rounded">Auto · CrowdStrike</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-3">
+                  <div>
+                    <p class="font-medium text-gray-900">Unpatched Critical CVEs</p>
+                    <p class="text-[11px] text-gray-500">Cyber · 47 endpoints exposed</p>
+                  </div>
+                </td>
+                <td class="py-3 px-2"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-red-600 text-white">16</span></td>
+                <td class="py-3 px-2 text-gray-700">CISO · IT Ops</td>
+                <td class="py-3 px-2 text-gray-700">12 min ago</td>
+                <td class="py-3 px-2"><span class="text-[10px] bg-white border border-gray-200 text-gray-600 px-1.5 py-0.5 rounded">Auto · CrowdStrike</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-3">
+                  <div>
+                    <p class="font-medium text-gray-900">EDR Coverage Gap</p>
+                    <p class="text-[11px] text-gray-500">Cyber · 44 of 1,891 endpoints uncovered</p>
+                  </div>
+                </td>
+                <td class="py-3 px-2"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-red-500 text-white">15</span></td>
+                <td class="py-3 px-2 text-gray-700">CISO</td>
+                <td class="py-3 px-2 text-gray-700">2 h ago</td>
+                <td class="py-3 px-2"><span class="text-[10px] bg-white border border-gray-200 text-gray-600 px-1.5 py-0.5 rounded">Auto · CrowdStrike</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-3">
+                  <div>
+                    <p class="font-medium text-gray-900">Privileged Access Sprawl</p>
+                    <p class="text-[11px] text-gray-500">IAM · 312 standing-admin accounts</p>
+                  </div>
+                </td>
+                <td class="py-3 px-2"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-orange-500 text-white">12</span></td>
+                <td class="py-3 px-2 text-gray-700">CISO · CIO</td>
+                <td class="py-3 px-2 text-gray-700">6 h ago</td>
+                <td class="py-3 px-2"><span class="text-[10px] bg-amber-50 border border-amber-200 text-amber-700 px-1.5 py-0.5 rounded">Pending Okta connector (V1.5)</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-3">
+                  <div>
+                    <p class="font-medium text-gray-900">Third-Party Vendor Breach</p>
+                    <p class="text-[11px] text-gray-500">Vendor · Snowflake-class incident</p>
+                  </div>
+                </td>
+                <td class="py-3 px-2"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-orange-500 text-white">12</span></td>
+                <td class="py-3 px-2 text-gray-700">CISO · CRO</td>
+                <td class="py-3 px-2 text-gray-700">1 d ago</td>
+                <td class="py-3 px-2"><span class="text-[10px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">Manual · TPRM (V2.5)</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-3">
+                  <div>
+                    <p class="font-medium text-gray-900">Cloud Misconfiguration</p>
+                    <p class="text-[11px] text-gray-500">Cyber · 6 public-S3, 2 IAM-wildcard</p>
+                  </div>
+                </td>
+                <td class="py-3 px-2"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-orange-400 text-white">10</span></td>
+                <td class="py-3 px-2 text-gray-700">CISO · DevOps</td>
+                <td class="py-3 px-2 text-gray-700">4 h ago</td>
+                <td class="py-3 px-2"><span class="text-[10px] bg-amber-50 border border-amber-200 text-amber-700 px-1.5 py-0.5 rounded">CloudTrail conn. (V2.0)</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-3">
+                  <div>
+                    <p class="font-medium text-gray-900">Strategic / Competitive</p>
+                    <p class="text-[11px] text-gray-500">Strategic · Workshop-driven</p>
+                  </div>
+                </td>
+                <td class="py-3 px-2"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-yellow-500 text-white">8</span></td>
+                <td class="py-3 px-2 text-gray-700">CRO · CEO</td>
+                <td class="py-3 px-2 text-gray-700">Mar 15</td>
+                <td class="py-3 px-2"><span class="text-[10px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">Manual (judgment)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Provenance / Evidence Chain Panel -->
+    <div class="bg-white rounded-xl border border-gray-200 p-6">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-sm font-semibold text-gray-900">Provenance — why "Ransomware / Malware" was elevated to HIGH</h2>
+          <p class="text-xs text-gray-500 mt-0.5">Auditable chain · retained 7 years under PCAOB AS 1215 · re-performable on demand</p>
+        </div>
+        <button class="text-xs text-gray-700 border border-gray-300 bg-white px-3 py-1.5 rounded-md hover:bg-gray-50 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Export workpaper
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div class="space-y-3">
+          <div class="border-l-2 border-red-300 pl-4">
+            <p class="text-[11px] uppercase tracking-wider text-red-700 font-semibold">Source event</p>
+            <p class="text-sm font-medium text-gray-900 mt-0.5">CrowdStrike Falcon detection</p>
+            <p class="text-xs text-gray-600 mt-1">Detection ID <span class="font-mono bg-gray-100 px-1 py-0.5 rounded">cs-det-7af31b</span></p>
+            <p class="text-xs text-gray-600">Asset <span class="font-mono bg-gray-100 px-1 py-0.5 rounded">finance-srv-04.corp</span> · Severity <span class="text-red-700 font-semibold">CRITICAL</span></p>
+            <p class="text-xs text-gray-500 mt-1">Captured 2026-04-26 14:23:11 UTC · raw payload hash <span class="font-mono">sha256:b8e7…3a91</span></p>
+          </div>
+          <div class="border-l-2 border-orange-300 pl-4">
+            <p class="text-[11px] uppercase tracking-wider text-orange-700 font-semibold">ATT&CK mapping</p>
+            <p class="text-sm font-medium text-gray-900 mt-0.5">T1486 Data Encrypted for Impact</p>
+            <p class="text-xs text-gray-600 mt-1">Tactic: Impact · Technique: T1486 · used in 41% of recent ransomware incidents (industry threat intel)</p>
+          </div>
+          <div class="border-l-2 border-yellow-400 pl-4">
+            <p class="text-[11px] uppercase tracking-wider text-yellow-700 font-semibold">AI interpretation</p>
+            <p class="text-sm text-gray-800 mt-0.5">Behavior pattern matches active ransomware execution. Combined with the existing 47 unpatched CVEs and 3 peer-industry incidents this month, likelihood is now HIGH (was Medium).</p>
+            <p class="text-xs text-gray-500 mt-1">Model <span class="font-mono">claude-opus-4-7</span> · prompt v1.4.2 · confidence 94%</p>
+          </div>
+          <div class="border-l-2 border-blue-300 pl-4">
+            <p class="text-[11px] uppercase tracking-wider text-blue-700 font-semibold">Score change</p>
+            <p class="text-sm font-medium text-gray-900 mt-0.5">Likelihood: Medium (3) → HIGH (4) · Impact unchanged: 5 · Score 12 → 20</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="border-l-2 border-purple-300 pl-4">
+            <p class="text-[11px] uppercase tracking-wider text-purple-700 font-semibold">Controls flagged for re-test</p>
+            <ul class="text-xs text-gray-700 mt-1 space-y-0.5">
+              <li>• <span class="font-mono text-gray-500">SOC 2 CC7.2</span> — Detection of anomalies</li>
+              <li>• <span class="font-mono text-gray-500">NIST DE.CM-1</span> — Network monitoring</li>
+              <li>• <span class="font-mono text-gray-500">PCI 10.6.1</span> — Log review</li>
+            </ul>
+          </div>
+          <div class="border-l-2 border-green-300 pl-4">
+            <p class="text-[11px] uppercase tracking-wider text-green-700 font-semibold">Notifications sent</p>
+            <ul class="text-xs text-gray-700 mt-1 space-y-0.5">
+              <li>• VP Finance (Jane Patel) — 14:23:14 UTC</li>
+              <li>• CISO (Marcus Wei) — 14:23:14 UTC</li>
+              <li>• Audit Committee Chair — board portal updated</li>
+            </ul>
+          </div>
+          <div class="border-l-2 border-pink-300 pl-4">
+            <p class="text-[11px] uppercase tracking-wider text-pink-700 font-semibold">Regulatory clocks assessed</p>
+            <ul class="text-xs text-gray-700 mt-1 space-y-0.5">
+              <li>• HIPAA breach notification — <span class="text-gray-600">not yet triggered (no PHI accessed)</span></li>
+              <li>• SEC Item 1.05 8-K — <span class="text-gray-600">materiality assessment pending CISO review</span></li>
+              <li>• DORA major-incident — <span class="text-gray-600">N/A (not a financial entity)</span></li>
+            </ul>
+          </div>
+          <div class="border-l-2 border-gray-300 pl-4">
+            <p class="text-[11px] uppercase tracking-wider text-gray-600 font-semibold">Re-performance</p>
+            <button class="mt-1 text-xs text-brand-600 font-medium hover:underline flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              Re-query CrowdStrike for current state
+            </button>
+            <p class="text-[11px] text-gray-500 mt-1">Auditor can re-run any query against live data — provenance preserved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Old Way callout -->
+    <div class="bg-gray-900 rounded-xl p-6 text-white">
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <p class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-2">The legacy way</p>
+          <p class="text-sm font-medium text-gray-200">Quarterly facilitator workshop · sticky-note voting · static heatmap stale by 6 weeks · "Trust us" defensibility</p>
+          <p class="text-xs text-gray-500 mt-2">Last workshop: <span class="line-through">Mar 15, 2026</span> · next scheduled: <span class="line-through">Jun 15, 2026</span> — both deprecated.</p>
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-wider text-green-400 font-semibold mb-2">What's running here</p>
+          <p class="text-sm font-medium text-white">Continuous, event-driven, telemetry-grounded · sub-5-minute update latency · provenance chain on every score change · defensible under PCAOB AS 1105 / 1215 and DORA continuous-ICT-risk · board-portal current any business day</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

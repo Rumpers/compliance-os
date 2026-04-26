@@ -40,6 +40,16 @@ What both modes deliver:
 
 ---
 
+## Documents
+
+| Document | Description |
+|---|---|
+| [PITCH_DECK.md](./PITCH_DECK.md) | 16-slide investor and partner pitch + appendix — validation signal, problem, three buyer lenses, why now, solution, demo, product, competition, native-build threats (CrowdStrike + Workiva), market, business model, GTM, acquisition thesis, ask |
+| [PRODUCT_SPEC.md](./PRODUCT_SPEC.md) | Full PRD — target users, use cases, audit standards alignment (PCAOB / AICPA / IAASB / ISO), feature list (MVP → V2), API spec, UI requirements, success metrics, risks, open questions |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Tech stack, project structure, data flow, setup instructions |
+
+---
+
 ## Why Now (2025–2026)
 
 The regulatory and incident environment that makes this product necessary did not exist three years ago:
@@ -64,6 +74,7 @@ The regulatory and incident environment that makes this product necessary did no
 | [Dashboard](./mockups/dashboard.html) | Compliance posture score, framework breakdown, live activity feed |
 | [Controls](./mockups/controls.html) | All controls across all frameworks with real-time status |
 | [Evidence Detail](./mockups/evidence.html) | AI-generated evidence with raw data, audit trail, GRC-platform sync status |
+| [**Live Risk Register**](./mockups/risks.html) | **Event-driven risk register replacing the quarterly assessment — heatmap, top risks, full provenance chain on the most recent auto-update** |
 | [Integrations](./mockups/integrations.html) | Cybersecurity-platform connection, GRC-platform connector, sync logs |
 
 > Open any HTML file directly in a browser — navigation links between all screens work.
@@ -132,16 +143,6 @@ Cybersecurity platform API (EDR / VM / detection)
 | AI | Anthropic Claude API | `claude-opus-4-7` (interpretation), `claude-haiku-4-5` (UI summarization), prompt caching enabled |
 | Auth | Auth.js (formerly NextAuth.js) | v5 |
 | Jobs | node-cron → BullMQ (V1.5) | — |
-
----
-
-## Documents
-
-| Document | Description |
-|---|---|
-| [PITCH_DECK.md](./PITCH_DECK.md) | 16-slide investor and partner pitch + appendix — validation signal, problem, three buyer lenses, why now, solution, demo, product, competition, native-build threats (CrowdStrike + Workiva), market, business model, GTM, acquisition thesis, ask |
-| [PRODUCT_SPEC.md](./PRODUCT_SPEC.md) | Full PRD — target users, use cases, audit standards alignment (PCAOB / AICPA / IAASB / ISO), feature list (MVP → V2), API spec, UI requirements, success metrics, risks, open questions |
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | Tech stack, project structure, data flow, setup instructions |
 
 ---
 
