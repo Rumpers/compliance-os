@@ -175,6 +175,29 @@ Compliance OS turns risk assessment from a periodic event into an event-driven c
 | Retrospective board heatmap | Real-time board portal |
 | "Trust us" defensibility | Provenance chain on every score change |
 
+**Scope — what this use case covers, extends to, and does not touch.**
+
+The kill-shot applies to risk categories where queryable real-time telemetry exists. It is not a claim that *every* risk in the enterprise register becomes telemetry-driven. Honest scope:
+
+| Risk category | UC-3 covers it? | When | Why |
+|---|---|---|---|
+| Endpoint / EDR / vulnerability / malware / insider | **Yes — MVP** | V1.0 | Telemetry is the wedge |
+| Identity & access (privilege creep, MFA coverage) | Yes | V1.5 with Okta / Entra ID | Telemetry exists, queryable |
+| Cloud security posture | Yes | V2.0 with cloud connectors | Telemetry exists, queryable |
+| Multi-vendor endpoint (EDR concentration mitigation) | Yes | V2.0 with additional EDRs | Same pattern, new sources |
+| Third-party / vendor security risk | Yes | V2.5 with TPRM connectors (BitSight, SecurityScorecard) | Telemetry emerging |
+| Data security posture (DSPM) | Yes | V3.0 | Telemetry maturing |
+| AI / model risk | Yes | V3.0+ | New category, telemetry from AIDR-class platforms |
+| **Financial controls (SOX ITGC, business-process)** | **No — Workiva's wedge** | — | Different vertical; their March 2026 GRC launch addresses this. We don't compete here. |
+| **ESG / carbon** | No | — | Workiva via Sustain.Life acquisition. Not our wedge. |
+| **Operational risk (manufacturing, supply chain)** | No | — | Vertical-specific; not our architectural fit |
+| **Strategic risk (competitive, market position)** | No | Never | No telemetry possible — pure judgment |
+| **Reputational risk** | No | Never | Sentiment / media monitoring, not our pattern |
+| **Geopolitical / sanctions** | No | Never | Intelligence feeds, not telemetry |
+| **Legal / litigation, HR / people risk** | No | Never | Judgment + matter management, not telemetry |
+
+**Implication for buyer conversations.** When the CRO asks "does this replace my whole risk register?", the answer is *"no — the queryable-telemetry portion of it (~50–60% of a typical Fortune 500 register) becomes continuous and audit-defensible. The strategic and reputational risks you still workshop. The difference is that the workshop now happens against a live cyber-risk baseline, not a 6-week-stale one."*
+
 ---
 
 ### UC-4: Finding Lifecycle Management

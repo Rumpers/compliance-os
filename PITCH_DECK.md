@@ -209,6 +209,8 @@ Compliance OS (within 5 minutes):
 
 **The quarterly risk assessment is dead. We are the thing that kills it.**
 
+> **Scope clarifier (because investors will ask).** This kills the *cyber* risk assessment specifically — that is where queryable real-time telemetry exists today. The same model extends to any risk category with live signal: **cloud and identity (V2.0)**, **third-party security (V2.5)**, eventually overlapping with **financial controls** (Workiva's wedge — different vendor, validates the architectural pattern). Strategic risk, reputational risk, geopolitical risk, and other pure-judgment categories remain workshop work; we do not claim to obsolete them. The queryable-telemetry portion of a Fortune 500 risk register is already **~50–60%** of the total — that is the share moving from periodic to continuous, and that is the share we win.
+
 ---
 
 ### Closed Remediation Loop
@@ -295,6 +297,24 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 - **CrowdStrike Falcon** (required at MVP — primary data source); **SentinelOne, Microsoft Defender for Endpoint** on V2.0 roadmap (multi-EDR is a deliberate design choice, not an aspiration)
 - **AuditBoard** (optional bridge connector — push evidence to existing tenant); **ServiceNow IRM, Hyperproof, LogicGate** on roadmap
 - Okta, Jira, ServiceNow ITSM (roadmap)
+
+---
+
+### Risk Domain Coverage — staged expansion path
+
+Each new connector unlocks a new risk domain on the live-register model. The expansion is the same architectural pattern (queryable telemetry → AI interpretation → live risk + control update) applied to a new data source. **The connectors are the strategy.**
+
+| Wave | Risk domain unlocked | Connectors that unlock it | Compliance OS version |
+|---|---|---|---|
+| **1 (MVP)** | Endpoint security, vulnerability, malware, insider threat | CrowdStrike Falcon | V1.0 |
+| **2** | Identity & access risk, privilege creep, MFA coverage gaps | Okta, Microsoft Entra ID | V1.5 |
+| **3** | Multi-vendor endpoint (EDR concentration risk mitigation) | SentinelOne, MS Defender for Endpoint | V2.0 |
+| **4** | Cloud security posture, IaaS/PaaS misconfigurations | AWS CloudTrail, Azure Monitor, GCP Audit | V2.0 |
+| **5** | Third-party / vendor security risk | BitSight, SecurityScorecard, SOC 2 portal connectors | V2.5 |
+| **6** | Data security posture (DSPM signals) | Cyera, Varonis, vendor APIs | V3.0 |
+| **7** | AI / model risk (board agenda item in 2026) | AIDR-class platforms, model registries | V3.0+ |
+
+**Out of scope by design** — strategic, reputational, geopolitical, legal, and HR risk remain judgment / intelligence-driven. We do not pretend telemetry exists for these. Workiva already owns the financial-controls wedge (Sustain.Life, Kansaro, March 2026 GRC launch); we do not enter that lane.
 
 ---
 
