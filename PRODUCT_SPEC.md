@@ -343,10 +343,27 @@ Compliance OS is designed so that artifacts produced by the platform meet the ev
 - Sync failure alerts
 - Retry with exponential backoff
 
-#### F10: Framework Coverage Heatmap
-- MITRE ATT&CK coverage visualization
-- Gap identification (techniques with no coverage)
-- Progress tracking over time
+#### F10: MITRE ATT&CK Coverage Heatmap
+
+**What MITRE ATT&CK is.** A public knowledge base of real-world adversary behavior maintained by MITRE Corporation. Organized by **tactic** (the attacker's goal — Initial Access, Persistence, Lateral Movement, Exfiltration, etc.) and **technique** (the method used — e.g., T1566 Phishing, T1078 Valid Accounts, T1486 Data Encrypted for Impact). The Enterprise matrix has 14 tactics and ~200 techniques as of 2026. Adopted as the de facto common language across major EDR vendors, threat intelligence reports, red-team engagements, and increasingly compliance frameworks. Cybersecurity-platform detections almost always carry an ATT&CK technique ID.
+
+**What we deliver.**
+
+- **Visualization** — heatmap rendering of the full 14×N matrix; one cell per technique
+- **Per-cell state** — whether a detection exists in the connected security platform, when it last fired, which controls reference it
+- **Tri-color coding** — green (covered + exercised in last 90 days), yellow (covered, not exercised recently), red (no detection in customer environment)
+- **Gap identification** — explicit list of techniques with no coverage, ranked by prevalence in current threat intelligence (e.g., "T1190 Exploit Public-Facing Application — used in 41% of incidents this quarter, no detection in your environment")
+- **Compliance cross-walk** — each ATT&CK technique mapped to the compliance controls that reference detection of it (NIST CSF DE.CM-1 through DE.CM-8, SOC 2 CC7.2, ISO 27001 A.16.1, PCI-DSS 10.6, etc.)
+- **Peer benchmarking** — anonymized cohort comparison: "your coverage of T1078 is at the 65th percentile for SaaS companies of your size"
+- **Trend over time** — week-over-week coverage deltas; alerts when coverage degrades (e.g., a previously-green technique flips yellow because the detection rule was disabled)
+
+**Why this matters across all three buyers.**
+
+- **CISO** — single chart for the board that answers "how complete is our detection coverage against the threats actually being used?" without opinion or estimation
+- **Auditor** — defensible evidence that detection controls are operating across the threat landscape, not just configured on paper. Population-level coverage data, not sampled
+- **Board** — connects threat intelligence ("3 peers in your industry were hit by ransomware this month using T1486") to your own posture ("our coverage of the techniques leading up to T1486 is 8 of 11 — here are the 3 gaps and remediation owners")
+
+**How it feeds the risk register.** When the connected security platform detects activity tagged with a high-impact technique that previously had no coverage in our environment, the corresponding risk's likelihood updates automatically and the ATT&CK technique ID is attached as evidence. Threat-informed risk register, not opinion-based.
 
 #### F11: Dollar Risk Quantification
 - FAIR-based risk scoring model

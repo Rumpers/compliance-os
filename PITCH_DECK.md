@@ -258,10 +258,14 @@ This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is 
 - Closed automatically when CrowdStrike confirms fix
 
 **Framework Dashboard**
-- MITRE ATT&CK coverage heatmap
-- Compliance posture score by framework
-- Trend over time
-- Peer benchmarking
+- **MITRE ATT&CK coverage heatmap** — visualizes detection coverage across the 14 ATT&CK tactics and ~200 techniques (the public knowledge base of how real-world attackers behave, maintained by MITRE). For every technique, we show whether the connected security platform has a detection, when it last fired, and which compliance controls reference it. Three colors:
+  - **Green** — detection exists, exercised in the last 90 days
+  - **Yellow** — detection exists, not exercised recently
+  - **Red** — no detection in the customer's environment
+  This is the single chart a CISO can put in front of the board to answer *"how complete is our detection coverage against the threats actually being used?"* — and it doubles as auditor-defensible evidence that detection controls (NIST CSF DE.CM, SOC 2 CC7.2) are operating across the threat landscape, not just on paper.
+- **Compliance posture score by framework** — single score per framework (SOC 2: 94%, NIST: 87%, etc.)
+- **Trend over time** — posture deltas week-over-week, surfacing degradation before audit cycles
+- **Peer benchmarking** — anonymized comparison against same-industry, same-size cohort
 
 **Integrations**
 - **CrowdStrike Falcon** (required at MVP — primary data source); **SentinelOne, Microsoft Defender for Endpoint** on V2.0 roadmap (multi-EDR is a deliberate design choice, not an aspiration)
