@@ -55,6 +55,134 @@ Meanwhile CrowdStrike knows:
 
 ---
 
+## Slide 2.5 — The Auditor's View
+
+> *Written from the desk of a senior IT audit manager at a Big 4 firm.*
+
+### What I actually do for a living
+
+For every SOX, SOC 2, or ISO engagement, my team executes the same loop on roughly **40–60 IT General Controls** per client: logical access, change management, computer operations, and — increasingly — endpoint security and vulnerability management.
+
+For each control we are required by professional standards to:
+
+1. **Understand the control** — walkthrough with the control owner
+2. **Test design effectiveness** — does the control, as described, address the risk
+3. **Test operating effectiveness** — sample populations and re-perform
+4. **Document evidence** — sufficient, appropriate, retained for **7 years** (SOX) under **PCAOB AS 1215**
+
+Today, step 3 is where the engagement bleeds. We send the client a **PBC list** ("Provided By Client") with 200+ requests. The client's security team responds when they can. Half the artifacts come back in the wrong format. Some are screenshots with no timestamp — which under **PCAOB AS 1105** is borderline insufficient evidence. We sample, because testing the full population is impossible at human speed.
+
+### Three structural problems the profession is hitting
+
+**1. Sampling is no longer defensible when the population is queryable.**
+Auditing standards (AS 1105, ISA 500) require *sufficient appropriate evidence*. When the underlying system can return the entire population in seconds, sampling 25 endpoints out of 1,891 starts to look like an audit shortcut, not a methodology choice. PCAOB inspections increasingly flag this.
+
+**2. The talent pipeline has collapsed.**
+AICPA candidate volume is at a 20-year low. Big 4 IT audit practices cannot hire fast enough to absorb new regulation (SEC Cyber, DORA, NIS2). Every hour spent reformatting CSVs is an hour not spent on judgment work — the only work that justifies our hourly rate.
+
+**3. Audit fee compression is structural.**
+Clients renegotiate every cycle. Partners are asked to deliver the same opinion with 10–15% fewer hours year over year. The only way that math works is automation of evidence collection — the most labor-intensive, least judgment-intensive part of the engagement.
+
+### Why this product hits the auditor where it counts
+
+| What a senior auditor needs | What Compliance OS delivers |
+|---|---|
+| Sufficient appropriate evidence (AS 1105) | System-of-record telemetry with provenance chain |
+| Population testing, not sampling | Every endpoint queried, every exception listed |
+| Re-performance capability | Re-run any control test on demand against live data |
+| Audit trail retained 7 years (AS 1215) | Immutable evidence store with timestamp, source, and AI rationale |
+| Independence preserved | Auditor consumes evidence; never operates client systems |
+| Cross-framework efficiency | One control test mapped to SOC 2 + NIST + ISO simultaneously |
+
+**The professional skepticism standard does not go away.** The auditor still reviews the evidence, evaluates the AI summary against the raw data, and signs the workpaper. What changes is that the 80% of the engagement that was clerical becomes the 20% — and judgment work expands to fill the time we just bought back.
+
+### The honest reason Big 4 will adopt this
+
+It is not idealism. It is margin. A platform that cuts 40% of fieldwork hours on the IT side of the engagement preserves partner economics through the next three rounds of fee compression. Whoever owns the bridge between security telemetry and audit evidence becomes embedded in the methodology — and methodology, in this profession, is the moat.
+
+---
+
+## Slide 2.6 — The CISO's View
+
+> *Written from the desk of a Fortune 500 CISO in 2026.*
+
+### The job changed in the last 24 months
+
+Three events reshaped the role:
+
+1. **SEC vs. SolarWinds CISO (Oct 2023)** — first time the SEC named a CISO personally in a securities-fraud action. Securities-fraud claim survived motion to dismiss in July 2024. Every public-company CISO read those filings.
+2. **Uber CISO conviction (May 2023)** — Joe Sullivan convicted of federal charges for breach concealment. The legal precedent is now established.
+3. **SEC Cybersecurity Disclosure Rule (effective Dec 18, 2023)** — Form 8-K Item 1.05 requires disclosure of a *material* cybersecurity incident within **4 business days** of materiality determination. The CISO is the principal advisor on whether something is material.
+
+### What this means for the daily job
+
+I am no longer just the head of security operations. I am a **discloseable officer of a public company**, with personal exposure on the accuracy of Item 106 disclosures (governance), Item 1.05 8-Ks (incidents), and increasingly D&O-adjacent litigation. My team's CSV exports for the auditor are not just an annoyance — they are part of an evidence chain I may have to defend under oath.
+
+### The structural pressures stacking on top
+
+| Pressure | What it does to me |
+|---|---|
+| **DORA enforcement (live Jan 17, 2025, EU)** | Continuous ICT risk controls — quarterly artifacts no longer satisfy. Evidence must be ongoing. |
+| **NIS2 transposition (deadline Oct 17, 2024)** | EU member states now empowered to fine and disqualify management for inadequate controls. |
+| **NIST CSF 2.0 (Feb 2024)** | New GOVERN function — board oversight is now part of the framework itself, not a wrapper around it. |
+| **ISC2 workforce study 2024** | 4.8M unfilled cyber roles globally. I cannot solve this with hiring. |
+| **Cyber insurance underwriting** | Carriers now require evidence of controls operating, not policy attestations. Renewal questionnaires ask for EDR coverage rates, MFA coverage, backup test cadence — by population, not sample. |
+| **CrowdStrike Falcon outage (Jul 19, 2024)** | Boards now ask about vendor concentration risk and the controls around it. I have to answer with data. |
+| **Supply-chain incidents** (MOVEit 2023, Snowflake credential incidents 2024 affecting Ticketmaster, Santander, and 160+ others) | Third-party risk is now a board-level conversation, not a procurement checkbox. |
+
+### What I need from a platform
+
+- A **single substrate** that serves audit evidence, board reporting, insurance underwriting, and regulator disclosure — because today I maintain four parallel narratives and they don't reconcile.
+- **Materiality assessment support** with a documented methodology — so when I tell my CFO "this is not material," that judgment is defensible.
+- **Audit drag eliminated** — every analyst hour I get back from PBC chase is an hour on detection engineering, the only thing that actually reduces incident likelihood.
+- **Live posture data my CFO and General Counsel can read directly** — so I am not the bottleneck on every cross-functional risk question.
+
+### What sells me
+
+Not "compliance automation." That language belongs to 2018. What sells me is: *"the same data that proves controls work for the audit committee proves them for the SEC, the cyber insurance carrier, and the regulator — and frees my team to do security work."*
+
+---
+
+## Slide 2.7 — The Board Member's View
+
+> *Written from the desk of an independent director on a Fortune 1000 audit committee.*
+
+### Why I personally pay attention
+
+The duty-of-oversight bar moved. *In re Caremark* (Delaware, 1996) was reinforced by **Marchand v. Barnhill (2019)** and **In re Boeing (2021)**: directors have an affirmative duty to actively oversee mission-critical risks. Cyber, in 2026, is unambiguously mission-critical at every public company.
+
+If a derivative suit follows a material incident, my emails, board materials, and meeting minutes will be discoverable. "Management briefed us quarterly" is not a defense. The plaintiff's bar will ask: *what oversight infrastructure existed, what data did the board look at, and how often.*
+
+### What current regulation forces onto our agenda
+
+**SEC Reg S-K Item 106** (effective with 10-K filings for fiscal years ending on or after Dec 15, 2023) requires our 10-K to describe:
+
+- Our **processes** for assessing, identifying, and managing material cyber risks
+- The **board's oversight** of cyber risk
+- **Management's role** and expertise in assessing and managing cyber risk
+
+This language is now reviewed by SEC staff. Boilerplate gets a comment letter.
+
+### The cadence problem
+
+Today, our audit committee sees cyber once a quarter as a 30-slide deck. By the time it is presented, it is 4–6 weeks stale. Between meetings, I have no view at all. If a material incident occurs in week 7 of the quarter, the institutional knowledge I bring to the disclosure conversation is from the *prior* quarter's snapshot.
+
+This is the structural problem the **NACD Director's Handbook on Cyber-Risk Oversight (5th edition, 2023)** flags directly: oversight is continuous, but the data we receive is periodic.
+
+### What I need
+
+- A **read-only board portal** — I can log in any day of the quarter and see current control posture, top risks, and trend
+- A **documented oversight trail** — proof I exercised duty-of-care, time-stamped, retained, discoverable on my side rather than only on management's
+- **Materiality narrative on demand** — if an Item 1.05 trigger occurs, the board needs a defensible position within hours
+- **Peer benchmarking** — am I better, worse, or normal vs. comparable companies, on the controls that matter
+- **One platform that also covers AI governance** — because that is the next item being added to my committee's charter
+
+### What this product does for me
+
+It converts "we trust management" into "we have independently observable evidence." That is the difference between a Caremark defense that holds and one that does not.
+
+---
+
 ## Slide 3 — The Market
 
 ### Who has this problem
@@ -160,6 +288,25 @@ Audit finding created in Compliance OS
 
 ---
 
+### Audit-Grade Evidence Chain
+
+Every artifact is captured with the provenance an external auditor needs to rely on it:
+
+```
+Evidence record
+  ├── Source system + API endpoint + query
+  ├── Collection timestamp (UTC, immutable)
+  ├── Raw payload (hash-pinned, retained 7 years)
+  ├── AI interpretation + prompt version + model ID
+  ├── Control mapping (framework, control ID, version)
+  ├── Auditor review state (pending / approved / overridden)
+  └── Re-performance hook (one-click re-query against live data)
+```
+
+This is what allows a Big 4 reviewer to sign the workpaper. **The AI summary is convenience; the raw data + provenance chain is the evidence.**
+
+---
+
 ## Slide 6 — Product
 
 ### Core Modules
@@ -250,9 +397,14 @@ Find them: LinkedIn search "AuditBoard" + "CrowdStrike" in profile.
 
 ### Phase 2 — Channel (Months 4–12)
 
-**Big 4 consulting firms** (Deloitte, PwC, KPMG, EY) implement AuditBoard for hundreds of enterprise clients. They also recommend CrowdStrike. They feel this pain on every engagement.
+**Big 4 audit and advisory firms** (Deloitte, PwC, KPMG, EY) are the highest-leverage channel for two distinct reasons:
 
-Approach: Partner program. They resell or refer. We pay 20% referral fee.
+1. **Advisory side** — they implement AuditBoard for hundreds of enterprise clients and recommend CrowdStrike alongside it. They feel the integration gap on every engagement.
+2. **Audit side** (the larger prize) — their *own* IT audit teams burn 30–40% of fieldwork hours on PBC chase and manual evidence formatting. A platform that compresses that time directly protects partner margin under fee compression. This is not a "nice to have" for them; it is methodology survival.
+
+Approach:
+- **Channel program** — referral or resell with 20% fee for advisory-side deals
+- **Audit firm site licenses** — direct sale to the Big 4 IT audit practice itself, used across their client base as part of their methodology toolkit (precedent: Caseware, MindBridge, AuditFile)
 
 **MSSPs** managing CrowdStrike for multiple clients — Compliance OS gives them a compliance story they can sell to their clients alongside security services.
 

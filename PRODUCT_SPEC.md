@@ -40,13 +40,18 @@ We are building the intelligent layer between security telemetry and compliance 
 
 ### Secondary User: CISO / Security Manager
 
-**Who they are**: Responsible for CrowdStrike deployment and security posture. Currently spends 15–30% of team's time responding to audit requests.
+**Who they are**: Owns CrowdStrike deployment and security posture. In 2025, also personally accountable to the audit committee and increasingly the SEC. Has watched the SolarWinds CISO charges (Oct 2023, securities fraud claim survived motion to dismiss Jul 2024) and the Uber CISO conviction (May 2023) reshape what the role actually means.
 
-**Current pain**: Audit requests pull analysts from security work. Manual exports are repetitive and low-value. Has no visibility into how security data maps to compliance.
+**Current pain (2025–2026 reality)**:
+- **Personal disclosure liability** — under SEC Cybersecurity Disclosure Rule (Item 1.05 8-K, effective Dec 18, 2023), the CISO has 4 business days from materiality determination to support an accurate public filing. Doing that without a single source of truth across security telemetry and control posture is a career-ending exposure.
+- **Audit drag on the security team** — 15–30% of analyst hours go to evidence export, in a market where ISC2 reports ~4.8M unfilled cyber roles globally (2024 study). Every hour reformatting a CSV is an hour not on detection engineering.
+- **Disconnected risk narrative** — when the CFO asks "what is our actual ransomware exposure," the CISO has Falcon data, the CRO has a heatmap, and they don't reconcile.
+- **Cyber insurance underwriting** — carriers now require evidence of controls operating, not policy attestations. (Premium hardening since 2022; coverage now contingent on demonstrable EDR coverage, MFA, backup hygiene.)
+- **Vendor-dependency scrutiny** — post the July 19, 2024 CrowdStrike Falcon outage, boards and regulators are asking deeper questions about single-vendor security architectures and the controls around them.
 
-**What they need**: Audit requests handled automatically. Security team freed from evidence export work. Clear mapping between security findings and compliance obligations.
+**What they need**: A defensible, real-time view of security control state that doubles as audit evidence and SEC disclosure substrate. Audit cycle workload off the security team. AI assistance for materiality assessments under tight statutory clocks.
 
-**Success metric**: Zero manual evidence export requests from audit team.
+**Success metric**: Zero manual evidence export requests from audit team. Materiality determination supportable from a single data substrate within hours of a detection event.
 
 ---
 
@@ -59,6 +64,45 @@ We are building the intelligent layer between security telemetry and compliance 
 **What they need**: Live compliance posture dashboard. Risk scores driven by real data. Board reports generated automatically.
 
 **Success metric**: Board report prepared in under 1 hour using Compliance OS data.
+
+---
+
+### Quaternary User: Board Director / Audit Committee Chair
+
+**Who they are**: Independent director on the audit committee (or a dedicated risk/technology committee) of a public or large-private company. In 2025, increasingly carries personal duty-of-oversight exposure for cyber risk under the *Caremark* line of cases (extended by *Marchand v. Barnhill*, 2019, and *In re Boeing*, 2021 — board's affirmative duty to oversee mission-critical risks).
+
+**Current pain (2025–2026 reality)**:
+- **SEC Reg S-K Item 106 disclosure** — 10-K must describe board oversight of cyber risk and management's role in assessing/managing it. Vague language is no longer survivable.
+- **NACD principles** — the *Director's Handbook on Cyber-Risk Oversight* (NACD/ISA, 2023 edition) establishes 5 board principles. Audit committees increasingly expected to demonstrate active oversight, not after-the-fact briefings.
+- **Cadence problem** — board sees cyber once a quarter via a 30-slide deck. The deck is six weeks old by the time it is presented. When a *material* incident occurs, the board's institutional knowledge of the controls environment is already stale.
+- **D&O exposure** — derivative suits citing inadequate cyber oversight are a growing vector. Directors now ask for documented oversight artifacts, not management assurances.
+- **AI governance is the next agenda item** — many boards are now adding AI risk to the same committee that handles cyber. Standing oversight infrastructure has to be built once, used for both.
+
+**What they need**:
+- A read-only board view of compliance posture, top risks, and trend over time — accessible between meetings, not just the night before
+- Auto-generated materiality narratives the board can rely on if a Form 8-K Item 1.05 trigger occurs
+- A documented, queryable oversight trail — proof the board exercised duty-of-care, not just that management briefed it
+- Peer benchmarking — am I better, worse, or normal vs. comparable companies
+
+**Success metric**: Board can answer the SEC's three core questions (what is the risk, who oversees it, what is management doing) from primary-source data within one business day of any inquiry.
+
+---
+
+### Quinary User: External Auditor (Big 4 / Mid-Tier)
+
+**Who they are**: Senior or manager-level IT auditor at Deloitte, PwC, KPMG, EY, BDO, Grant Thornton, or RSM. Executes the IT General Controls (ITGC) portion of SOX 404, SOC 2, ISO 27001, or PCI-DSS engagements. Signs the workpaper that goes into the engagement file.
+
+**Current pain**: Issues a 200-line PBC ("Provided By Client") request list at engagement kickoff. Spends 30–40% of fieldwork hours chasing artifacts, reformatting CSVs, and reconciling versions. Cannot test full populations because client systems are opaque to them — falls back to sampling, which PCAOB inspections increasingly flag under AS 1105 when the underlying population is queryable. Repeats the entire cycle at rollforward (interim → year-end).
+
+**What they need**:
+- Read-only auditor seat into the client's Compliance OS tenant
+- Evidence with full provenance chain (source, query, timestamp, hash)
+- Population-level testing (not 25-of-1,891 samples)
+- Re-performance capability — re-run any control test on demand, get current state
+- Workpaper export with raw data attached for engagement file retention (7 years under PCAOB AS 1215)
+- Independence preserved — auditor consumes evidence but never operates client systems
+
+**Success metric**: Reduce IT audit fieldwork hours by 40% on engagements where the client uses Compliance OS. Sustain or improve PCAOB inspection outcomes.
 
 ---
 
@@ -149,6 +193,71 @@ We are building the intelligent layer between security telemetry and compliance 
 6. Exports to PDF or PowerPoint format
 
 **Success criteria**: Board-ready report generated in under 60 seconds
+
+---
+
+### UC-7: PBC List Automation (External Auditor)
+**Actor**: External auditor (Big 4 / mid-tier)
+**Trigger**: Engagement kickoff — auditor uploads or composes the PBC request list
+**Flow**:
+1. External auditor logs into client's Compliance OS via read-only auditor seat
+2. Auditor uploads PBC list (CSV / Excel) or selects from pre-mapped framework templates
+3. System matches each PBC item to existing control tests and evidence
+4. For matched items: evidence package auto-bundled with provenance chain
+5. For unmatched items: gap report generated, routed to client control owners
+6. Auditor reviews each evidence bundle; can request re-performance against live data
+7. Approved evidence bundles exported to workpaper format (PDF + raw data attachment)
+
+**Success criteria**: 70%+ of standard ITGC PBC items fulfilled without manual client effort. Time from PBC issuance to evidence completion drops from 4–6 weeks to under 5 business days.
+
+---
+
+### UC-8: Population-Based Control Testing
+**Actor**: External auditor or internal IT auditor
+**Trigger**: Auditor opens a control test that historically required sampling
+**Flow**:
+1. Auditor selects control (e.g., "All endpoints have approved EDR agent installed")
+2. System queries CrowdStrike for the full population at the test date
+3. AI evaluates every record against the control criterion — no sampling
+4. Output: total population N, exceptions M, exception list with root cause per record
+5. Auditor reviews exceptions only (not the entire population)
+6. Workpaper records: population tested, methodology, exceptions, disposition
+
+**Success criteria**: 100% population testing for all controls where data source is queryable. Exception rate calculated from full population, not extrapolated from sample. Defensible under PCAOB AS 1105 and ISA 500 evidence sufficiency standards.
+
+---
+
+### UC-9: Walkthrough Documentation
+**Actor**: External auditor (during interim fieldwork)
+**Trigger**: Auditor scheduled to perform control walkthrough with client owner
+**Flow**:
+1. Auditor opens control in Compliance OS auditor view
+2. System displays: control description, framework mapping, data sources wired, last 90 days of test history, any exceptions
+3. Auditor conducts walkthrough conversation with client control owner
+4. Auditor annotates walkthrough notes directly on control record
+5. System generates walkthrough memo template populated with system-of-record facts
+6. Memo exported to engagement file with full data lineage attached
+
+**Success criteria**: Walkthrough documentation reduced from 2–3 hours per control to under 30 minutes. Design effectiveness assessment supported by 90 days of operating evidence rather than a single point-in-time observation.
+
+---
+
+## 3.5 Audit Standards Alignment
+
+Compliance OS is designed so that artifacts produced by the platform meet the evidentiary requirements of the standards external auditors are bound by. This is what allows the AuditBoard-replacement and Big 4 channel motions to be more than marketing.
+
+| Standard | Body | Requirement | How Compliance OS supports |
+|---|---|---|---|
+| **AS 1105** | PCAOB | Audit evidence must be sufficient and appropriate | Population-level data with provenance chain, not screenshots |
+| **AS 1215** | PCAOB | Audit documentation retained 7 years, prepared with sufficient detail to enable an experienced auditor to understand the work | Immutable evidence store, hash-pinned raw payloads, AI prompt + model versioning |
+| **AS 2201** | PCAOB | Audit of ICFR — ITGC effectiveness must be tested over the period | 365-day test history per control, no point-in-time gaps |
+| **AT-C 105 / 205 / 320** | AICPA | Attestation engagements (SOC 1 / SOC 2) — examination evidence and reporting | Trust Service Criteria pre-mapped; evidence formatted for SOC report inclusion |
+| **ISA 500** | IAASB | Audit evidence — relevance and reliability | Source-system queries with method documented for re-performance |
+| **ISAE 3402** | IAASB | International equivalent of SOC 1 — service organization controls | Cross-walk from SOC 2 control library to ISAE 3402 control objectives |
+| **NIST CSF 2.0** | NIST | Govern / Identify / Protect / Detect / Respond / Recover (Feb 2024 release added GOVERN) | All six functions modelled in framework library; GOVERN-function controls prioritized |
+| **DORA RTS** | ESAs (EU) | Continuous ICT risk management for financial entities (effective Jan 17, 2025) | Continuous control monitoring satisfies "ongoing" requirement; incident classification supports 24/72-hour reporting deadlines |
+
+**Independence preserved**: Compliance OS is consumed by the auditor, not operated by them. The auditor reviews evidence, exercises professional skepticism, and signs the workpaper. AI-generated summaries are explicitly labelled as such; raw data and provenance remain authoritative. This is consistent with **AICPA ET 1.295** independence rules and **PCAOB Rule 3520** on auditor independence — the platform is a client tool that the auditor inspects, not a non-audit service the auditor provides.
 
 ---
 
