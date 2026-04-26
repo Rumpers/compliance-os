@@ -18,13 +18,17 @@ Meanwhile, the risk register is updated quarterly by human opinion. CrowdStrike 
 
 ## The Solution
 
-Compliance OS is a full GRC platform with an optional AuditBoard connector:
+Compliance OS is the **security-telemetry intelligence layer for AuditBoard**, with a standalone GRC platform underneath for enterprises that don't run AuditBoard.
 
+- **Bridge mode (primary)** — For the ~2,000+ enterprises already on AuditBoard, evidence flows directly into existing AuditBoard control tests. Customers keep their GRC platform, contracts, training, workpaper conventions. We add the part that hurts.
+- **Standalone (fallback)** — For enterprises not yet on AuditBoard, Compliance OS is a full GRC platform on its own — useful both as a greenfield deployment and as a rip-and-replace target for AuditBoard customers facing post-Hg-acquisition price hikes at renewal.
+
+What both modes deliver:
 - **Automated evidence collection** — CrowdStrike data flows directly into control tests. What took 3 days takes 90 seconds.
 - **AI interpretation** — Claude reads raw security telemetry and produces auditor-ready compliance narratives mapped to specific control IDs.
 - **Live risk register** — Risk scores update automatically when CrowdStrike detects significant events. No more quarterly opinion updates.
 - **Closed remediation loop** — Findings auto-created from failed controls, tracked through to CrowdStrike-confirmed resolution.
-- **AuditBoard connector** — For customers who already use AuditBoard, evidence is pushed automatically. Keep your existing platform, eliminate the manual work.
+- **Audit-grade evidence chain** — every artifact carries source, query, timestamp, AI prompt + model version, and re-performance hook. Defensible under PCAOB AS 1105 / 1215.
 
 ---
 

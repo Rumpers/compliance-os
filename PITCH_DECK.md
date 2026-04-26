@@ -222,7 +222,7 @@ It converts "we trust management" into "we have independently observable evidenc
 
 ### Compliance OS
 
-**A full GRC platform powered by live security telemetry — with an optional AuditBoard connector for customers who already use it.**
+**The security-telemetry intelligence layer for AuditBoard — with a standalone GRC platform underneath for customers who don't use it.**
 
 ```
 CrowdStrike Falcon
@@ -234,13 +234,18 @@ Compliance OS
   ├── Risk Register (live)
   ├── Findings & Remediation
   └── Framework Dashboard
-        ↓ optional
-    AuditBoard Connector
+        ↓ primary deployment for AuditBoard customers
+    AuditBoard Connector → AuditBoard tenant
 ```
 
-**Two ways to deploy:**
-1. **Standalone** — replace AuditBoard for IT/security compliance workflows
-2. **Bridge mode** — keep AuditBoard, add real-time security evidence automation
+**Primary positioning: bridge mode.**
+For the ~2,000+ enterprises already running AuditBoard, Compliance OS is the missing automation layer — security evidence flows directly into existing AuditBoard control tests. Customers keep their GRC platform, contracts, training, workpaper conventions. We add the part that hurts.
+
+**Fallback positioning: standalone.**
+For enterprises not yet on AuditBoard (or actively evaluating alternatives — increasingly common as Hg-driven price hikes hit renewal cycles), Compliance OS is a full GRC platform on its own.
+
+**Why bridge-first matters strategically.**
+AuditBoard was acquired by Hg Capital in May 2024 (~$3B reported). Hg's playbook is bolt-on M&A to expand ARR ahead of an exit. A visible, paying, customer-validated integration on the AuditBoard ecosystem is the fastest path to being a tuck-in candidate — not a competitor to a PE-backed dealmaker. Bridge-mode is product strategy *and* exit strategy.
 
 ---
 
@@ -472,41 +477,48 @@ Post-SolarWinds CISO charges (Oct 2023; securities-fraud claim survived motion t
 
 ## Slide 12 — Acquisition Thesis
 
-This is built to be acquired. Here's why multiple buyers want it.
+This is built to be acquired. There is a clear primary buyer with timing pressure, and a credible fallback set if that buyer doesn't move.
 
-### CrowdStrike
-- Makes Falcon data indispensable to compliance buyers — extends the platform from CISO budget into the CFO / CAE / CCO budget
+### Primary target: AuditBoard (Hg Capital portfolio)
+
+**This is the buyer to design the company around.**
+
+- Hg acquired AuditBoard in **May 2024 at a reported ~$3B valuation**. PE hold periods typically run 5–7 years, putting AuditBoard's exit window at roughly **2028–2031**.
+- Hg's playbook in software is unambiguous: bolt-on M&A to expand the ARR base, modernize the product (especially AI and integrations), and exit at a higher multiple. Compliance OS is precisely the kind of bolt-on this playbook hunts for — adjacent product, paying customers, complementary integration into the core platform.
+- AuditBoard's structural product gap is real-time security telemetry. They cannot build this faster than we can ship it because they don't own the underlying data plane (CrowdStrike does).
+- Bridge-mode positioning means we arrive on Hg's M&A radar already integrated with their portfolio company, with their customers using us, paying for us, and validating the integration. That is the strongest possible setup.
+
+**Implied timeline pressure on us**: to be on the M&A list before AuditBoard's exit, Compliance OS needs material ARR (~$5M+) and visible customer overlap by **~2027**. That sets the clock on Series A and on the first 50 customers.
+
+**Risk on this path**: Hg may acquire a competing compliance-automation player first (Hyperproof, Onspring, lower-tier of Vanta/Drata), or AuditBoard may ship a native CrowdStrike connector internally before we hit material ARR. Both reduce — though do not eliminate — our value as a target.
+
+---
+
+### Fallback acquirers (if AuditBoard/Hg doesn't move)
+
+Each of these has independent, current strategic motivation. Multiple credible buyers in adjacent positions = auction dynamic at exit even if Hg passes.
+
+#### CrowdStrike
+- Extends Falcon from CISO budget into CFO / CAE / CCO budget — a budget Falcon does not currently address
 - Extends Charlotte AI into GRC use cases beyond the SOC
-- Pattern: CrowdStrike has been actively acquiring to extend Falcon's surface area
-  - **Adaptive Shield** (Nov 2024, ~$300M cash + stock) — SaaS security posture management
-  - **Flow Security** (Mar 2024, ~$200M) — data security posture
-  - **Bionic** (Oct 2023, ~$350M) — application security posture
-  - **Humio** (Feb 2021, ~$400M) — log management / Falcon LogScale
-- Compliance OS is the same playbook: tuck-in that extends Falcon into a budget Falcon doesn't currently address
+- Active acquirer: **Adaptive Shield** (Nov 2024, ~$300M, SSPM), **Flow Security** (Mar 2024, ~$200M, DSPM), **Bionic** (Oct 2023, ~$350M, ASPM), **Humio** (Feb 2021, ~$400M, log management)
+- Compliance OS fits the same tuck-in pattern
 
-### AuditBoard (now Hg Capital portfolio)
-- Adds real-time security telemetry they cannot build fast enough internally
-- Makes their platform stickier for security-heavy enterprises and regulated industries
-- Hg acquired AuditBoard in **May 2024 at a reported ~$3B valuation**; PE-backed playbook is bolt-on M&A to expand the ARR base ahead of an IPO or secondary
-- The AuditBoard connector strategy positions Compliance OS as a natural acquisition rather than a competitor
+#### ServiceNow
+- Competes with AuditBoard in GRC/IRM via the IRM module
+- Acquiring Compliance OS accelerates the security-evidence story without internal build cycles
+- Direction: AI-led acquisitions and platform extension; security posture data is the missing layer
 
-### ServiceNow
-- Competes with AuditBoard in GRC/IRM (ServiceNow Integrated Risk Management module)
-- Acquiring Compliance OS accelerates their security evidence story without internal build cycles
-- ServiceNow's recent direction: AI-led acquisitions (Element AI, Moveworks talks) and platform extension — security posture data is the missing layer for their IRM offering
+#### Palo Alto Networks
+- Active consolidator with explicit platform-consolidation thesis: **Talon** (Nov 2023, $625M, enterprise browser), **Dig Security** (Nov 2023, ~$400M, DSPM), **QRadar SaaS from IBM** (May 2024 announcement)
+- Compliance layer is the gap CrowdStrike has not filled — owning it creates direct competitive differentiation
 
-### Palo Alto Networks
-- Active consolidator: **Talon** (Nov 2023, $625M, enterprise browser), **Dig Security** (Nov 2023, ~$400M, DSPM), **QRadar SaaS from IBM** (May 2024 announcement). Has stated platform-consolidation thesis explicitly.
-- Compliance layer is the gap CrowdStrike has not filled — owning it creates competitive differentiation
+#### SentinelOne
+- Acquired **PingSafe** (Jan 2024, ~$100M, CNAPP)
+- Same thesis as CrowdStrike but earlier in the platform-extension curve; needs the compliance layer to compete on board-level value
 
-### SentinelOne
-- Acquired **PingSafe** (Jan 2024, ~$100M cash + stock) for cloud security posture
-- Same thesis as CrowdStrike but earlier in the platform-extension curve — needs the compliance layer to compete on board-level value
-
-### Wiz / Snyk / other DSPM platforms
+#### Wiz / Snyk / other CNAPP and DSPM platforms
 - Compliance OS framework-mapping engine is the layer they would need to enter the GRC market
-
-**Multiple credible buyers in adjacent positions = auction dynamic = better outcome at exit.**
 
 ---
 

@@ -722,7 +722,7 @@ DELETE /api/integrations/:id
 - Findings management
 
 ### Phase 3 — Connectors + Polish (Weeks 11–14)
-- AuditBoard connector (optional sync)
+- AuditBoard connector built (bridge mode is the primary deployment posture, not optional)
 - Integration management UI
 - Dashboard with posture score
 - Error handling, logging, reliability
@@ -732,6 +732,21 @@ DELETE /api/integrations/:id
 - Collect feedback over 4-week audit cycle
 - Iterate on AI evidence quality
 - Refine UX based on real auditor workflow
+
+### Phase 5 — AuditBoard Partner Engagement (Weeks 16–24)
+**Strategic milestone — separate from product execution.**
+
+The AuditBoard acquisition by Hg Capital (May 2024, ~$3B) puts a clock on the strategic relationship. Hg's typical 5–7 year hold places AuditBoard's exit window at ~2028–2031. To be on the M&A consideration list before that exit, Compliance OS must be a *visible, customer-validated, integrated* presence in the AuditBoard ecosystem by ~2027.
+
+Concrete actions:
+- **Apply to AuditBoard partner program** as soon as we have one paying bridge-mode customer to reference
+- **Pursue AuditBoard marketplace listing** — primary distribution path to ~2,000 enterprise customers
+- **Engage AuditBoard product / BD / corp dev** with a customer success story and the bridge-mode integration as the hook
+- **Brief Big 4 advisory practices** that already implement AuditBoard — they are the influence path into AuditBoard product roadmap conversations
+- **Track Hg portfolio activity** — note any compliance-adjacent acquisitions or partnership announcements that signal direction; respond fast if Hg shows interest in a competing player
+- **Maintain standalone product as defection path** — if AuditBoard raises prices significantly at customer renewals (typical PE pattern), be ready with rip-and-replace migration tooling
+
+**Deliverable**: 3+ joint AuditBoard+Compliance OS customers documented as references; partner program tier achieved; named contact at AuditBoard product / corp dev.
 
 ---
 
@@ -749,6 +764,9 @@ DELETE /api/integrations/:id
 | **EU AI Act classification** (compliance-related AI may be deemed higher-risk) | Low | Medium | Document model lineage, inputs, outputs, and human-in-the-loop controls now; design for Annex III obligations even if classification narrower |
 | Compliance frameworks change | Low | Low | Framework library is data, not code; update controls independently. NIST CSF 2.0 already absorbed; CMMC 2.0 Final Rule (Oct 2024) on roadmap |
 | **Cyber insurance carriers become an alternative buyer of the same data** | Low | Low | Opportunity, not threat — partner with carriers as evidence consumer; potential underwriting-data product |
+| **Hg Capital acquires a competing compliance-automation player first** (Hyperproof, Onspring, lower-tier of Vanta/Drata) and bolts it into AuditBoard | Medium | High | Move quickly to be the visible incumbent integration; engage AuditBoard partner / corp dev teams early in 2026 so Hg knows we exist; build features that would be redundant in any competing acquisition (deep CrowdStrike-specific evidence pipeline) |
+| **AuditBoard ships a native CrowdStrike connector internally before we reach material ARR** | Medium | High | Speed to first 50 customers; depth advantage (full evidence chain, AI-interpreted rationale, audit-grade provenance) over thin posture signals; framework-mapping moat that is hard to replicate quickly; Big 4 channel relationships that increase switching cost |
+| **AuditBoard customer-defection wedge from post-Hg price hikes** is wasted because we are not ready to receive defectors | Medium | Medium | Standalone deployment must be production-grade by month 9, not just a fallback narrative; have a "rip and replace from AuditBoard" migration path with imported control library, evidence history, and risk register |
 
 ---
 
